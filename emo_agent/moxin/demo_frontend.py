@@ -8,6 +8,8 @@ from typing import Dict, Optional, cast
 
 import streamlit as st
 import streamlit.components.v1 as components
+from project_paths import PROJECT_DIR
+from audio_player import player_html
 
 from chat_state_signal import (
     MoodSnapshot,
@@ -25,7 +27,7 @@ except Exception:
     get_tts_voice_options = lambda: []
 
 
-DEFAULT_PROJECT_DIR = Path(r"D:\moxin")
+DEFAULT_PROJECT_DIR = PROJECT_DIR
 DEFAULT_RUN_PIPELINE = DEFAULT_PROJECT_DIR / "run_pipeline.py"
 DEFAULT_DELIVERABLES = DEFAULT_PROJECT_DIR / "deliverables"
 # 与 A1111/Forge 默认端口、常见 SSH 转发 (-L 7860:127.0.0.1:7860) 一致；本机若用其它端口请在侧栏修改
@@ -97,6 +99,8 @@ def _run_pipeline(user_text: str, case_name: str, sd_api_url: str, run_pipeline_
         "--music-duration-sec",
         "30",
     ]
+    if st.session_state.get("mx_skip_music", True):
+        cmd.append("--skip-music")
     proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     stdout = proc.stdout.strip()
     parsed = {}
@@ -368,6 +372,8 @@ def _run_healing_deliverables(
             "我已经根据你此刻的状态，为你换上一幅更贴近心境的国画与一段舒缓音乐。"
             "请先安静看一会儿画面，跟随音乐慢慢呼吸，不必急着评价自己。"
         )
+    if result["parsed"].get("music_skipped"):
+        fallback_answer = "已根据本轮输入生成国画背景。本次仅使用本地模型，音乐生成已跳过。"
     follow_user = _healing_followup_chat_user_line()
     if get_reply_and_audio and (use_doubao or use_tts):
         history = [{"role": m["role"], "text": m["text"]} for m in st.session_state.messages]
@@ -387,6 +393,8 @@ def _run_healing_deliverables(
     else:
         answer = fallback_answer
     st.session_state.messages.append({"role": "assistant", "text": answer})
+    if get_reply_and_audio and (use_doubao or use_tts) and r.get("chat_fallback"):
+        st.session_state.messages[-1]["text"] += "\n\n（云端聊天暂不可用，本轮使用本地规则回复。）"
 
     if files["image"] and files["image"].exists():
         st.session_state.bg_b64 = _to_b64(files["image"])
@@ -411,52 +419,16 @@ def _render_chat() -> None:
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-def _render_audio_player() -> None:
-    b64 = st.session_state.get("current_audio_b64", "")
-    name = st.session_state.get("current_audio_name", "")
-    version = int(st.session_state.get("audio_version", 0))
-    if not b64:
-        return
-    src = f"data:audio/wav;base64,{b64}"
-    html = f"""
-    <div style="position:fixed;right:16px;bottom:18px;background:rgba(0,0,0,.55);color:#fff;padding:10px 12px;border-radius:10px;font-size:12px;z-index:9999;">
-      疗愈音乐循环播放
-      <div id="mx-now">当前：{name}</div>
-    </div>
-    <audio id="mx-audio-{version}" autoplay loop style="display:none" data-volume="0.35">
-      <source src="{src}" type="audio/wav" />
-    </audio>
-    <script>
-      const a = document.getElementById("mx-audio-{version}");
-      if (a) {{
-        a.volume = 0.35;
-        a.play().catch(() => {{}});
-      }}
-    </script>
-    """
-    components.html(html, height=0, scrolling=False)
-
-
-def _render_reply_tts_player() -> None:
-    """播放助手回复的 TTS 语音（一次性，不循环，音量稍大以便盖过背景音乐）"""
-    b64 = st.session_state.get("reply_audio_b64", "")
-    if not b64:
-        return
-    version = int(st.session_state.get("reply_audio_version", 0))
-    src = f"data:audio/wav;base64,{b64}"
-    html = f"""
-    <audio id="mx-reply-tts-{version}" autoplay style="display:none">
-      <source src="{src}" type="audio/wav" />
-    </audio>
-    <script>
-      const a = document.getElementById("mx-reply-tts-{version}");
-      if (a) {{
-        a.volume = 1.0;
-        a.play().catch(() => {{}});
-      }}
-    </script>
-    """
-    components.html(html, height=0, scrolling=False)
+def _render_audio_player(speech_enabled: bool = True) -> None:
+    html = player_html(
+        st.session_state.get("current_audio_b64", ""),
+        st.session_state.get("current_audio_name", ""),
+        int(st.session_state.get("audio_version", 0)),
+        st.session_state.get("reply_audio_b64", "") if speech_enabled else "",
+        int(st.session_state.get("reply_audio_version", 0)),
+    )
+    # Keep one stable component slot, including when clearing audio on reset.
+    components.html(html, height=80, scrolling=False)
 
 
 def _handle_after_user_append(
@@ -483,6 +455,8 @@ def _handle_after_user_append(
                 voice_id=selected_voice,
             )
         reply_text = r["text"]
+        if r.get("chat_fallback"):
+            reply_text += "\n\n（云端聊天暂不可用，本轮使用本地规则回复。）"
         if r.get("audio_b64"):
             st.session_state.reply_audio_b64 = r["audio_b64"]
             st.session_state.reply_audio_version += 1
@@ -537,9 +511,10 @@ def render_app() -> None:
         run_pipeline_file = Path(st.text_input("run_pipeline.py", str(DEFAULT_RUN_PIPELINE))).expanduser()
         deliverables_dir = Path(st.text_input("deliverables目录", str(DEFAULT_DELIVERABLES))).expanduser()
         sd_api_url = st.text_input("SD API URL", DEFAULT_SD_API_URL)
+        st.checkbox("仅运行本地出图（跳过音乐 API）", value=True, key="mx_skip_music")
         st.divider()
-        st.subheader("豆包对话 + 朗读")
-        use_doubao = st.checkbox("使用豆包 API 生成回复", value=DOUBAO_VOICE_AVAILABLE, help="让回复更有灵魂")
+        st.subheader("云端聊天 + 语音朗读")
+        use_doubao = st.checkbox("启用云端聊天", value=False, help="通过 .env 的 CHAT_PROVIDER 选择 DeepSeek 或豆包；语音独立配置")
         use_tts = st.checkbox("启用语音朗读", value=False, help="用豆包语音 TTS 朗读助手回复")
         voice_options = get_tts_voice_options() if (DOUBAO_VOICE_AVAILABLE and callable(get_tts_voice_options)) else []
         selected_voice = None
@@ -548,7 +523,7 @@ def render_app() -> None:
             idx = st.selectbox("朗读音色", range(len(labels)), format_func=lambda i: labels[i], key="tts_voice_select")
             selected_voice = voice_options[idx]["voice_type"]
         if not DOUBAO_VOICE_AVAILABLE:
-            st.caption("需配置 .env 中 DOUBAO_API_KEY、TTS_*")
+            st.caption("需安装 requests、python-dotenv 并配置聊天及语音服务")
         use_llm_mood = st.checkbox(
             "大模型辅助状态估计",
             value=False,
@@ -620,8 +595,7 @@ def render_app() -> None:
                 sd_api_url=sd_api_url,
             )
 
-    _render_audio_player()
-    _render_reply_tts_player()
+    _render_audio_player(speech_enabled=use_tts)
 
 
 def main() -> None:

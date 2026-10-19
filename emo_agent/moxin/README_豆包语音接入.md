@@ -1,5 +1,25 @@
 # 豆包对话 + 语音朗读 接入指南
 
+聊天现支持 DeepSeek 和豆包切换，与语音服务独立。使用 DeepSeek 时配置 `CHAT_PROVIDER=deepseek`、`DEEPSEEK_API_KEY`、`DEEPSEEK_MODEL=deepseek-flash`；接口固定为官方 `https://api.deepseek.com/chat/completions`，默认关闭思考模式以降低聊天等待时间。无需安装额外 SDK。2026-10-19 已完成真实 API 调用，以及对话界面中 DeepSeek 回复接新版豆包语音的连通验证。
+
+## 当前推荐：新版语音控制台
+
+2026-10-19 已接通新版 API Key 认证和 V3 HTTP 流式合成。聊天与语音使用各自服务的凭证。
+
+在当前应用目录 `.env` 中填写：
+
+```env
+TTS_API_KEY=你的语音专用API_Key
+TTS_RESOURCE_ID=seed-tts-2.0
+TTS_V3_SPEAKER=zh_female_vv_uranus_bigtts
+```
+
+使用 [语音控制台](https://console.volcengine.com/speech/app) 的 API Key 管理创建凭证，并在同一项目开通语音合成 2.0。`TTS_API_KEY` 非空时优先使用新版接口，音色下拉框会使用配置的 2.0 音色；不需要旧版 APP ID、Token 或声音复刻。
+
+代码等待成功结束帧后才保存音频，响应中断或服务报错不会把不完整音频当成功。接口说明：[官方 HTTP 单向流式合成](https://docs.volcengine.com/docs/DoubaoVoice/unidirectional-streaming-text-to-speech-http?lang=zh)。
+
+以下保留旧版接入说明；使用旧版时 `TTS_API_KEY` 必须留空，旧文档中的 `D:\moxin` 替换为当前应用目录。
+
 ## 功能说明
 
 - **豆包对话**：用豆包大模型生成更有温度、更自然的回复，替代规则式关键词回复

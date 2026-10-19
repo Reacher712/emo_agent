@@ -2,9 +2,10 @@ import csv
 import random
 from pathlib import Path
 from typing import Dict, List
+from project_paths import PROMPT_CSV
 
 
-DEFAULT_CSV_PATH = Path(r"D:\moxin\emotion_to_prompt.csv")
+DEFAULT_CSV_PATH = PROMPT_CSV
 
 
 def _load_templates(csv_path: Path) -> List[Dict[str, str]]:

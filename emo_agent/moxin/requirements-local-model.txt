@@ -1,0 +1,5 @@
+# Keep the small emotion model on CPU; reserve the GPU for SDXL in its own environment.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.9.0+cpu
+transformers==4.46.3
+python-dotenv>=1.0,<2

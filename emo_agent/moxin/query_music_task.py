@@ -11,6 +11,7 @@ from typing import Any, Dict, Iterable, Optional
 from urllib.parse import quote, urlparse, parse_qs
 
 import requests
+from project_paths import LOG_CSV, OUTPUT_DIR, load_project_env
 
 try:
     from dotenv import load_dotenv  # optional
@@ -18,13 +19,12 @@ except Exception:  # pragma: no cover
     load_dotenv = None
 
 
-DEFAULT_LOG_CSV = Path(r"D:\moxin\smoke_test_log.csv")
-DEFAULT_OUTPUT_DIR = Path(r"D:\moxin\outputs")
+DEFAULT_LOG_CSV = LOG_CSV
+DEFAULT_OUTPUT_DIR = OUTPUT_DIR
 
 
 def _load_env() -> None:
-    if load_dotenv is not None:
-        load_dotenv(Path(r"D:\moxin\.env"))
+    load_project_env()
 
 
 def _validate_required(name: str, value: str) -> None:

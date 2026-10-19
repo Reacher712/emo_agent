@@ -11,6 +11,7 @@ from pathlib import Path
 import streamlit as st
 
 from portal_nav import back_home
+from doubao_voice import get_reply_and_audio
 
 ROOT = Path(__file__).resolve().parent.parent
 RUN_PIPELINE = ROOT / "run_pipeline.py"
@@ -46,15 +47,17 @@ def run_pipeline(text: str) -> dict:
         "--music-duration-sec",
         "30",
     ]
+    if st.session_state.get("skip_music", True):
+        cmd.append("--skip-music")
     proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     parsed = {}
     if proc.stdout.strip():
         try:
-            parsed = json.loads(proc.stdout.strip().splitlines()[-1])
+            parsed = json.loads(proc.stdout.strip())
         except Exception:
             parsed = {}
     return {
-        "ok": proc.returncode == 0,
+        "ok": proc.returncode == 0 and parsed.get("status") == "success",
         "case_name": case_name,
         "stdout": proc.stdout.strip(),
         "stderr": proc.stderr.strip(),
@@ -69,6 +72,8 @@ with st.sidebar:
     st.subheader("运行设置")
     st.text_input("Stable Diffusion API", value="http://127.0.0.1:7860", key="sd_api_url")
     use_pipeline = st.toggle("尝试调用完整闭环", value=False)
+    use_cloud_chat = st.toggle("启用云端聊天", value=False, help="在 .env 中配置 DeepSeek 或豆包")
+    st.toggle("仅运行本地出图（跳过音乐 API）", value=True, key="skip_music")
     st.caption("未启动外部模型或 SD 时，建议关闭完整闭环，使用本地演示回复。")
 
 if "messages" not in st.session_state:
@@ -84,6 +89,10 @@ if pending:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+        if msg.get("image_path"):
+            st.image(msg["image_path"], caption="本地 SDXL 生成结果")
+        if msg.get("audio_path"):
+            st.audio(msg["audio_path"])
 
 user_text = st.chat_input("说说你现在的感受...")
 if user_text:
@@ -92,18 +101,25 @@ if user_text:
         with st.spinner("正在尝试调用完整生成闭环..."):
             result = run_pipeline(user_text)
         if result["ok"]:
-            reply = "完整闭环已运行完成，生成文件已写入 deliverables / outputs。你也可以继续描述感受，我会根据上下文回应。"
+            reply = "本地情绪识别和国画生成已完成（音乐 API 已跳过）。" if result["parsed"].get("music_skipped") else "国画与音乐生成已完成。"
             if result.get("parsed"):
                 reply += f"\n\n运行结果：`{result['case_name']}`"
-            st.session_state.messages.append({"role": "assistant", "content": reply})
+            st.session_state.messages.append({"role": "assistant", "content": reply, "image_path": result["parsed"].get("image_path"), "audio_path": result["parsed"].get("audio_path")})
         else:
             fallback = quick_reply(user_text)
-            detail = result.get("stderr") or result.get("error") or "外部接口未就绪"
+            detail = result.get("parsed", {}).get("error_message") or result.get("stderr") or result.get("error") or "外部接口未就绪"
             st.session_state.messages.append(
                 {"role": "assistant", "content": f"{fallback}\n\n完整闭环暂未跑通：{detail}"}
             )
     else:
-        st.session_state.messages.append({"role": "assistant", "content": quick_reply(user_text)})
+        reply = quick_reply(user_text)
+        if use_cloud_chat:
+            with st.spinner("正在生成回复..."):
+                response = get_reply_and_audio(user_text, history=st.session_state.messages, fallback_reply=reply, use_doubao=True, use_tts=False)
+            reply = response["text"]
+            if response.get("chat_fallback"):
+                reply += "\n\n（云端聊天暂不可用，本轮使用本地规则回复。）"
+        st.session_state.messages.append({"role": "assistant", "content": reply})
     st.rerun()
 
 st.divider()

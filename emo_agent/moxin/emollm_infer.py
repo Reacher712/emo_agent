@@ -6,9 +6,10 @@ from typing import Dict, Tuple
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from project_paths import MODEL_DIR
 
 
-DEFAULT_MODEL_DIR = Path(r"D:\moxin\EmoLLM\model")
+DEFAULT_MODEL_DIR = MODEL_DIR
 VALID_EMOTIONS = ["焦虑", "压力", "低落", "平静", "积极"]
 
 
@@ -19,8 +20,8 @@ def _pick_device() -> str:
 @lru_cache(maxsize=1)
 def _load_model_and_tokenizer(model_dir: str) -> Tuple[AutoTokenizer, AutoModelForCausalLM, str]:
     device = _pick_device()
-    tokenizer = AutoTokenizer.from_pretrained(model_dir, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained(model_dir, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_dir, local_files_only=True)
+    model = AutoModelForCausalLM.from_pretrained(model_dir, local_files_only=True)
     model = model.to(device)
     model.eval()
     return tokenizer, model, device

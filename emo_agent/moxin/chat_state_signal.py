@@ -204,7 +204,7 @@ def estimate_with_optional_llm(user_text: str, use_llm: bool) -> MoodSnapshot:
         return base
 
     try:
-        from doubao_voice import doubao_chat
+        from doubao_voice import chat_reply
     except Exception:
         return base
 
@@ -216,7 +216,7 @@ def estimate_with_optional_llm(user_text: str, use_llm: bool) -> MoodSnapshot:
         'arousal（必须从「偏低」「中等」「偏高」三选一）、'
         'reason（不超过20字，说明依据但不引用用户原话逐字）。'
     )
-    raw = doubao_chat((user_text or "")[:1200], history=None, system_prompt=sys_prompt)
+    raw = chat_reply((user_text or "")[:1200], history=None, system_prompt=sys_prompt)
     data = _parse_llm_json(raw or "")
     if not data:
         return base

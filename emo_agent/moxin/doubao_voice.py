@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 import requests
+from project_paths import PROJECT_DIR, load_project_env
 
 try:
     from dotenv import load_dotenv
@@ -26,14 +27,13 @@ except Exception:
     load_dotenv = None
 
 
-DEFAULT_PROJECT_DIR = Path(r"D:\moxin")
+DEFAULT_PROJECT_DIR = PROJECT_DIR
 DEFAULT_TTS_OUTPUT_DIR = DEFAULT_PROJECT_DIR / "outputs" / "tts"
 DEFAULT_TTS_VOICES_CSV = DEFAULT_PROJECT_DIR / "tts_voices.csv"
 
 
 def _load_env() -> None:
-    if load_dotenv:
-        load_dotenv(DEFAULT_PROJECT_DIR / ".env")
+    load_project_env()
 
 
 # ========== 豆包对话 API ==========
@@ -42,21 +42,30 @@ def _load_env() -> None:
 ARK_CHAT_URL = "https://ark.cn-beijing.volces.com/api/v3/chat/completions"
 
 
-def doubao_chat(
+def chat_reply(
     user_text: str,
     history: Optional[List[Dict[str, str]]] = None,
     system_prompt: Optional[str] = None,
+    provider: Optional[str] = None,
 ) -> Optional[str]:
     """
-    调用豆包大模型生成有温度的回复。
-    环境变量：DOUBAO_API_KEY（Bearer Token）、DOUBAO_MODEL_ID
+    根据 CHAT_PROVIDER 调用 DeepSeek 或豆包；各服务使用独立凭证。
     """
     _load_env()
-    api_key = os.getenv("DOUBAO_API_KEY", "").strip()
+    provider = (provider or os.getenv("CHAT_PROVIDER", "doubao")).strip().lower()
+    if provider == "deepseek":
+        api_key = os.getenv("DEEPSEEK_API_KEY", "").strip()
+        model = os.getenv("DEEPSEEK_MODEL", "deepseek-flash").strip()
+        endpoint = "https://api.deepseek.com/chat/completions"
+    elif provider == "doubao":
+        api_key = os.getenv("DOUBAO_API_KEY", "").strip()
+        model = os.getenv("DOUBAO_MODEL_ID", "doubao-1-5-pro-32k-250115").strip()
+        endpoint = ARK_CHAT_URL
+    else:
+        return None
     if not api_key:
         return None
 
-    model = os.getenv("DOUBAO_MODEL_ID", "doubao-1-5-pro-32k-250115").strip()
     _system = system_prompt or (
         "你是墨心智愈的情绪疗愈助手，温柔、共情、简洁。"
         "用第一人称与用户对话，语气像一位 calm 的朋友，不堆砌专业术语。"
@@ -67,6 +76,9 @@ def doubao_chat(
     if history:
         for h in history[-6:]:
             messages.append({"role": h.get("role", "user"), "content": h.get("text", h.get("content", ""))})
+    # Callers may already have appended the current user message to their history.
+    if messages[-1] == {"role": "user", "content": user_text}:
+        messages.pop()
     messages.append({"role": "user", "content": user_text})
 
     payload = {
@@ -75,13 +87,15 @@ def doubao_chat(
         "max_tokens": 256,
         "temperature": 0.7,
     }
+    if provider == "deepseek":
+        payload["thinking"] = {"type": "disabled"}
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {api_key}",
     }
 
     try:
-        r = requests.post(ARK_CHAT_URL, json=payload, headers=headers, timeout=60)
+        r = requests.post(endpoint, json=payload, headers=headers, timeout=60)
         r.raise_for_status()
         data = r.json()
         choices = data.get("choices", [])
@@ -91,6 +105,11 @@ def doubao_chat(
     except Exception:
         pass
     return None
+
+
+def doubao_chat(user_text: str, history=None, system_prompt=None) -> Optional[str]:
+    """Compatibility entry for callers explicitly requesting the original provider."""
+    return chat_reply(user_text, history=history, system_prompt=system_prompt, provider="doubao")
 
 
 # ========== 火山引擎 TTS（豆包语音）==========
@@ -187,6 +206,9 @@ def _load_tts_voices(csv_path: Optional[Path] = None) -> List[str]:
 
 def get_tts_voice_options(csv_path: Optional[Path] = None) -> List[Dict[str, str]]:
     """返回供前端下拉选择的音色列表，每项含 voice_type 和 name。"""
+    _load_env()
+    if csv_path is None and os.getenv("TTS_API_KEY", "").strip():
+        return [{"voice_type": os.getenv("TTS_V3_SPEAKER", "zh_female_vv_uranus_bigtts"), "name": "豆包语音 2.0"}]
     path = csv_path or DEFAULT_TTS_VOICES_CSV
     out: List[Dict[str, str]] = []
     if path.exists():
@@ -229,8 +251,68 @@ def tts_with_voice(
     voice_id: 直接指定音色；否则根据 round_index 在 TTS_VOICE_1 / TTS_VOICE_2 间切换。
     音色可为预设 ID（见音色列表）或你通过声音复刻得到的两段音频对应的 speaker_id。
     """
+    _load_env()
+    if os.getenv("TTS_API_KEY", "").strip():
+        speaker = voice_id or os.getenv("TTS_V3_SPEAKER", "zh_female_vv_uranus_bigtts")
+        return volc_tts_v3(text, speaker=speaker, output_path=output_path)
     speaker = voice_id or _get_tts_voice(round_index)
     return volc_tts(text, speaker=speaker, output_path=output_path)
+
+
+def decode_v3_audio(lines) -> bytes:
+    """Accept audio only after a complete successful response, never partial output."""
+    chunks = []
+    complete = False
+    for line in lines:
+        if isinstance(line, bytes):
+            line = line.decode("utf-8")
+        line = line.strip()
+        if not line or line.startswith(("event:", ":")):
+            continue
+        if line.startswith("data:"):
+            line = line[5:].strip()
+        frame = json.loads(line)
+        code = frame.get("code")
+        if code not in (0, 20000000):
+            raise RuntimeError(f"TTS V3 错误 {code}: {frame.get('message', 'unknown error')}")
+        if frame.get("data"):
+            chunks.append(base64.b64decode(frame["data"], validate=True))
+        if code == 20000000:
+            complete = True
+            break
+    if not complete:
+        raise RuntimeError("TTS V3 响应未正常结束，未保存不完整音频")
+    audio = b"".join(chunks)
+    if not audio:
+        raise RuntimeError("TTS V3 未返回音频")
+    return audio
+
+
+def volc_tts_v3(text: str, speaker: str, output_path: Optional[Path] = None) -> Tuple[Optional[Path], Optional[str]]:
+    """New speech console authentication; separate from the Ark chat API key."""
+    _load_env()
+    api_key = os.getenv("TTS_API_KEY", "").strip()
+    if not api_key:
+        return None, "TTS_API_KEY 未配置"
+    headers = {
+        "X-Api-Key": api_key,
+        "X-Api-Resource-Id": os.getenv("TTS_RESOURCE_ID", "seed-tts-2.0"),
+        "X-Api-Request-Id": str(uuid.uuid4()),
+        "Content-Type": "application/json",
+    }
+    encoding = "wav" if output_path and output_path.suffix.lower() == ".wav" else "mp3"
+    payload = {"req_params": {"text": text[:1024], "speaker": speaker, "audio_params": {"format": encoding, "sample_rate": 24000}}}
+    try:
+        with requests.post("https://openspeech.bytedance.com/api/v3/tts/unidirectional", headers=headers, json=payload, stream=True, timeout=(10, 60)) as response:
+            if response.status_code != 200:
+                return None, f"TTS V3 HTTP {response.status_code}: {response.text[:300].replace(api_key, '<redacted>')}"
+            audio = decode_v3_audio(response.iter_lines())
+        path = output_path or DEFAULT_TTS_OUTPUT_DIR / f"{uuid.uuid4().hex[:12]}.{encoding}"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(audio)
+        return path, None
+    except Exception as exc:
+        return None, str(exc).replace(api_key, "<redacted>")
 
 
 def tts_with_clone(
@@ -258,13 +340,14 @@ def get_reply_and_audio(
     """
     text = None
     if use_doubao:
-        text = doubao_chat(user_text, history=history)
+        text = chat_reply(user_text, history=history)
+    chat_fallback = bool(use_doubao and not text)
     if not text and fallback_reply:
         text = fallback_reply
     if not text:
         text = "我在认真听你说。你可以再多描述一点此刻最强烈的情绪，我会和你一起把状态慢慢拉稳。"
 
-    result = {"text": text, "audio_path": None, "audio_b64": None, "error": None}
+    result = {"text": text, "audio_path": None, "audio_b64": None, "error": None, "chat_fallback": chat_fallback}
 
     if use_tts:
         path, err = tts_with_voice(text, voice_id=voice_id)

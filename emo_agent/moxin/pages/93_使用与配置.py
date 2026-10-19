@@ -16,7 +16,8 @@ back_home()
 st.title("使用与配置")
 
 st.subheader("一键启动")
-st.code(r"D:\anconda\python.exe -m streamlit run Home.py", language="powershell")
+st.code(r".\start_local.ps1 -Mode Portal", language="powershell")
+st.caption("在仓库根目录运行。需要本地出图时另开终端执行 .\\start_local.ps1 -Mode Image。")
 
 st.subheader("核心目录")
 st.markdown(
@@ -38,7 +39,8 @@ st.markdown(
 - 本地复现版默认可离线展示：主页、疗愈对话、疗效评估、多模态入口、资料看板均可打开。
 - 如需完整生成闭环，请先启动 Stable Diffusion WebUI/Forge API，并确认地址为 `http://127.0.0.1:7860`。
 - 如需语音、音乐或大模型接口，请检查 `.env` 和 `.env.music.template` 中的密钥与服务地址。
-- 默认系统 `python` 入口当前不可用，推荐使用 `D:\\anconda\\python.exe` 启动。
+- 应用使用仓库根目录 `.venv`；WebUI 使用独立的 Python 3.10 环境，避免混装依赖。
+- 仅测试本地模型时保留“跳过音乐 API”，无需任何云端密钥。
 """
 )
 

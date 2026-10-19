@@ -113,4 +113,4 @@ for name, path in checks.items():
     rows.append({"模块": name, "状态": "可用" if path.exists() else "缺失", "路径": str(path)})
 st.dataframe(rows, hide_index=True, use_container_width=True)
 
-st.caption("启动命令：D:\\anconda\\python.exe -m streamlit run Home.py")
+st.caption("在仓库根目录启动：.\\start_local.ps1 -Mode Portal；本地出图服务：.\\start_local.ps1 -Mode Image")

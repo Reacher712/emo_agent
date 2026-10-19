@@ -7,6 +7,7 @@ import json
 import os
 import re
 import shutil
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,6 +18,7 @@ import requests
 
 from emollm_infer import infer_emotion
 from prompt_selector import select_template
+from project_paths import MODEL_DIR, PROMPT_CSV, LOG_CSV, OUTPUT_DIR, DELIVERABLES_DIR, load_project_env
 
 try:
     from dotenv import load_dotenv  # optional
@@ -24,16 +26,15 @@ except Exception:  # pragma: no cover
     load_dotenv = None
 
 
-DEFAULT_MODEL_DIR = Path(r"D:\moxin\EmoLLM\model")
-DEFAULT_PROMPT_CSV = Path(r"D:\moxin\emotion_to_prompt.csv")
-DEFAULT_LOG_CSV = Path(r"D:\moxin\smoke_test_log.csv")
-DEFAULT_OUTPUT_DIR = Path(r"D:\moxin\outputs")
-DEFAULT_DELIVERABLES_DIR = Path(r"D:\moxin\deliverables")
+DEFAULT_MODEL_DIR = MODEL_DIR
+DEFAULT_PROMPT_CSV = PROMPT_CSV
+DEFAULT_LOG_CSV = LOG_CSV
+DEFAULT_OUTPUT_DIR = OUTPUT_DIR
+DEFAULT_DELIVERABLES_DIR = DELIVERABLES_DIR
 
 
 def _load_env() -> None:
-    if load_dotenv is not None:
-        load_dotenv(Path(r"D:\moxin\.env"))
+    load_project_env()
 
 
 def _next_test_id(log_csv: Path, prefix: str) -> str:
@@ -166,9 +167,9 @@ def _archive_case(deliverables_root: Path, case_name: str, file_paths: list[Path
     return case_dir
 
 
-def _render_music_prompt(emotion: Dict[str, Any], template: Dict[str, str]) -> str:
+def _render_music_prompt(emotion: Dict[str, Any], template: Dict[str, str], duration_sec: int | None = None) -> str:
     style = str(emotion.get("music_profile", {}).get("style", "")).strip() or str(template.get("style", "")).strip() or "calm_piano"
-    duration = int(emotion.get("music_profile", {}).get("duration_sec", 120))
+    duration = duration_sec if duration_sec is not None else int(emotion.get("music_profile", {}).get("duration_sec", 120))
     label = str(emotion.get("emotion_label", "平静"))
     return f"{label}情绪疗愈背景纯音乐，风格{style}，时长{duration}秒，旋律自然平稳"
 
@@ -219,16 +220,19 @@ def _build_soothing_response(emotion: Dict[str, Any], template: Dict[str, str]) 
     }
 
 
-def _sd_txt2img(api_url: str, positive: str, negative: str, width: int, height: int, steps: int, cfg_scale: float, out_file: Path) -> None:
+def _sd_txt2img(api_url: str, positive: str, negative: str, width: int, height: int, steps: int, cfg_scale: float, out_file: Path, seed: int = -1, checkpoint: str = "sd_xl_base_1.0.safetensors", lora: str = "landscape-painting-sdxl_v2 (1)") -> Dict[str, Any]:
     endpoint = api_url.rstrip("/") + "/sdapi/v1/txt2img"
     payload = {
-        "prompt": positive,
+        "prompt": f"{positive} <lora:{lora}:0.7>" if lora else positive,
         "negative_prompt": negative,
         "steps": steps,
         "cfg_scale": cfg_scale,
         "width": width,
         "height": height,
-        "sampler_name": "DPM++ 2M Karras",
+        "sampler_name": "DPM++ 2M",
+        "scheduler": "Karras",
+        "seed": seed,
+        "override_settings": {"sd_model_checkpoint": checkpoint},
     }
     resp = requests.post(endpoint, json=payload, timeout=180)
     resp.raise_for_status()
@@ -237,6 +241,12 @@ def _sd_txt2img(api_url: str, positive: str, negative: str, width: int, height: 
     if not images:
         raise RuntimeError("SD API 返回为空，未生成图片")
     out_file.write_bytes(base64.b64decode(images[0]))
+    info = data.get("info") or {}
+    if isinstance(info, str):
+        info = json.loads(info)
+    metadata = {"backend": "webui", "checkpoint": checkpoint, "lora": lora, "requested_parameters": payload, "actual_info": info}
+    out_file.with_suffix(".metadata.json").write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
+    return metadata
 
 
 def _music_submit_and_query(prompt: str, duration_sec: int, wait_sec: int, poll_sec: int, download_audio: bool, out_dir: Path) -> Dict[str, str]:
@@ -350,6 +360,8 @@ def _music_submit_and_query(prompt: str, duration_sec: int, wait_sec: int, poll_
 
 
 def main() -> None:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description="闭环流水线：EmoLLM -> Prompt -> SD API -> 音乐提交/查询")
     parser.add_argument("--text", required=True, help="用户输入文本")
     parser.add_argument("--model-dir", default=str(DEFAULT_MODEL_DIR))
@@ -362,6 +374,10 @@ def main() -> None:
     parser.add_argument("--sd-height", type=int, default=768)
     parser.add_argument("--sd-steps", type=int, default=24)
     parser.add_argument("--sd-cfg-scale", type=float, default=6.0)
+    parser.add_argument("--sd-seed", type=int, default=-1, help="默认 -1 每次随机出图；指定非负整数可复现图片")
+    parser.add_argument("--sd-model", default="sd_xl_base_1.0.safetensors")
+    parser.add_argument("--sd-lora", default="landscape-painting-sdxl_v2 (1)", help="LoRA 名称；空字符串表示不使用")
+    parser.add_argument("--skip-music", action="store_true", help="仅验证本地情绪识别和出图，不调用付费音乐 API")
     parser.add_argument("--music-wait-sec", type=int, default=300)
     parser.add_argument("--music-poll-sec", type=int, default=8)
     parser.add_argument("--music-duration-sec", type=int, default=None, help="可选：覆盖音乐生成时长（接口范围30-120）")
@@ -420,26 +436,32 @@ def main() -> None:
             steps=args.sd_steps,
             cfg_scale=args.sd_cfg_scale,
             out_file=image_path,
+            seed=args.sd_seed,
+            checkpoint=args.sd_model,
+            lora=args.sd_lora,
         )
 
-        duration_sec = int(emotion.get("music_profile", {}).get("duration_sec", 120))
-        if args.music_duration_sec is not None:
-            duration_sec = int(args.music_duration_sec)
-        # GenBGMForTime 当前接口要求 [30,120] 秒
-        duration_sec = max(30, min(120, duration_sec))
-        music_prompt = _render_music_prompt(emotion, template)
-        music_bundle = _music_submit_and_query(
-            prompt=music_prompt,
-            duration_sec=duration_sec,
-            wait_sec=args.music_wait_sec,
-            poll_sec=args.music_poll_sec,
-            download_audio=(not args.no_download_audio),
-            out_dir=output_dir,
-        )
+        if args.skip_music:
+            music_bundle = {"task_status": "skipped"}
+        else:
+            duration_sec = int(emotion.get("music_profile", {}).get("duration_sec", 120))
+            if args.music_duration_sec is not None:
+                duration_sec = int(args.music_duration_sec)
+            # GenBGMForTime 当前接口要求 [30,120] 秒
+            duration_sec = max(30, min(120, duration_sec))
+            music_prompt = _render_music_prompt(emotion, template, duration_sec=duration_sec)
+            music_bundle = _music_submit_and_query(
+                prompt=music_prompt,
+                duration_sec=duration_sec,
+                wait_sec=args.music_wait_sec,
+                poll_sec=args.music_poll_sec,
+                download_audio=(not args.no_download_audio),
+                out_dir=output_dir,
+            )
         music_bundle_path.write_text(json.dumps(music_bundle, ensure_ascii=False, indent=2), encoding="utf-8")
         audio_path = str(music_bundle.get("audio_path", ""))
         music_task_id = str(music_bundle.get("task_id", ""))
-        if not music_bundle.get("audio_url"):
+        if not args.skip_music and not music_bundle.get("audio_url"):
             raise RuntimeError(f"音乐任务未返回AudioUrl，TaskID={music_task_id}")
         status = "success"
     except Exception as e:
@@ -476,7 +498,7 @@ def main() -> None:
     )
 
     if args.save_case_name:
-        archive_files = [payload_path, image_path, music_bundle_path]
+        archive_files = [payload_path, image_path, image_path.with_suffix(".metadata.json"), music_bundle_path]
         if audio_path:
             archive_files.append(Path(audio_path))
         archived = _archive_case(
@@ -499,11 +521,14 @@ def main() -> None:
                 "audio_path": audio_path,
                 "case_archive_dir": case_archive_dir,
                 "error_message": error_message,
+                "music_skipped": args.skip_music,
             },
             ensure_ascii=False,
             indent=2,
         )
     )
+    if status != "success":
+        sys.exit(1)
 
 
 if __name__ == "__main__":

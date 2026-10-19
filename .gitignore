@@ -283,3 +283,11 @@ config_states/
 /emo_agent/stable-diffusion-webui/web/数字人背景视频.mp4
 .local-secrets-backup/
 *.pickle
+.runtimes/
+
+# Obsolete document extraction intermediates and historical runtime log
+/emo_agent/moxin/docx_content.txt
+/emo_agent/moxin/docx_content_new.txt
+/emo_agent/moxin/team_doc_extract.txt
+/emo_agent/moxin/extract_docx.py
+/emo_agent/moxin/smoke_test_log.csv
