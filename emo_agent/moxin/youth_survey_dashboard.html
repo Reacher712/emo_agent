@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>青少年问卷数据可视化看板</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --ok: #16a34a;
+      --warn: #f59e0b;
+      --danger: #dc2626;
+      --shadow: 0 6px 18px rgba(31, 41, 55, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1400px;
+      margin: 24px auto;
+      padding: 0 16px 28px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+      color: #fff;
+      border-radius: 16px;
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .header p {
+      margin: 4px 0;
+      opacity: 0.95;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 12px;
+      margin: 14px 0 16px;
+    }
+
+    .kpi {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 14px 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid #e5e7eb;
+    }
+
+    .kpi .label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .kpi .value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(320px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 12px 12px 4px;
+      min-height: 340px;
+    }
+
+    .title {
+      margin: 4px 6px 2px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .sub {
+      margin: 0 6px 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .chart {
+      width: 100%;
+      height: 270px;
+    }
+
+    .footnote {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>青少年心理问卷数据可视化看板</h1>
+      <p>主题：压力分布、心理画像、DASS-21分层与干预前后变化</p>
+      <p>样本说明：需求调研 n=180；试用评估 n=60（示例数据，可在源表中编辑后同步调整）</p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi"><div class="label">总样本量（需求调研）</div><div class="value">180</div></div>
+      <div class="kpi"><div class="label">压力较高及以上</div><div class="value">67.2%</div></div>
+      <div class="kpi"><div class="label">愿意匿名线上支持</div><div class="value">77.2%</div></div>
+      <div class="kpi"><div class="label">SUS 可用性总分</div><div class="value">76.5</div></div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="title">1) 压力分布（近1个月）</div>
+        <div class="sub">较高与很高占比明显，提示高频轻干预场景价值</div>
+        <div id="pressureDist" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <div class="title">2) 压力来源 Top6</div>
+        <div class="sub">学业/考试与升学就业不确定性是主要压力来源</div>
+        <div id="stressTop" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <div class="title">3) 心理画像关键指标</div>
+        <div class="sub">睡眠、人际、孤独感与求助意愿等多维观察</div>
+        <div id="profileBar" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <div class="title">4) DASS-21 前测分层（n=60）</div>
+        <div class="sub">压力/焦虑/抑郁在中重度区间占比均不低</div>
+        <div id="dassStack" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <div class="title">5) 干预前后变化（均值）</div>
+        <div class="sub">压力、焦虑、抑郁均有下降；平静与可控感上升</div>
+        <div id="beforeAfter" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <div class="title">6) 功能偏好分布</div>
+        <div class="sub">个性化国画+音乐与情绪趋势看板更受欢迎</div>
+        <div id="featurePref" class="chart"></div>
+      </div>
+    </div>
+
+    <div class="footnote">
+      数据来源：`青少年问卷结果汇总_可编辑.xlsx` 与 `youth_survey_results_editable.xlsx` 中的当前示例数据。<br />
+      用途提醒：本看板用于教学/比赛展示，不构成医疗诊断。若用于正式发布，请在图下注明样本范围、统计方法与采集时间。
+    </div>
+  </div>
+
+  <script>
+    const colors = {
+      blue: "#2563eb",
+      blue2: "#60a5fa",
+      green: "#16a34a",
+      yellow: "#f59e0b",
+      red: "#dc2626",
+      gray: "#94a3b8"
+    };
+
+    // 1) 压力分布
+    const pressure = {
+      labels: ["很低", "较低", "中等", "较高", "很高"],
+      values: [5.0, 12.8, 15.0, 41.1, 26.1]
+    };
+    const c1 = echarts.init(document.getElementById("pressureDist"));
+    c1.setOption({
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+      xAxis: { type: "category", data: pressure.labels },
+      yAxis: { type: "value", name: "占比(%)", max: 50 },
+      series: [{
+        type: "bar",
+        data: pressure.values,
+        barWidth: "42%",
+        itemStyle: {
+          color: function (p) {
+            return ["#93c5fd", "#60a5fa", "#3b82f6", "#f59e0b", "#dc2626"][p.dataIndex];
+          },
+          borderRadius: [6, 6, 0, 0]
+        },
+        label: { show: true, position: "top", formatter: "{c}%" }
+      }]
+    });
+
+    // 2) 压力来源Top
+    const stressLabels = ["学业与考试负担", "升学/就业不确定性", "家庭期待与比较压力", "人际沟通与关系冲突", "睡眠不足与作息紊乱", "自我要求过高"];
+    const stressVals = [70.0, 58.9, 48.9, 43.9, 41.7, 39.4];
+    const c2 = echarts.init(document.getElementById("stressTop"));
+    c2.setOption({
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+      grid: { left: 120, right: 20, top: 20, bottom: 30 },
+      xAxis: { type: "value", name: "占比(%)", max: 80 },
+      yAxis: { type: "category", data: stressLabels, inverse: true },
+      series: [{
+        type: "bar",
+        data: stressVals,
+        itemStyle: { color: colors.blue, borderRadius: [0, 6, 6, 0] },
+        label: { show: true, position: "right", formatter: "{c}%" }
+      }]
+    });
+
+    // 3) 心理画像
+    const profileLabels = [
+      "持续紧张担忧", "睡眠质量差", "学业压力明显", "人际压力明显", "家庭期待压力",
+      "情绪低落持续", "常感孤独", "曾主动求助", "愿匿名线上支持", "愿艺术化调节"
+    ];
+    const profileVals = [62.2, 54.4, 70.0, 43.9, 48.9, 37.2, 40.0, 22.8, 77.2, 81.7];
+    const c3 = echarts.init(document.getElementById("profileBar"));
+    c3.setOption({
+      tooltip: { trigger: "axis" },
+      grid: { left: 45, right: 20, top: 26, bottom: 80 },
+      xAxis: {
+        type: "category",
+        data: profileLabels,
+        axisLabel: { rotate: 35, interval: 0 }
+      },
+      yAxis: { type: "value", name: "占比(%)", max: 90 },
+      series: [{
+        type: "line",
+        data: profileVals,
+        smooth: true,
+        symbolSize: 8,
+        lineStyle: { width: 3, color: colors.green },
+        itemStyle: { color: colors.green },
+        areaStyle: { color: "rgba(22,163,74,0.14)" },
+        label: { show: true, formatter: "{c}%" }
+      }]
+    });
+
+    // 4) DASS前测分层（堆叠）
+    const c4 = echarts.init(document.getElementById("dassStack"));
+    c4.setOption({
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+      legend: { top: 0 },
+      grid: { left: 45, right: 20, top: 40, bottom: 25 },
+      xAxis: { type: "category", data: ["压力", "焦虑", "抑郁"] },
+      yAxis: { type: "value", name: "占比(%)", max: 100 },
+      series: [
+        { name: "正常/轻度", type: "bar", stack: "total", data: [35.0, 40.0, 45.0], itemStyle: { color: colors.blue2 } },
+        { name: "中度", type: "bar", stack: "total", data: [33.3, 30.0, 26.7], itemStyle: { color: colors.yellow } },
+        { name: "重度及以上", type: "bar", stack: "total", data: [31.7, 30.0, 28.3], itemStyle: { color: colors.red }, label: { show: true, position: "inside" } }
+      ]
+    });
+
+    // 5) 干预前后变化
+    const c5 = echarts.init(document.getElementById("beforeAfter"));
+    c5.setOption({
+      tooltip: { trigger: "axis" },
+      legend: { top: 0 },
+      grid: { left: 50, right: 20, top: 35, bottom: 40 },
+      xAxis: { type: "category", data: ["压力维度", "焦虑维度", "抑郁维度", "平静感(0-100)", "情绪可控感(0-100)"] },
+      yAxis: { type: "value" },
+      series: [
+        {
+          name: "试用前",
+          type: "line",
+          data: [16.8, 13.6, 12.9, 48.7, 45.2],
+          lineStyle: { color: colors.red, width: 3 },
+          itemStyle: { color: colors.red }
+        },
+        {
+          name: "试用后",
+          type: "line",
+          data: [13.1, 10.2, 10.8, 63.9, 59.6],
+          lineStyle: { color: colors.green, width: 3 },
+          itemStyle: { color: colors.green }
+        }
+      ]
+    });
+
+    // 6) 功能偏好
+    const c6 = echarts.init(document.getElementById("featurePref"));
+    c6.setOption({
+      tooltip: { trigger: "item", formatter: "{b}: {c}%" },
+      legend: { bottom: 0 },
+      series: [{
+        type: "pie",
+        radius: ["38%", "68%"],
+        center: ["50%", "46%"],
+        data: [
+          { value: 41.7, name: "国画+音乐个性化生成" },
+          { value: 30.0, name: "情绪趋势看板与周报" },
+          { value: 23.3, name: "双人共绘与关系报告" },
+          { value: 5.0, name: "纯聊天陪伴" }
+        ],
+        label: { formatter: "{b}\n{c}%" },
+        itemStyle: {
+          borderColor: "#fff",
+          borderWidth: 2
+        }
+      }]
+    });
+
+    // 响应式
+    window.addEventListener("resize", () => {
+      c1.resize();
+      c2.resize();
+      c3.resize();
+      c4.resize();
+      c5.resize();
+      c6.resize();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>虚拟数字人 · InspireLab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="noise-overlay"></div>
+    <nav class="topbar">
+      <a class="topbar__brand" href="index.html">
+        <span class="logo-heart" aria-hidden="true"></span>
+        <span>InspireLab</span>
+      </a>
+      <div class="topbar__links">
+        <a href="media.html">素材中心</a>
+        <a href="video.html">极速出片</a>
+        <a class="is-active" href="avatar.html">虚拟数字人</a>
+        <a href="index.html#workflow">流程亮点</a>
+      </div>
+      <button class="topbar__cta" data-action="contact-sales">预约合作</button>
+    </nav>
+
+    <main>
+      <section class="detail-hero">
+        <div class="detail-hero__copy">
+          <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>›</span>
+            <span>虚拟数字人</span>
+          </div>
+          <span class="eyebrow">Virtual Persona Lab</span>
+          <h1>专属数字人，让品牌 24/7 在线发声</h1>
+          <p>
+            从形象定制、声音合成到动作驱动，打造符合品牌调性的虚拟主播。多语种实时播报，轻松覆盖全球市场。
+          </p>
+          <div class="detail-hero__actions">
+            <a class="primary" href="#avatar-capabilities">探索核心能力</a>
+            <button class="ghost" data-action="preview-avatar">查看示例演示</button>
+          </div>
+          <div class="detail-hero__metrics">
+            <div class="metric">
+              <strong>30+</strong>
+              <span>语种同步播报</span>
+            </div>
+            <div class="metric">
+              <strong>60 fps</strong>
+              <span>表情动作捕捉</span>
+            </div>
+          </div>
+        </div>
+        <div class="detail-hero__visual">
+          <div class="detail-orb" aria-hidden="true"></div>
+          <span class="detail-orb__chip">情绪曲线</span>
+          <span class="detail-orb__chip">多语音色</span>
+        </div>
+      </section>
+
+      <section class="section-block" id="avatar-capabilities">
+        <div class="section-block__header">
+          <h2>定制你的品牌代言人</h2>
+          <p>
+            三维建模与语音克隆深度结合，让数字人与品牌气质高度契合，在任意渠道即刻上线。
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>🧬 外观生成</h3>
+            <p>
+              上传人物照片或文字描述，即可生成多风格外观，支持精细调节发型、妆容与服饰。
+            </p>
+            <div class="feature-card__footer">支持 PBR 材质与 8K 贴图</div>
+          </article>
+          <article class="feature-card">
+            <h3>🗣️ 声音克隆</h3>
+            <p>
+              10 分钟音频即可完成音色克隆，提供情绪控制与语速调节，生成自然语音演绎。
+            </p>
+            <div class="feature-card__footer">涵盖 120+ 情绪语料</div>
+          </article>
+          <article class="feature-card">
+            <h3>🎥 动作驱动</h3>
+            <p>
+              实时捕捉面部与身体动作，亦可使用文本描述生成手势，直播级画质流畅呈现。
+            </p>
+            <div class="feature-card__footer">支持 Unreal 与 Unity 导出</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="avatar-timeline">
+        <div class="section-block__header">
+          <h2>4 步部署专属数字代言人</h2>
+          <p>
+            从创作到运营全流程可视化，保证每一次亮相都符合品牌标准。</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-step" data-step="01">
+            <h3>设定人设档案</h3>
+            <p>
+              定义性格、场景与常用语料，AI 构建风格库并生成互动脚本建议。
+            </p>
+          </div>
+          <div class="timeline-step" data-step="02">
+            <h3>生成形象与声音</h3>
+            <p>
+              结合三维建模与音色克隆，完成数字形象定稿，可输出多套主题皮肤。
+            </p>
+          </div>
+          <div class="timeline-step" data-step="03">
+            <h3>动作绑定与测试</h3>
+            <p>
+              通过摄像头或传感器录制动作，系统自动清理骨骼噪点并适配口型。
+            </p>
+          </div>
+          <div class="timeline-step" data-step="04">
+            <h3>上线与监测</h3>
+            <p>
+              将数字人同步到直播、短视频或展厅中控，实时监测互动数据与观众反馈。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-cta">
+        <h2>让数字人加入你的营销阵容</h2>
+        <p>预约方案顾问，获取行业案例与定制化部署路线。</p>
+        <div class="detail-cta__actions">
+          <a class="primary" href="index.html">返回首页</a>
+          <button class="ghost" data-action="contact-sales">预约商务对接</button>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="modal">
+      <button class="modal__close" data-action="close-modal">✕</button>
+      <div class="modal__content"></div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

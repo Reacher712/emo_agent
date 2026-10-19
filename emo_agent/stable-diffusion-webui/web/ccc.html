@@ -1,0 +1,525 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可灵AI视频生成器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .upload-section {
+            border: 3px dashed #e5e7eb;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .upload-section:hover {
+            border-color: #4f46e5;
+            background: #f8fafc;
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #4f46e5;
+        }
+        
+        .preview-container {
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .input-section textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 120px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+        
+        .input-section textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+        }
+        
+        .settings {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        select, input {
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 100%;
+        }
+        
+        .generate-btn {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .generate-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+        }
+        
+        .generate-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .result-section {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+        }
+        
+        .progress-container {
+            background: #f1f5f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .video-result {
+            display: none;
+            text-align: center;
+        }
+        
+        .video-player {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        .status-message {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            display: none;
+        }
+        
+        .status-success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        
+        .status-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+        
+        .status-info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 可灵AI视频生成器</h1>
+            <p class="subtitle">上传图片，输入描述，一键生成动态视频</p>
+        </header>
+        
+        <div class="main-content">
+            <!-- 左侧：上传区域 -->
+            <div class="upload-section" id="uploadSection">
+                <div class="upload-icon">📷</div>
+                <h3>上传图片</h3>
+                <p>支持 PNG、JPG 格式，最大 10MB</p>
+                <input type="file" id="imageInput" accept=".png,.jpg,.jpeg" style="display: none;">
+                <button onclick="document.getElementById('imageInput').click()" 
+                        style="margin-top: 15px; padding: 12px 24px; background: #4f46e5; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    选择图片
+                </button>
+                
+                <div class="preview-container" id="previewContainer">
+                    <img class="image-preview" id="imagePreview" alt="预览">
+                </div>
+            </div>
+            
+            <!-- 右侧：输入区域 -->
+            <div class="input-section">
+                <textarea id="promptInput" 
+                          placeholder="描述你想要生成的视频内容...&#10;例如：宇航员在太空中漂浮，背景是美丽的地球和星空"></textarea>
+                
+                <div class="settings">
+                    <div>
+                        <label for="modeSelect">视频质量</label>
+                        <select id="modeSelect">
+                            <option value="std">标准模式 (快速)</option>
+                            <option value="pro">专业模式 (高质量)</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="durationSelect">视频时长</label>
+                        <select id="durationSelect">
+                            <option value="5">5秒</option>
+                            <option value="10">10秒</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="generate-btn" id="generateBtn" onclick="generateVideo()">
+                    🚀 开始生成视频
+                </button>
+                
+                <!-- 状态消息 -->
+                <div class="status-message" id="statusMessage"></div>
+            </div>
+            
+            <!-- 结果区域 -->
+            <div class="result-section">
+                <div class="progress-container" id="progressContainer">
+                    <h3>正在生成视频...</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="progressText">正在提交任务...</p>
+                </div>
+                
+                <div class="video-result" id="videoResult">
+                    <h2>🎉 视频生成成功！</h2>
+                    <video class="video-player" id="videoPlayer" controls></video>
+                    <div>
+                        <a id="downloadLink" class="download-btn" download="kling_video.mp4">
+                            📥 下载视频
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 后端API地址（如果后端运行在本地）
+        const API_BASE_URL = 'http://localhost:5000';
+        
+        // 当前任务ID
+        let currentTaskId = null;
+        let pollingInterval = null;
+        
+        // 图片上传处理
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            // 检查文件大小（最大10MB）
+            if (file.size > 10 * 1024 * 1024) {
+                showMessage('图片大小不能超过10MB', 'error');
+                return;
+            }
+            
+            // 预览图片
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('previewContainer').style.display = 'block';
+                document.getElementById('imagePreview').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+        
+        // 显示消息
+        function showMessage(text, type = 'info') {
+            const messageDiv = document.getElementById('statusMessage');
+            messageDiv.textContent = text;
+            messageDiv.className = `status-message status-${type}`;
+            messageDiv.style.display = 'block';
+            
+            if (type === 'error') {
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+        
+        // 生成视频
+        async function generateVideo() {
+            const fileInput = document.getElementById('imageInput');
+            const prompt = document.getElementById('promptInput').value.trim();
+            
+            if (!fileInput.files[0]) {
+                showMessage('请先上传图片', 'error');
+                return;
+            }
+            
+            if (!prompt) {
+                showMessage('请输入视频描述', 'error');
+                return;
+            }
+            
+            // 禁用按钮，显示进度
+            document.getElementById('generateBtn').disabled = true;
+            document.getElementById('progressContainer').style.display = 'block';
+            updateProgress(10, '正在上传图片...');
+            
+            try {
+                // 1. 上传图片
+                const formData = new FormData();
+                formData.append('image', fileInput.files[0]);
+                
+                updateProgress(30, '正在上传图片到服务器...');
+                
+                const uploadResponse = await fetch(`${API_BASE_URL}/api/upload-image`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!uploadResponse.ok) {
+                    throw new Error('图片上传失败');
+                }
+                
+                const uploadResult = await uploadResponse.json();
+                
+                if (!uploadResult.success) {
+                    throw new Error(uploadResult.error || '图片上传失败');
+                }
+                
+                updateProgress(50, '正在调用可灵API生成视频...');
+                
+                // 2. 调用生成视频API
+                const mode = document.getElementById('modeSelect').value;
+                const duration = document.getElementById('durationSelect').value;
+                
+                const videoResponse = await fetch(`${API_BASE_URL}/api/generate-video`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        image: uploadResult.base64,
+                        prompt: prompt,
+                        mode: mode,
+                        duration: duration
+                    })
+                });
+                
+                if (!videoResponse.ok) {
+                    throw new Error('视频生成请求失败');
+                }
+                
+                const videoResult = await videoResponse.json();
+                
+                if (!videoResult.success) {
+                    throw new Error(videoResult.error || '视频生成失败');
+                }
+                
+                currentTaskId = videoResult.task_id;
+                updateProgress(70, '视频生成任务已提交，等待处理...');
+                
+                // 3. 开始轮询任务状态
+                startPollingTaskStatus();
+                
+            } catch (error) {
+                console.error('生成视频失败:', error);
+                showMessage(`生成失败: ${error.message}`, 'error');
+                
+                // 重置界面
+                document.getElementById('generateBtn').disabled = false;
+                document.getElementById('progressContainer').style.display = 'none';
+            }
+        }
+        
+        // 更新进度条
+        function updateProgress(percent, text) {
+            document.getElementById('progressFill').style.width = `${percent}%`;
+            document.getElementById('progressText').textContent = text;
+        }
+        
+        // 开始轮询任务状态
+        function startPollingTaskStatus() {
+            if (pollingInterval) {
+                clearInterval(pollingInterval);
+            }
+            
+            let attempts = 0;
+            const maxAttempts = 60; // 最大尝试60次（5分钟）
+            
+            pollingInterval = setInterval(async () => {
+                attempts++;
+                if (attempts > maxAttempts) {
+                    clearInterval(pollingInterval);
+                    showMessage('视频生成超时，请稍后重试', 'error');
+                    document.getElementById('generateBtn').disabled = false;
+                    return;
+                }
+                
+                try {
+                    updateProgress(70 + (attempts * 0.5), `等待视频生成中... (${attempts}/60)`);
+                    
+                    const response = await fetch(`${API_BASE_URL}/api/task-status/${currentTaskId}`);
+                    
+                    if (!response.ok) {
+                        throw new Error('查询任务状态失败');
+                    }
+                    
+                    const result = await response.json();
+                    
+                    if (result.code === 0) {
+                        const taskStatus = result.data.task_status;
+                        
+                        if (taskStatus === 'succeed') {
+                            // 任务成功
+                            clearInterval(pollingInterval);
+                            handleSuccess(result);
+                        } else if (taskStatus === 'failed') {
+                            // 任务失败
+                            clearInterval(pollingInterval);
+                            handleFailure(result.data.task_status_msg || '视频生成失败');
+                        }
+                        // 如果状态是 processing，继续轮询
+                    }
+                    
+                } catch (error) {
+                    console.error('轮询失败:', error);
+                }
+            }, 5000); // 每5秒查询一次
+        }
+        
+        // 处理成功结果
+        function handleSuccess(result) {
+            updateProgress(100, '视频生成完成！');
+            
+            const videos = result.data.task_result?.videos || [];
+            if (videos.length > 0) {
+                const videoUrl = videos[0].url;
+                
+                // 显示视频
+                document.getElementById('videoPlayer').src = videoUrl;
+                document.getElementById('downloadLink').href = videoUrl;
+                document.getElementById('videoResult').style.display = 'block';
+                
+                // 隐藏进度条
+                setTimeout(() => {
+                    document.getElementById('progressContainer').style.display = 'none';
+                    document.getElementById('generateBtn').disabled = false;
+                }, 1000);
+                
+                showMessage('视频生成成功！', 'success');
+            }
+        }
+        
+        // 处理失败结果
+        function handleFailure(errorMsg) {
+            showMessage(`视频生成失败: ${errorMsg}`, 'error');
+            document.getElementById('generateBtn').disabled = false;
+            document.getElementById('progressContainer').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

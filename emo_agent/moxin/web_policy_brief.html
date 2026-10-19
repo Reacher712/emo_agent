@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>墨心智愈 · 政策与健康环境要点</title>
+  <style>
+    :root {
+      --amber-deep: #5c2d2a;
+      --amber-mid: #8b4a42;
+      --amber-light: #c4a574;
+      --parchment: #f5f0e6;
+      --parchment-dark: #e8dfd0;
+      --ink: #2c2416;
+      --muted: #6b5d4a;
+      --card-border: rgba(92, 45, 42, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "SimSun", serif;
+      color: var(--ink);
+      background: var(--parchment)
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' opacity='0.06'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+      line-height: 1.65;
+    }
+
+    header {
+      background: linear-gradient(165deg, var(--amber-deep) 0%, #3d1f1e 48%, var(--amber-mid) 100%);
+      color: #faf6f0;
+      padding: 2.25rem 1.25rem 2.75rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(196, 165, 116, 0.18), transparent 55%);
+      pointer-events: none;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.35rem, 4vw, 1.85rem);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      position: relative;
+      z-index: 1;
+    }
+
+    header p {
+      margin: 0;
+      opacity: 0.92;
+      font-size: 0.95rem;
+      max-width: 36rem;
+      margin-inline: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wrap {
+      max-width: 820px;
+      margin: -1.5rem auto 3rem;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .panel {
+      background: rgba(255, 252, 246, 0.94);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 1.1rem;
+      box-shadow: 0 8px 28px rgba(44, 36, 22, 0.08);
+    }
+
+    .panel h2 {
+      margin: 0 0 0.85rem;
+      font-size: 1.05rem;
+      color: var(--amber-deep);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-bottom: 1px solid var(--parchment-dark);
+      padding-bottom: 0.55rem;
+    }
+
+    .panel h2 span {
+      display: inline-flex;
+      width: 1.5rem;
+      height: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      background: var(--amber-deep);
+      color: #faf6f0;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+
+    li {
+      margin-bottom: 0.45rem;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--parchment-dark);
+      color: var(--amber-deep);
+      margin-right: 0.35rem;
+      vertical-align: middle;
+    }
+
+    .cite {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+      padding-top: 0.65rem;
+      border-top: 1px dashed var(--card-border);
+    }
+
+    details {
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      background: #fffcf8;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 0.85rem 1rem;
+      font-weight: 600;
+      color: var(--amber-deep);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "﹀";
+      font-size: 0.7rem;
+      opacity: 0.65;
+    }
+
+    details[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .details-body {
+      padding: 0 1rem 1rem;
+      font-size: 0.92rem;
+      color: var(--ink);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 1rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --parchment: #1e1a16;
+        --parchment-dark: #2a241c;
+        --ink: #ebe4d8;
+        --muted: #a89884;
+      }
+      body {
+        background-color: var(--parchment);
+      }
+      .panel {
+        background: rgba(36, 30, 26, 0.92);
+        border-color: rgba(196, 165, 116, 0.25);
+      }
+      details {
+        background: #242018;
+        border-color: rgba(196, 165, 116, 0.25);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>政策与健康大环境</h1>
+    <p>与「墨心智愈 / 墨韵心调」方向相关的要点整理，供路演、计划书脚注与答辩速查（非法律意见，正式引用请以原文为准）。</p>
+  </header>
+
+  <div class="wrap">
+    <section class="panel">
+      <h2><span>壹</span> 幻灯片核心句 · 有据可依的表述</h2>
+      <ul>
+        <li><span class="tag">对接</span>国家<strong>「健康中国」</strong>战略及后续落实文件，心理健康被纳入公共卫生与健康促进整体布局。</li>
+        <li><span class="tag">导向</span>推动心理健康服务<strong>可及、规范</strong>发展；数字心理服务有利于扩大覆盖面，回应「普惠化」社会需求（与政策中服务体系、重点人群工作相衔接）。</li>
+        <li><span class="tag">人群</span><strong>高校学生、初入职场青年</strong>等是心理健康促进行动与社会心理服务相关部署中持续关注的重点群体之一。</li>
+      </ul>
+      <p class="cite">以上句型可与下列「主要政策来源」一一对应；PPT 角注建议至少列出纲要 + 行动两份文件。</p>
+    </section>
+
+    <section class="panel">
+      <h2><span>贰</span> 主要政策来源（建议角注）</h2>
+      <ul>
+        <li><strong>《&ldquo;健康中国2030&rdquo;规划纲要》</strong>（中共中央、国务院，2016 年印发）——总体纲领，明确健康中国建设目标与健康服务体系建设方向，包含加强心理健康相关部署。</li>
+        <li><strong>《健康中国行动（2019&mdash;2030 年）》</strong>（国务院）——围绕纲要的具体行动，含<strong>心理健康促进行动</strong>及可量化目标，便于对应「青年、职场」等重点人群表述。</li>
+        <li><strong>社会心理服务体系建设</strong>系列政策（多部门；如试点工作方案及后续推进文件）——支撑「服务下沉、基层可及、体系化」类表述；若幻灯片强调社区、学校、企业场景可与之呼应。</li>
+      </ul>
+      <p class="cite">检索建议：中国政府网、国家卫健委官网以标题全文检索；学校图书馆可用「健康中国2030」「健康中国行动 心理健康」定位权威 PDF。</p>
+    </section>
+
+    <section class="panel">
+      <h2><span>叁</span> 与项目叙述的契合点（一页话术）</h2>
+      <ul>
+        <li><strong>非药物、轻干预</strong>：与艺术疗愈、自助调节类产品线在政策倡导「综合干预」语境下可形成叙事衔接（注意产品定位为筛查与教育陪伴，不可替代诊疗）。</li>
+        <li><strong>数字化</strong>：可在答辩中表述为落实「互联网+医疗健康」精神与心理服务可及性提升的<strong>工具层探索</strong>，并配套伦理、隐私与未成年人保护说明。</li>
+        <li><strong>文化适配</strong>：传统文化与美育、心理健康教育相结合的政策表述（如教育领域美育与心育协同）可与「国画疗愈」差异化故事结合——引用时请以当年最新教育部、卫健委公开文件为准。</li>
+      </ul>
+    </section>
+
+    <details>
+      <summary>附录 · PPT 角注示例（可复制）</summary>
+      <div class="details-body">
+        <p><strong>短角注：</strong>来源：《&ldquo;健康中国2030&rdquo;规划纲要》；《健康中国行动（2019&mdash;2030 年）》。</p>
+        <p><strong>长角注：</strong>心理健康服务体系建设与国家健康战略参见《&ldquo;健康中国2030&rdquo;规划纲要》及《健康中国行动（2019&mdash;2030 年）》中心理健康促进行动；本项目定位于数字心理支持的补充性探索，不替代执业医师或心理咨询师诊疗。</p>
+      </div>
+    </details>
+  </div>
+
+  <footer>本地文件：web_policy_brief.html · 可直接用浏览器打开或嵌入大屏演示</footer>
+</body>
+</html>

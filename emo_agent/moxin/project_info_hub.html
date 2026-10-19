@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>墨韵心调｜项目总控台</title>
+  <style>
+    :root {
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --primary: #2563eb;
+      --ok: #16a34a;
+      --warn: #f59e0b;
+      --danger: #dc2626;
+      --shadow: 0 8px 20px rgba(31, 41, 55, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1320px;
+      margin: 22px auto;
+      padding: 0 16px 24px;
+    }
+
+    .hero {
+      background: linear-gradient(130deg, #1d4ed8, #3b82f6);
+      color: #fff;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+    }
+    .hero h1 { margin: 0 0 8px; font-size: 30px; }
+    .hero p { margin: 6px 0; opacity: 0.95; }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .kpi {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 10px 12px;
+      backdrop-filter: blur(2px);
+    }
+    .kpi .label { font-size: 12px; opacity: 0.9; }
+    .kpi .value { font-size: 24px; font-weight: 700; margin-top: 4px; }
+
+    .toolbar {
+      margin: 12px 0 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+    .search {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+      outline: none;
+    }
+    .search:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 14px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 12px;
+    }
+    .title {
+      margin: 2px 0 8px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .sub {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .section-list { margin: 0; padding-left: 18px; }
+    .section-list li { margin-bottom: 8px; line-height: 1.55; }
+
+    .file-list {
+      display: grid;
+      gap: 8px;
+      max-height: 420px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+    .file-item {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: #fcfdff;
+    }
+    .file-item .name { font-size: 14px; font-weight: 700; }
+    .file-item .meta {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      word-break: break-all;
+    }
+    .file-item a {
+      margin-top: 6px;
+      display: inline-block;
+      text-decoration: none;
+      color: var(--primary);
+      font-size: 13px;
+    }
+
+    .status {
+      display: inline-block;
+      border-radius: 999px;
+      font-size: 12px;
+      padding: 2px 8px;
+      border: 1px solid transparent;
+    }
+    .s-ok { color: var(--ok); background: #edfdf3; border-color: #bbf7d0; }
+    .s-warn { color: var(--warn); background: #fffbeb; border-color: #fde68a; }
+    .s-danger { color: var(--danger); background: #fef2f2; border-color: #fecaca; }
+
+    .todo-list {
+      display: grid;
+      gap: 8px;
+    }
+    .todo-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px 10px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: #fff;
+    }
+    .todo-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .todo-item.done .txt {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+    .todo-item .txt {
+      font-size: 14px;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .timeline {
+      border-left: 2px dashed #cbd5e1;
+      margin-left: 8px;
+      padding-left: 14px;
+    }
+    .timeline .node {
+      position: relative;
+      margin-bottom: 12px;
+      padding-bottom: 2px;
+    }
+    .timeline .node:before {
+      content: "";
+      position: absolute;
+      left: -21px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+    .timeline .when {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .timeline .what {
+      margin-top: 2px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .footnote {
+      margin-top: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1000px) {
+      .grid { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+      .toolbar { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <h1>墨韵心调｜项目总控台</h1>
+      <p>用途：集中管理项目说明、脚本、问卷数据、可视化页面、答辩证据与推进状态。</p>
+      <p>建议：把这个页面作为项目入口，答辩前先在这里快速检查“内容完整度”和“数据一致性”。</p>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">核心说明文档</div><div class="value">1 份</div></div>
+        <div class="kpi"><div class="label">Python 脚本</div><div class="value">2 个</div></div>
+        <div class="kpi"><div class="label">可视化页面</div><div class="value">2 个</div></div>
+        <div class="kpi"><div class="label">输出材料</div><div class="value">PPT + Excel</div></div>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input id="searchInput" class="search" placeholder="搜索关键词（例如：问卷、PPT、证据、DASS、政策、共绘）" />
+      <button id="resetBtn" class="btn">重置筛选</button>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="title">1) 项目定位与内容结构</div>
+        <div class="sub">从“方案说明 -> 数据支撑 -> 可视化展示 -> 路演材料”形成闭环</div>
+        <ul class="section-list" data-searchable>
+          <li><b>项目目标：</b>打造 AI 驱动的国画多模态情感疗愈平台，覆盖个人疗愈与关系疗愈场景。</li>
+          <li><b>核心创新：</b>智能体协同、国画情感量化、动态情绪追踪、双人共绘关系温度报告。</li>
+          <li><b>材料体系：</b>总览文档定义方法论，脚本产出数据表，HTML 页面用于展示，PPT用于路演。</li>
+          <li><b>当前优势：</b>已有可讲述的证据链和展示链，适合答辩现场快速切换材料。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="title">2) 当前完成状态</div>
+        <div class="sub">用于赛前自检，保证“讲法、数据、页面”一致</div>
+        <ul class="section-list" data-searchable>
+          <li>文档框架完整：<span class="status s-ok">已完成</span></li>
+          <li>问卷数据汇总脚本：<span class="status s-ok">已完成</span></li>
+          <li>数据可视化看板：<span class="status s-ok">已完成</span></li>
+          <li>竞品证据页：<span class="status s-ok">已完成</span></li>
+          <li>数据口径自动联动（Excel -> HTML）：<span class="status s-warn">待升级</span></li>
+          <li>一键打包发布（全部材料）：<span class="status s-warn">待升级</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="title">3) 文件索引（点击可打开）</div>
+        <div class="sub">说明：本页与目标文件放在同目录时，链接可直接打开</div>
+        <div id="fileList" class="file-list">
+          <div class="file-item" data-searchable>
+            <div class="name">总览文档（项目主叙事）</div>
+            <div class="meta">墨韵心调：AI驱动的国画多模态情感疗愈平台（优化版总览文档）.md</div>
+            <a href="./墨韵心调：AI驱动的国画多模态情感疗愈平台（优化版总览文档）.md">打开文件</a>
+          </div>
+          <div class="file-item" data-searchable>
+            <div class="name">PPT 生成脚本</div>
+            <div class="meta">generate_moxin_ppt.py（基于 python-pptx 自动出 18 分钟路演稿）</div>
+            <a href="./generate_moxin_ppt.py">打开文件</a>
+          </div>
+          <div class="file-item" data-searchable>
+            <div class="name">问卷表格生成脚本</div>
+            <div class="meta">generate_youth_survey_tables.py（生成中英双版本 Excel）</div>
+            <a href="./generate_youth_survey_tables.py">打开文件</a>
+          </div>
+          <div class="file-item" data-searchable>
+            <div class="name">问卷数据可视化看板</div>
+            <div class="meta">youth_survey_dashboard.html（压力分布、DASS、前后测、偏好）</div>
+            <a href="./youth_survey_dashboard.html">打开页面</a>
+          </div>
+          <div class="file-item" data-searchable>
+            <div class="name">竞品与证据链页面</div>
+            <div class="meta">competition_evidence.html（竞品矩阵 + 可追溯引用）</div>
+            <a href="./competition_evidence.html">打开页面</a>
+          </div>
+          <div class="file-item" data-searchable>
+            <div class="name">问卷数据（中文）</div>
+            <div class="meta">青少年问卷结果汇总_可编辑.xlsx</div>
+            <a href="./青少年问卷结果汇总_可编辑.xlsx">打开文件</a>
+          </div>
+          <div class="file-item" data-searchable>
+            <div class="name">问卷数据（英文 sheet）</div>
+            <div class="meta">youth_survey_results_editable.xlsx</div>
+            <a href="./youth_survey_results_editable.xlsx">打开文件</a>
+          </div>
+          <div class="file-item" data-searchable>
+            <div class="name">路演成品</div>
+            <div class="meta">墨韵心调_三创赛18分钟初版.pptx（或同类草稿版）</div>
+            <a href="./墨韵心调_三创赛18分钟初版.pptx">打开文件</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">4) 数据口径速览（答辩高频数字）</div>
+        <div class="sub">建议每次改数据后都先核对这一栏，再更新图表与 PPT</div>
+        <ul class="section-list" data-searchable>
+          <li>需求调研样本量：<b>n = 180</b></li>
+          <li>试用评估样本量：<b>n = 60</b></li>
+          <li>近 1 个月压力较高及以上：<b>67.2%</b></li>
+          <li>愿意匿名线上心理支持：<b>77.2%</b></li>
+          <li>SUS 总分：<b>76.5</b></li>
+          <li>DASS 前后测示例：压力 <b>-22.0%</b>，焦虑 <b>-25.0%</b>，抑郁 <b>-16.3%</b></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="title">5) 推进时间线（可扩展）</div>
+        <div class="sub">按材料里程碑做过程管理，方便周会和答辩复盘</div>
+        <div class="timeline" data-searchable>
+          <div class="node">
+            <div class="when">阶段一（2025.3 - 2025.7）</div>
+            <div class="what">理论与数据准备：情感坐标梳理、实验设计、基础模型能力打通。</div>
+          </div>
+          <div class="node">
+            <div class="when">阶段二（2025.7 - 2025.11）</div>
+            <div class="what">智能体协同与数据闭环：协调层联调，情绪记录与情感验证模块上线。</div>
+          </div>
+          <div class="node">
+            <div class="when">阶段三（2025.11 - 2026.2）</div>
+            <div class="what">双人共绘与关系分析：协作画板、互动特征建模、关系温度报告迭代。</div>
+          </div>
+          <div class="node">
+            <div class="when">阶段四（2026.2 - 2026.3+）</div>
+            <div class="what">校内试点与成果输出：试点验证、报告沉淀、论文/软著/展示材料完善。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">6) 本周任务看板（可勾选）</div>
+        <div class="sub">勾选状态自动保存在本地浏览器（localStorage）</div>
+        <div id="todoList" class="todo-list">
+          <label class="todo-item"><input type="checkbox" data-key="todo-1" /><span class="txt">统一 PPT、看板、文档中的样本量与指标口径</span></label>
+          <label class="todo-item"><input type="checkbox" data-key="todo-2" /><span class="txt">给竞品证据页补充 1-2 条国内权威来源</span></label>
+          <label class="todo-item"><input type="checkbox" data-key="todo-3" /><span class="txt">补充高风险情绪场景下的“人工转介”流程说明</span></label>
+          <label class="todo-item"><input type="checkbox" data-key="todo-4" /><span class="txt">准备 3 分钟演示流程：输入情绪 -> 出图 -> 出报告</span></label>
+          <label class="todo-item"><input type="checkbox" data-key="todo-5" /><span class="txt">演练问答：可解释性、隐私合规、有效性证据</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="footnote">
+      使用说明：这是纯前端静态页面，不依赖后端；适合本地文件夹管理与答辩现场快速导航。<br />
+      可升级方向：后续可加入“自动读取 Excel/JSON 动态渲染”、“一键生成答辩资料包”和“版本记录日志”。
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const q = (s, root) => (root || document).querySelector(s);
+      const qa = (s, root) => Array.from((root || document).querySelectorAll(s));
+
+      const searchInput = q("#searchInput");
+      const resetBtn = q("#resetBtn");
+      const searchable = qa("[data-searchable]");
+
+      function applyFilter(keyword) {
+        const kw = keyword.trim().toLowerCase();
+        searchable.forEach((el) => {
+          const txt = el.textContent.toLowerCase();
+          const hit = !kw || txt.includes(kw);
+          el.style.display = hit ? "" : "none";
+        });
+      }
+
+      searchInput.addEventListener("input", (e) => applyFilter(e.target.value));
+      resetBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        applyFilter("");
+      });
+
+      const todoChecks = qa('#todoList input[type="checkbox"]');
+      todoChecks.forEach((cb) => {
+        const key = cb.getAttribute("data-key");
+        const saved = localStorage.getItem(key);
+        cb.checked = saved === "1";
+        cb.closest(".todo-item").classList.toggle("done", cb.checked);
+
+        cb.addEventListener("change", () => {
+          localStorage.setItem(key, cb.checked ? "1" : "0");
+          cb.closest(".todo-item").classList.toggle("done", cb.checked);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

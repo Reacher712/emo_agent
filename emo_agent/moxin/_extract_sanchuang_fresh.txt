@@ -1,0 +1,1087 @@
+“墨心智愈”Ink Mind Healing “墨心智愈”Ink Mind Healing
+“墨心智愈”
+Ink Mind Healing
+“墨心智愈”
+Ink Mind Healing
+参赛赛道：国际赛Competing Track: International Competition参赛赛道：国际赛Competing Track: International Competition
+参赛赛道：国际赛
+Competing Track: International Competition
+参赛赛道：国际赛
+Competing Track: International Competition
+ID: 16140743队长：贾睿祺队员：邢郅睿 王晨旭 宁健 张玉晨指导老师： 孟明 王琳中国传媒大学ID: 16140743队长：贾睿祺队员：邢郅睿 王晨旭 宁健 张玉晨指导老师： 孟明 王琳中国传媒大学
+ID: 16140743
+队长：贾睿祺
+队员：邢郅睿 王晨旭 宁健 张玉晨
+指导老师： 孟明 王琳
+中国传媒大学
+ID: 16140743
+队长：贾睿祺
+队员：邢郅睿 王晨旭 宁健 张玉晨
+指导老师： 孟明 王琳
+中国传媒大学
+提交日期：2026年4月5日提交日期：2026年4月5日
+提交日期：2026年4月5日
+提交日期：2026年4月5日
+参赛团队承诺与说明书
+团队ID：16140743 团队名称：墨心智愈队
+团队参赛过程中提交的作品文档（word、pdf、ppt、纸介质等）中和演讲中团队成员信息、高校指导老师信息、企业指导老师信息与官网注册信息完全一致
+是否首次参赛
+非首次参赛
+成员统计
+团队人数(5) 学校指导老师(2) 企业指导老师(0)
+姓名
+赛区
+学校/公司
+类型
+成员信息
+贾睿祺
+海南省
+中国传媒大学海南国际学院
+学生队员 [队长]
+邢郅睿
+海南省
+中国传媒大学海南国际学院
+学生队员
+王晨旭
+海南省
+中国传媒大学海南国际学院
+学生队员
+宁健
+海南省
+中国传媒大学海南国际学院
+学生队员
+张玉晨
+海南省
+中国传媒大学
+学生队员
+孟明
+海南省
+中国传媒大学
+学校指导老师
+王琳
+海南省
+中国传媒大学
+学校指导老师
+主要创新点
+技术架构创新：构建情感疗愈智能体集群实现EmoLLM，通义万相，豆包音乐三模型协同，形成感知生成反馈闭环突破单模态干预局限 数据维度创新：首创动态情感轨迹追踪，建立豪放、婉约、空寂、喧闹、超脱、入世六维东方美学坐标，结合时间序列生成情绪疗愈周报，实现预防性干预 应用场景创新：开发双人共绘疗愈模式，支持亲子情侣实时协作创作，国画通过交互行为分析，评估关系状态，让艺术疗愈从个人走向社交
+主要创意点
+国画情感量化：将留白、笔触、意境等抽象美学转化为可计算的六维情感坐标，填补东方艺术情感计算空白。 智能体协同疗愈：模拟专业疗愈团队——情绪智能体诊断、艺术智能体创作、音乐智能体配乐，提供“私人定制”体验。  情绪心电图：将情绪波动可视
+化，用户直观看到“焦虑下降25%”等疗愈成果，增强坚持动力。  社交艺术疗愈：双人共绘时的互动模式转化为关系洞察报告，让国画成为情感连接桥梁。
+主要创业点
+可持续运营模式：C端基础服务免费开放，让更多有心理疏导需求的用户获得国画疗愈体验；增值服务面向深度用户，提供个性化情绪周报、高清画作收藏等功能。 B端与企事业单位、学校心理咨询中心、社区养老机构合作，将平台作为心理健康服务的补充工具。
+多元服务路径：初期通过机构合作积累用户和数据；中期开发情绪趋势分析报告，为心理健康研究提供参考；后期联合心理学专家打造“AI辅助艺术疗愈师”培训体系，培养专业服务人才
+我们郑重承诺：已仔细阅读大赛规则,并做如上承诺和必要说明,将严格按照大赛规则参加比赛。若遇争议,服从大赛组织仲裁。如果以上承诺有未做到,我们承担相应的责任。
+团队队长签字：
+日期：
+团队高校指导老师承诺书
+团队ID：16140743 团队名称：墨心智愈队
+是否首次参赛
+非首次参赛
+成员统计
+团队人数(5) 学校指导老师(2) 企业指导老师(0)
+姓名
+赛区
+学校/公司
+类型
+成员信息
+贾睿祺
+海南省
+中国传媒大学海南国际学院
+学生队员 [队长]
+邢郅睿
+海南省
+中国传媒大学海南国际学院
+学生队员
+王晨旭
+海南省
+中国传媒大学海南国际学院
+学生队员
+宁健
+海南省
+中国传媒大学海南国际学院
+学生队员
+张玉晨
+海南省
+中国传媒大学
+学生队员
+孟明
+海南省
+中国传媒大学
+学校指导老师
+王琳
+海南省
+中国传媒大学
+学校指导老师
+序号
+承诺事项
+确认打钩
+1
+团队成员中的学生为在校大学生,教师为高校教师
+2
+团队成员学生人数3-5人
+3
+团队成员信息（包括高校指导老师、企业指导老师）与官网一致
+4
+高校指导老师、企业指导老师人数分别为0-2人
+5
+确保作品内容和附件的真实性（不存在虚假信息）
+我们郑重承诺：已仔细阅读大赛规则,严格按照大赛规则指导团队参赛。如果以上承诺有未做到的,我们承担相应的责任。
+高校指导老师1签字：
+高校指导老师2签字：
+日期：
+目  录
+1 项目概述与市场分析
+Project Overview and Market Analysis1
+1.1 摘要
+Abstract1
+1.2 项目背景与意义
+Project Background and Significance6
+1.3 项目可行性分析
+Project feasibility analysis10
+1.4 市场分析
+Market analysis11
+1.5 目标用户分析
+Target User Analysis12
+1.6 竞争分析
+Competitive Analysis13
+2 产品服务与技术方案
+Product Services and Technical Solutions13
+2.1 产品与服务介绍
+Product and Service Introduction13
+2.2 技术架构与实现方案
+Technical Architecture and Implementation Solution14
+2.3 三阶段实施规划
+Three-phase implementation plan18
+2.4 工程可行性分析
+Engineering feasibility analysis20
+2.5 本章小结
+Chapter summary,chapter conclusion20
+3 运营管理与团队建设
+Operations Management and Team Building26
+3.1 组织架构与团队介绍
+Organization Structure and Team Introduction26
+3.2 运营管理与实施计划
+Operations Management and Implementation Plan27
+3.3 市场营销与推广策略
+Marketing and Promotion Strategies29
+4 风险应对与社会价值分析
+Risk Response and Social Value Analysis30
+4.1 风险分析与应对措施
+Risk Analysis and Countermeasures30
+4.2 社会价值
+Social Value35
+5 附录
+Appendix37
+5.1 调研数据报告
+Survey Data Report37
+5.2 技术相关材料
+Technical-related materials38
+5.3 政策支撑材料
+Policy Support Materials41
+1 项目概述与市场分析
+Project Overview and Market Analysis
+1.1 摘要
+Abstract
+1.1.1 项目简介
+Project Introduction
+“墨心智愈”是在原项目“墨韵心调”研究与实践基础上的系统化升级成果，面向青年群体及心理亚健康人群，构建以“国画疗愈+音乐干预+情感大模型”为核心的智能化情绪干预平台项目围绕“情绪识别—内容生成—干预引导—疗效评估—模型迭代”形成可验证、可优化、可复制的闭环体系，实现个体化、日常化、低门槛的数字疗愈服务供给相较于传统单模态心理支持方案，本项目在多模态协同能力、文化适配深度与效果量化机制方面具有显著优势，兼具技术创新价值、应用推广价值与社会公益价值
+"Ink Mind Healing" is a systematically upgraded achievement based on the research and practice of the original project "Ink Rhythm Mind Regulation". Targeting young people and people with suboptimal mental health, it constructs an intelligent emotional intervention platform centered on "traditional Chinese painting therapy + music intervention + emotional large model". The project forms a verifiable, optimizable and replicable closed-loop system around "emotion recognition – content generation – intervention guidance – efficacy evaluation – model iteration", realizing the provision of individualized, daily and low-threshold digital healing services. Compared with traditional single-modal psychological support programs, this project has significant advantages in multi-modal collaboration capabilities, depth of cultural adaptation and effect quantification mechanisms, and possesses technological innovation value, application promotion value and social public welfare value.
+1.1.2 项目初心
+Original intention of the project
+“墨韵心调”项目的核心初心，是在严格恪守心理干预科学性、专业性与严谨性的基础上，着力打破传统心理服务的壁垒，有效降低用户获取情绪支持的门槛，持续提升心理服务的可及性、便捷性与体验友好性，让更多有情绪调节需求的用户能够无负担、易接触地获得优质、规范的心理支持
+为实现这一初心，项目以中华优秀传统文化中的国画艺术为核心情绪表达媒介，深度挖掘国画笔墨、构图、意境中蕴含的疗愈价值，将其与舒缓适配的音乐元素、智能化交互技术有机融合，构建起一套兼具东方审美特质与现代科技优势的数字疗愈方案，既保留心理干预的科学内核，又赋予服务浓厚的文化底蕴与舒适的体验感，打破传统心理服务的刻板印象
+项目聚焦当前社会心理服务领域的核心痛点，着力解决“用户有情绪调节需求但不愿主动求助、有求助意愿但难以长期坚持”的结构性问题，通过轻量化、场景化的服务设计，推动心理支持服务从“问题出现后的被动干预”向“日常化、轻量化、陪伴式的主动调节”延伸，助力用户在日常场景中培养情绪管理能力，实现情绪的自我疏导与正向调节，最终推动全民情绪健康素养的提升
+The core original aspiration of the "Ink Rhythm & Mental Regulation" project is, on the basis of strictly abiding by the scientificity, professionalism and rigor of psychological intervention, to strive to break down the barriers of traditional psychological services, effectively lower the threshold for users to access emotional support, continuously improve the accessibility, convenience and user-friendliness of psychological services, and enable more users in need of emotional regulation to obtain high-quality and standardized psychological support without burden and with easy access.
+To fulfill this aspiration, the project takes traditional Chinese painting, an integral part of China's outstanding traditional culture, as the core medium for emotional expression. It deeply explores the therapeutic value inherent in the brushwork, composition and artistic conception of traditional Chinese painting, and organically integrates it with soothing and matching musical elements as well as intelligent interactive technologies. This has formed a digital therapy solution that combines both oriental aesthetic characteristics and modern technological advantages. It not only retains the scientific core of psychological intervention, but also endows the service with profound cultural deposits and a comfortable experience, breaking the stereotypical impression of traditional psychological services.
+Focusing on the core pain points in the current field of social psychological services, the project strives to address the structural problems that "users have emotional regulation needs but are unwilling to seek help proactively, and those who have the willingness to seek help find it hard to persist for a long time". Through lightweight and scenario-based service design, it promotes the transformation of psychological support services from "passive intervention after problems arise" to "daily, lightweight and companion-oriented active regulation". It helps users cultivate emotional management abilities in daily scenarios, realize self-catharsis and positive regulation of emotions, and ultimately promote the improvement of the national emotional health literacy.
+1.1.3 行业发展背景
+Industry Development Background
+根据中共中央、国务院印发《“健康中国2030”规划纲要》，其中提出要以普及健康生活、优化健康服务、完善健康保障、建设健康环境、发展健康产业为重点，把健康融入所有政策，加强精神卫生和心理健康服务体系，推广非药物干预手段，实现“共建共享、全民健康 ”的健康中国。本项目积极响应中共中央、国务院印发文件，针对需要情感疗愈的患者做出基于AI驱动的国画多模态情感疗愈平台的相关研究。
+In accordance with the Outline of the Healthy China 2030 Plan issued by the Central Committee of the Communist Party of China and the State Council, the key priorities are to popularize healthy lifestyles, optimize health services, improve health security, foster a healthy environment, and develop the health industry. It emphasizes integrating health into all policies, strengthening the mental health and psychological well-being service system, promoting non-pharmacological intervention measures, and realizing a Healthy China featuring "joint contribution and shared benefits, health for all". This project actively responds to the document issued by the Central Committee of the Communist Party of China and the State Council, conducting research on an AI-driven, multi-modal emotional healing platform based on traditional Chinese painting for patients in need of emotional therapy.
+1.情感疗愈
+Emotional Healing
+抑郁、焦虑等情绪问题已成为现代社会普遍存在的心理健康挑战。据世界卫生组织统计，全球约10亿人正在遭受情绪困扰。新冠疫情后，全球范围内焦虑和抑郁发病率呈上升趋势。情绪问题不仅影响个体的心理健康，还可能对生活、社交及未来发展造成深远影响。如下图 1 所示，抑郁等情绪障碍在全球普遍存在 , 且广泛分布。
+Emotional problems such as depression and anxiety have become prevalent mental health challenges in modern society. According to the World Health Organization, approximately 1 billion people worldwide are suffering from emotional distress. Following the COVID-19 pandemic, the incidence of anxiety and depression has shown an upward trend globally. Emotional problems not only affect an individual's mental health but may also exert a profound impact on life, social interactions and future development. As shown in Figure 1 below, mood disorders such as depression are prevalent and widely distributed around the world.
+图 1 全球抑郁障碍患病率（2023年）
+Figure 1 Global Prevalence of Depressive Disorders (2023)
+数据来源：IHME, Global Burden of Disease Study 2023, 经 Our World
+in Data 整理,https://ourworldindata.org/mental-health
+Data source: IHME, Global Burden of Disease Study 2023, compiled by Our World in Data, https://ourworldindata.org/mental-health
+近年来，随着社会节奏的加快、社交压力的增加以及数字化信息过载等外部因素的影响，人们的心理健康问题日益凸显。调查研究发现，早期的心理干预和情绪调节训练可以显著改善个体的情绪稳定性，提高其应对压力的能力，并增强社会适应能力。及时识别和干预不仅有助于减少负面情绪的累积，还能有效提升心理韧性，使其更好地管理自身情绪。然而，由于情绪问题的隐匿性、心理干预资源的不均衡以及社会文化对心理健康的认知偏差，使得情绪障碍的早期筛查和干预面临巨大挑战。
+In recent years, influenced by external factors such as the accelerated pace of society, increased social pressure, and digital information overload, people's mental health issues have become increasingly prominent. Research surveys have found that early psychological intervention and emotional regulation training can significantly improve an individual's emotional stability, enhance their ability to cope with stress, and strengthen social adaptability. Timely identification and intervention not only help reduce the accumulation of negative emotions but also effectively boost psychological resilience, enabling individuals to better manage their own emotions. However, the concealed nature of emotional problems, the uneven distribution of psychological intervention resources, and socio-cultural biases in the understanding of mental health pose enormous challenges to the early screening and intervention of emotional disorders.
+首先，情绪问题具有高度的个体化和复杂性。其表现形式可能包括情绪低落 、焦虑、易怒、社交退缩等，但这些症状往往难以被察觉，且可能与其他心理状态相混淆，例如学业、工作压力导致的短期情绪波动或青春期、更年期情绪不稳定等。这种复杂性增加了准确识别情绪障碍的难度。而传统的心理评估方法，如问卷调查或心理咨询，可能因受测者的主观表达偏差或评估标准的差异而影响准确性。
+First of all, emotional problems are highly individualized and complex. Their manifestations may include low mood, anxiety, irritability, social withdrawal, and so on. However, these symptoms are often difficult to detect and may be confused with other psychological states, such as short-term mood swings caused by academic or work pressure, or emotional instability during adolescence or menopause. This complexity increases the difficulty of accurately identifying emotional disorders. Traditional psychological assessment methods, such as questionnaires or psychological counseling, may affect accuracy due to the subjective expression bias of the respondents or differences in evaluation criteria.
+其次，由于心理健康科普的不足，社会对心理问题仍然存在一定程度的，部分人群可能缺乏对情绪障碍的认知，甚至对心理问题持回避态度。此外，心理健康资源的分布不均衡，导致部分地区的人们难以及时获得专业的心理支持。下图
+2 表明各国精神科医师配置差异明显，部分国家与地区难以获得足够的专业支持 。
+Secondly, due to the insufficient popularization of mental health knowledge, society still has a certain degree of stigma towards psychological problems. Some people may lack awareness of emotional disorders and even adopt an avoidant attitude towards mental health issues. In addition, the uneven distribution of mental health resources makes it difficult for people in some regions to access professional psychological support in a timely manner. Figure 2 below shows significant differences in the allocation of psychiatrists across countries, making it challenging for some countries and regions to obtain adequate professional support.
+图 2 各国抑郁患病率与精神科医师配置对比
+Figure 2 Comparison of Prevalence of Depression and Allocation of Psychiatrists Across Countries
+数据来源：世界卫生组织全球卫生观测站（WHO GHO）；抑郁患病率为2015年估计值，精神科医师密度为2015–2017年数据
+Data source: World Health Organization Global Health Observatory (WHO GHO); depression prevalence is the 2015 estimated value, and psychiatrist density is data from 2015 to 2017
+基于此，“ 墨心智愈 ”AI驱动的国画多模态情感疗愈平台通过融合深度学习技术、情感计算与国画艺术表达，为人们提供智能化的情绪筛查及个性化干预方案。本平台不仅能够利用AI识别用户的情感状态，还通过多模态数据（如绘画、语音、表情分析等）精准评估情绪波动，为用户提供基于国画艺术的情感疏导体验，从而助力心理健康的早期干预与自我调节。
+Based on this, the "Ink Mind Healing" AI-driven traditional Chinese painting multi-modal emotional healing platform integrates deep learning technology, affective computing and traditional Chinese painting artistic expression to provide people with intelligent emotional screening and personalized intervention programs. The platform can not only use AI to identify users' emotional states, but also accurately assess emotional fluctuations through multi-modal data (such as painting, voice, facial expression analysis, etc.), providing users with emotional counseling experiences based on traditional Chinese painting art, thereby facilitating the early intervention and self-regulation of mental health.
+1.1.4 技术背景
+Technical Background
+(1)语言模型
+项目选用EmoLLM作为语言模型。EmoLLM（Emotion Large Language Model）是一种专为情感计算设计的大规模预训练语言模型，融合自然语言处理、多模态情绪识别和深度学习技术，具备对人类情感进行精准感知、解析与生成的能力。相较于传统的大语言模型，EmoLLM 更侧重于情感识别、情绪调节及智能心理干预，广泛应用于情感陪伴、心理健康辅助手段及艺术疗愈等领域。
+EmoLLM 基于多模态深度学习架构，通过神经网络融合不同模态的信息，以提高情感识别的精准度和泛化能力。在文本处理方面，它采用Transformer 架构（如 BERT、GPT 或 T5），利用自注意力机制对情感语境进行深度建模，并通过情感嵌入增强对情绪特征的理解。在语音情感识别方面，EmoLLM 结合卷积神经网络与循环神经网络，对音频信号进行时频特征提取，并通过端到端语音情感分析建模长时间序列情感依赖性。此外，在计算机视觉情感识别领域，EmoLLM 采用CNN（如 ResNet、EfficientNet）与视觉变换器相结合的方式，提取面部表情信息，精准分析微表情的情绪特征，并结合时序卷积网络或双向 LSTM追踪面部表情的动态变化。
+EmoLLM 还具备情感驱动的智能生成能力，能够根据用户情绪状态动态生成文本、音乐、绘画等艺术作品。在文本生成方面，它采用情感控制的语言建模，结合情感向量调整文本风格，使其具备针对性情绪特征，如安慰、鼓励或共鸣。此外，EmoLLM 结合强化学习优化生成结果，使其更符合用户的情感需求。
+在心理健康支持方面，EmoLLM 结合心理学与AI技术，提供个性化心理支持 , 并具备智能情绪疏导功能。作为情感陪伴助手，它能够通过强化学习和长时记忆机制模拟富有情感的对话方式，提供长期的情感陪伴与交互。 同时，EmoLLM结合心理健康量表（如 PHQ-9、GAD-7）进行用户情绪评估，提供科学化的心理调适建议。此外，EmoLLM 采用深度强化学习，根据用户的历史情绪数据优化干预策略，如冥想、艺术疗愈或认知行为疗法（CBT）。通过情绪追踪，EmoLLM 还能够建立个性化情绪档案，为用户提供长期的心理健康管理方案。
+Language Model
+The project selects EmoLLM as the language model. EmoLLM (Emotion Large Language Model) is a large-scale pre-trained language model designed specifically for affective computing. It integrates natural language processing, multimodal emotion recognition, and deep learning technologies, and possesses the ability to accurately perceive, analyze, and generate human emotions. Compared with traditional large language models, EmoLLM focuses more on emotion recognition, emotion regulation, and intelligent psychological intervention, and is widely used in fields such as emotional companionship, mental health assistance, and art therapy.
+Based on a multimodal deep learning architecture, EmoLLM fuses information from different modalities through neural networks to improve the accuracy and generalization ability of emotion recognition. In text processing, it adopts the Transformer architecture (such as BERT, GPT, or T5), uses the self-attention mechanism to deeply model emotional contexts, and enhances the understanding of emotional features through emotion embedding. In speech emotion recognition, EmoLLM combines convolutional neural networks and recurrent neural networks to extract time-frequency features from audio signals, and models long-term sequence emotional dependencies through end-to-end speech emotion analysis. In addition, in the field of computer vision emotion recognition, EmoLLM adopts a combination of CNN (such as ResNet, EfficientNet) and vision transformers to extract facial expression information, accurately analyze emotional features of microexpressions, and track dynamic changes in facial expressions by combining temporal convolutional networks or bidirectional LSTMs.
+EmoLLM also has emotion-driven intelligent generation capabilities, enabling it to dynamically generate artistic works such as texts, music, and paintings according to users' emotional states. In text generation, it employs emotion-controlled language modeling and adjusts text styles in combination with emotion vectors to endow texts with targeted emotional characteristics, such as comfort, encouragement, or resonance. Furthermore, EmoLLM optimizes generation results through reinforcement learning to better meet users' emotional needs.
+In terms of mental health support, EmoLLM integrates psychology and AI technologies to provide personalized psychological support and features intelligent emotional counseling functions. As an emotional companion assistant, it can simulate emotionally rich dialogue patterns through reinforcement learning and long-term memory mechanisms, providing long-term emotional companionship and interaction. Meanwhile, EmoLLM conducts user emotion assessments in combination with mental health scales  and provides scientific psychological adjustment suggestions. In addition, EmoLLM uses deep reinforcement learning to optimize intervention strategies based on users' historical emotional data, such as meditation, art therapy, or cognitive behavioral therapy (CBT). Through emotion tracking, EmoLLM can also establish personalized emotion profiles and provide users with long-term mental health management plans.
+(2)视觉模型
+本项目视觉生成模块摒弃通用商用模型调用，以 Stable Diffusion XL（SDXL）大模型 为底座，开展面向东方国画情绪疗愈场景的核心算法自主训练与领域适配，形成具备完全自主知识产权的视觉生成能力，核心优势与实现如下：
+① 模型底座与算法创新基础
+SDXL 是当前开源文生图领域的标杆模型，基于级联扩散架构与多尺度自注意力机制，通过逐步潜空间去噪生成 1024×1024 及以上分辨率图像，在细节还原、场景一致性与艺术表现力上均达到业界领先水平。本项目在其基础上，针对东方国画情绪疗愈的细分需求，开展算法层面的定制化改造，而非简单调用或浅层微调，为高保真、高情绪适配度的国画生成提供了可靠技术底座。
+② 核心算法训练：面向东方情绪 - 国画映射的定制化优化
+团队依托自建东方国画情感数据集（涵盖唐宋元明清经典山水、花鸟作品，附 “ 豪放 - 婉约 ”“ 空寂 - 喧闹 ” 等 6 组东方情绪维度标注，样本量达1000+），设计了一套完整的核心算法训练 pipeline：
+轻量化微调策略：采用 LoRA（Low-Rank Adaptation）+ 提示词工程联合优化 的训练范式，在仅微调少量参数（<5% 总参数量）的前提下，高效注入东方国画艺术特征与情绪语义，避免模型灾难性遗忘；
+艺术特征感知算法：针对国画核心艺术特征（水墨笔触、留白构图、意境氛围），设计多模态视觉 - 语言对齐损失函数，将东方美学规则嵌入模型训练过程，强化模型对 “情绪→ 国画意象” 的映射能力；
+情绪精准度约束：引入情绪标签约束的条件扩散机制，在生成过程中绑定用户情绪强度与艺术风格权重，确保输出内容与用户情绪状态（如焦虑→沉静山水 、低落→ 明快花鸟）高度匹配，解决通用模型 “情绪感知模糊” 的痛点；
+泛化能力增强：结合自监督学习与风格数据增强（如笔触扰动、构图变换） , 提升模型在跨情绪、跨风格场景下的鲁棒性，避免生成内容同质化，保障疗愈体验的多样性。
+上述训练流程与模型架构已通过可视化呈现（见图3），清晰展示了LoRA微调模块在SDXL Base与Refiner模型中的嵌入逻辑，以及“情绪语义→模型训练→国画生成 ”的完整技术链路。
+Visual Model
+The visual generation module of this project abandons the invocation of general commercial models. Taking the large model Stable Diffusion XL (SDXL) as the foundation, it conducts independent training and domain adaptation of core algorithms for the scenario of Eastern traditional Chinese painting emotional healing, forming visual generation capabilities with fully independent intellectual property rights. The core advantages and implementation are as follows:
+Model Foundation and Basis for Algorithm Innovation
+SDXL is a benchmark model in the current open-source text-to-image field. Based on the cascaded diffusion architecture and multi-scale self-attention mechanism, it generates images with a resolution of 1024×1024 and above through progressive latent space denoising, achieving industry-leading levels in detail restoration, scene consistency and artistic expressiveness. On this basis, this project carries out customized algorithmic transformation for the segmented demands of Eastern traditional Chinese painting emotional healing, rather than simple invocation or shallow fine-tuning, providing a reliable technical foundation for high-fidelity and high-emotion-adaptability traditional Chinese painting generation.
+Core Algorithm Training: Customized Optimization for Eastern Emotion-Traditional Chinese Painting Mapping
+Relying on a self-built Eastern traditional Chinese painting emotion dataset (covering classic landscape and flower-and-bird works from the Tang, Song, Yuan, Ming and Qing dynasties, with annotations for 6 groups of Eastern emotional dimensions such as "bold-unconstrained & graceful-restrained" and "serene-quiet & lively-bustling", and a sample size of over 1,000), the team has designed a complete core algorithm training pipeline:
+Lightweight fine-tuning strategy: Adopting a training paradigm of joint optimization of LoRA (Low-Rank Adaptation) and prompt engineering, it efficiently injects artistic features and emotional semantics of Eastern traditional Chinese painting while fine-tuning only a small number of parameters (<5% of the total parameters), avoiding catastrophic forgetting of the model;Artistic feature perception algorithm: For the core artistic features of traditional Chinese painting (ink wash brushstrokes, blank-leaving composition, artistic conception atmosphere), a multimodal visual-language alignment loss function is designed to embed Eastern aesthetic rules into the model training process, strengthening the model's mapping ability from "emotions to traditional Chinese painting imagery";
+Emotion accuracy constraint: Introducing a conditional diffusion mechanism constrained by emotion labels, binding user emotional intensity and artistic style weights during the generation process to ensure that the output content is highly matched with the user's emotional state (e.g., anxiety → serene landscapes, depression → bright flower-and-bird paintings), solving the pain point of "vague emotion perception" in general models;
+Generalization capability enhancement: Combining self-supervised learning and style data augmentation (such as brushstroke perturbation, composition transformation) to improve the model's robustness in cross-emotion and cross-style scenarios, avoid homogenization of generated content, and ensure the diversity of healing experiences.The above training process and model architecture have been visualized (see Figure 3), clearly demonstrating the embedding logic of the LoRA fine-tuning module in the SDXL Base and Refiner models, as well as the complete technical link of "emotional semantics → model training → traditional Chinese painting generation".
+图 3 融入LoRA微调的SDXL国画生成架构图
+（基于Stability AI官方架构优化）
+Figure 3 SDXL Chinese Painting Generation Architecture Integrated with LoRA Fine-Tuning
+(Optimized Based on the Official Architecture of Stability AI)
+本图对应视觉生成模块的核心算法训练流程，其中Base模型与Refiner模型均注入LoRA低秩适配模块，依托自建东方国画情感数据集完成训练：① Base模型通过LoRA微调学习水墨笔触、留白构图等东方艺术特征；② Refiner模型通过国画情感LoRA优化，强化情绪与视觉意象的精准映射；③ 最终经VAE解码器输出1024×1024高分辨率疗愈向国画，与情绪识别模块输出的JSON标签（如“焦虑→沉静山水 ”）高度协同。
+This image corresponds to the core algorithm training process of the visual generation module, in which both the Base model and the Refiner model are integrated with the LoRA (Low-Rank Adaptation) module, and the training is completed relying on a self-built emotional dataset of traditional Chinese oriental paintings: ① The Base model learns oriental artistic features such as ink brushstrokes and blank-leaving composition through LoRA fine-tuning; ② The Refiner model, optimized via traditional Chinese painting emotional LoRA, strengthens the precise mapping between emotions and visual imagery; ③ Finally, a 1024×1024 high-resolution healing-oriented traditional Chinese painting is output through the VAE decoder, which is highly coordinated with the JSON tags (e.g., "Anxiety → Calm Landscape") generated by the emotion recognition module.
+③ 工程化与可扩展性： 自主可控的混合部署方案
+完成 SDXL 本地化部署，通过 Stable Diffusion WebUI 封装 txt2img API , 支持参数化调整生成分辨率、采样步数、风格强度等核心参数，实现训练 -推理全流程自主可控；同时设计兼容层抽象接 口，可无缝对接通义万相等云端生成服务，形成 “本地核心算法训练 + 云端弹性算力扩展 ” 的混合部署架构，既保障算法知识产权安全，又满足大规模试点的算力需求。
+Engineering and Scalability: Self-controllable hybrid deployment scheme
+Complete the localized deployment of SDXL, encapsulate the txt2img API through Stable Diffusion WebUI, support parametric adjustment of core parameters such as generation resolution, sampling steps, and style intensity, and realize full-process autonomy and control from training to inference. Meanwhile, a compatible layer abstract interface is designed to seamlessly connect cloud-based generation services such as Tongyi Wanxiang, forming a hybrid deployment architecture of "local core algorithm training + cloud elastic computing power expansion". This not only ensures the security of algorithm intellectual property rights but also meets the computing power demands for large-scale pilot projects.
+④ 差异化创新优势
+相较于通义万相等商用模型，本项目自主训练的 SDXL 核心算法具备三大创新突破：
+场景精准适配：专为 “东方国画 + 情绪疗愈 ” 细分场景定制，突破通用模型在东方文化审美、情绪语义精准度上的局限，生成内容更贴合国人情感表达习惯；
+算法自主可控：从数据集构建、损失函数设计到模型微调全流程自主完成，形成核心算法壁垒，避免商用模型的接口限制与数据安全风险；
+疗愈导向优化：将心理疗愈目标嵌入算法训练目标，实现 “情绪识别→艺术生成→疗愈效果” 的闭环优化，区别于通用图像生成模型的 “纯美学导向” , 更具社会价值与应用潜力。
+Advantages of Differentiated Innovation
+Compared with commercial models such as Tongyi Wanxiang, the SDXL core algorithm independently trained in this project features three major innovative breakthroughs:
+Precise scenario adaptation: Customized specifically for the segmented scenario of "traditional Chinese painting + emotional healing", it overcomes the limitations of general models in terms of oriental cultural aesthetics and accuracy of emotional semantics, and generates content that better conforms to the emotional expression habits of Chinese people;
+Independent and controllable algorithms: The entire process from dataset construction, loss function design to model fine-tuning is completed independently, forming a core algorithm barrier and avoiding interface restrictions and data security risks of commercial models;
+Healing-oriented optimization: Psychological healing goals are embedded into algorithm training objectives, realizing closed-loop optimization of "emotion recognition → art generation → healing effect". Different from the "pure aesthetic orientation" of general image generation models, it has greater social value and application potential.
+(3)音频模型
+项目选用豆包音乐大模型作为音频模型。豆包音乐大模型是一款AI驱动的多模态音乐生成模型，融合自然语言处理、计算机视觉、深度学习及音乐信息检索等技术，能够基于文本描述、旋律片段或风格指令自动生成高质量音乐作品。该模型广泛应用于智能音乐创作、影视配乐、音频增强等多个领域。
+在自然语言驱动的音乐生成方面，豆包音乐大模型具备文本生成音乐能力。用户仅需输入简单的文本描述，模型便可自动生成符合要求的音乐片段，实现从自然语言到音乐信号的直接转换。该能力依赖于Transformer架构，通过自注意力机制对文本和音乐数据进行深度建模，使得生成的旋律具有高度的风格一致性与情感表达能力。
+在编曲能力方面，该模型采用Transformer + LSTM（长短时记忆网络）混合架构，结合多通道注意力机制，能够根据旋律自动匹配和声、节奏、伴奏等元素
+, 形成完整的乐曲结构，并支持钢琴、吉他、鼓点等多种乐器组合，从而提升音乐的层次感和动态表现力。
+从深度神经网络架构来看，豆包音乐大模型采用深度神经网络作为核心，并结合多种前沿模型，如Transformer-based Music Models，利用 自注意力机制建模长序列的音乐信息，使得旋律具有更强的连贯性和可控性；扩散模型通过逐步去噪生成高质量音乐，提升音乐的自然性和层次感；变分自编码器（VAE）用于学习音乐风格的潜在表示，支持风格迁移与风格混合，使生成的音乐更加多样化 ；GANs则用于音乐增强，生成更加自然的音频信号，并提升音乐结构的完整度。
+在情感计算和智能音乐疗愈方面，豆包音乐大模型结合多模态情感计算，能够根据用户的情绪状态、文本描述或生理反馈， 自动生成适合的音乐作品。例如 , 通过语音情感分析和文本情感分析判断用户的情绪（如焦虑、愉悦、放松等） , 并基于情绪驱动音乐生成技术， 自动生成匹配的音乐片段，对用户进行情感疗愈。
+Audio Model
+The project selects Doubao Music Large Model as the audio model. Doubao Music Large Model is an AI-driven multimodal music generation model that integrates technologies such as natural language processing, computer vision, deep learning, and music information retrieval. It can automatically generate high-quality musical works based on text descriptions, melody fragments, or style instructions. This model is widely used in various fields including intelligent music composition, film and television scoring, and audio enhancement.
+In terms of natural language-driven music generation, Doubao Music Large Model has the capability of text-to-music generation. Users only need to input simple text descriptions, and the model can automatically generate music fragments that meet the requirements, realizing the direct conversion from natural language to music signals. This capability relies on the Transformer architecture, which deeply models text and music data through the self-attention mechanism, enabling the generated melodies to have high stylistic consistency and emotional expressiveness.
+In terms of arrangement capabilities, the model adopts a hybrid Transformer + LSTM (Long Short-Term Memory) architecture combined with a multi-channel attention mechanism. It can automatically match elements such as harmony, rhythm, and accompaniment according to the melody to form a complete musical structure, and supports combinations of various instruments including piano, guitar, and drums, thereby enhancing the layering and dynamic expressiveness of music.
+From the perspective of deep neural network architecture, Doubao Music Large Model takes deep neural networks as its core and integrates a variety of cutting-edge models such as Transformer-based Music Models. It uses the self-attention mechanism to model long-sequence music information, making melodies more coherent and controllable. The diffusion model generates high-quality music through step-by-step denoising, improving the naturalness and layering of music. The Variational Autoencoder (VAE) is used to learn the latent representation of music styles, supporting style transfer and style mixing to diversify the generated music. GANs are applied to music enhancement, generating more natural audio signals and improving the integrity of musical structures.
+In terms of affective computing and intelligent music therapy, Doubao Music Large Model incorporates multimodal affective computing and can automatically generate suitable musical works according to users' emotional states, text descriptions, or physiological feedback. For example, by judging users' emotions (such as anxiety, pleasure, relaxation, etc.) through speech emotion analysis and text emotion analysis, and based on emotion-driven music generation technology, it automatically generates matching music fragments to provide emotional therapy for users.
+3.数据收集
+与心理治疗机构合作，完成与国画情感相关的数据实验。收集1000张国画名作（山水画、花鸟画），以 “豪放-婉约 ”“ 空寂-喧闹 ”“超脱-入世 ”等6组东方美学情感坐标轴为分类标准。让具有不同情绪问题的群体欣赏这些国画，标注欣赏的国画给其带来的情感体验，以此实验收集国画-东方情感-受众群体的三元数据结合具有情感心理问题群体的多轮对话数据构建数据集。
+Data CollectionCooperate with psychological therapy institutions to complete data experiments related to the emotions conveyed by traditional Chinese paintings. Collect 1,000 masterpieces of traditional Chinese painting (landscape paintings and flower-and-bird paintings), and adopt six groups of Oriental aesthetic emotional axes as classification criteria, including "Unrestrained - Graceful & Restrained", "Quiet & Empty - Lively & Noisy", and "Transcendent - Worldly". Invite groups with different emotional problems to appreciate these traditional Chinese paintings and label the emotional experiences brought by the paintings they viewed. Through this experiment, collect ternary data of traditional Chinese paintings - Oriental emotions - target audiences, and combine with multi-round dialogue data of groups with emotional and psychological problems to construct a dataset.
+图 4 数据集展示示例
+Figure 4 Example of Dataset Display
+1.1.5 市场机会
+Market Opportunity
+当前社会对心理健康的需求正呈现持续且快速的增长态势，越来越多不同年龄段、不同职业背景的人群开始重视自身心理状态的调节与呵护，但传统心理健康服务模式长期面临诸多现实瓶颈：不仅服务触达成本居高不下，让许多有需求的群体因经济压力或地域限制难以获得及时支持，还存在显著的资源分布不均问题——优质的心理专家、咨询机构多集中于一二线城市，广大下沉市场及偏远地区的服务供给严重不足，同时用户普遍存在的心理门槛也成为重要阻碍，不少人因对心理咨询的刻板印象、对隐私泄露的担忧或不愿主动暴露心理困扰的心态，迟迟不愿迈出寻求专业帮助的步伐在此背景下，数字心理服务凭借其便捷性、灵活性与可及性，正加速在全社会普及推广，尤其在高校学生群体、职场上班族以及企业员工援助计划（EAP）等核心场景中，由于人群集中、需求明确且具备规模化服务的基础条件，存在巨大的落地应用空间和市场潜力“墨心智愈”精准切入“东方文化适配+AI个性化干预”这一细分赛道，既立足本土文化语境，贴合国人心理认知与情感需求，避免了传统西方心理咨询模式的水土不服，又借助人工智能技术实现了服务的个性化定制与高效响应，与同类产品形成鲜明差异，成功开辟出独特的差异化市场机会
+Demand for mental health in current society is showing a sustained and rapid growth trend. More and more people of different age groups and professional backgrounds are beginning to attach importance to regulating and maintaining their own mental state. However, the traditional mental health service model has long faced many practical bottlenecks: not only is the cost of service access high, making it difficult for many groups in need to obtain timely support due to financial pressure or geographical restrictions, but there is also a significant problem of uneven resource distribution — high-quality psychological experts and counseling institutions are mostly concentrated in first-tier and second-tier cities, while the supply of services in vast lower-tier markets and remote areas is seriously insufficient. At the same time, the prevalent psychological barriers among users have also become a major obstacle. Many people are reluctant to take the step of seeking professional help due to stereotypes about psychological counseling, concerns about privacy leakage, or an unwillingness to voluntarily expose their psychological distress. Against this backdrop, digital mental health services are accelerating their popularization across society thanks to their convenience, flexibility and accessibility. Especially in core scenarios such as college student groups, workplace employees, and enterprise employee assistance programs (EAP), there is huge room for practical application and market potential given the concentrated population, clear demand and foundational conditions for large-scale services. "Ink Mind Healing
+" precisely targets the segmented track of "Oriental cultural adaptation + AI personalized intervention". It not only takes root in the local cultural context, aligns with Chinese people's psychological cognition and emotional needs, and avoids the incompatibility of traditional Western psychological counseling models, but also leverages artificial intelligence technology to achieve personalized service customization and efficient responses, forming a distinct difference from similar products and successfully opening up unique differentiated market opportunities.
+1.1.6 核心优势
+Core Strengths
+技术闭环优势：依托多模态协同能力，整合文本、语音、图像、音乐等多元交互形式，结合持续的疗效反馈数据进行迭代优化，形成可自我完善、可动态升级的完整技术系统
+内容差异化优势：以传统国画美学作为核心疗愈媒介，深度契合大众文化认知与情感共鸣，文化认同感突出，能够有效提升用户接受度与沉浸式体验感
+落地可行性优势：支持面向C端用户的直接服务与面向B端机构的合作拓展双路径并行推进，模式清晰、结构灵活，便于快速开展试点并实现规模化复制推广
+项目壁垒优势：具备自主构建的“国画-情绪”专属映射逻辑、流程化智能体协同体系以及可量化的效果评估框架，形成难以复制的核心竞争力与项目护城河
+Technical Closed-Loop Advantage: Relying on multimodal collaboration capabilities, it integrates diverse interactive forms such as text, voice, images, and music, and conducts iterative optimization combined with continuous therapeutic effect feedback data, forming a complete technical system that is self-improving and dynamically upgradable.
+Content Differentiation Advantage: Taking traditional Chinese painting aesthetics as the core healing medium, it deeply aligns with public cultural cognition and emotional resonance, boasts prominent cultural identity, and can effectively improve user acceptance and immersive experience.
+Implementation Feasibility Advantage: Supports the parallel advancement of dual paths—direct services for C-end users and cooperative expansion for B-end institutions. The model is clear and structurally flexible, facilitating rapid pilot launches and large-scale replication and promotion.
+Project Barrier Advantage: Possesses a self-built exclusive "Chinese painting-emotion" mapping logic, a streamlined intelligent agent collaboration system, and a quantifiable effect evaluation framework, forming an irreplicable core competitiveness and project moat.
+1.2 项目背景与意义
+Project Background and Significance
+1.2.1 国家战略层面的心理健康政策梳理
+Review of Mental Health Policies at the National Strategic Level
+《“健康中国2030”规划纲要》是心理健康领域的最高层级战略文件，明确将心理健康纳入公共卫生体系重点，提出到2030年居民心理健康素养水平提升至30%的目标
+The "Healthy China 2030" Plan Outline is the highest-level strategic document in the field of mental health. It clearly incorporates mental health into the priorities of the public health system and sets a goal to raise the level of residents' mental health literacy to 30% by 2030.​
+为落实这一纲要，国家层面在2025-2026年密集推出专项行动：2025年4月，国务院办公厅印发《关于开展“儿科和精神卫生服务年”行动（2025—2027年）的通知》，将心理健康服务向社区、学校、企业等场景延伸，要求2025年县域精神卫生服务网点覆盖率达50%，2027年实现县域线上心理服务全覆盖​；2026年1月，我国首部国家级艺术疗愈领域发展报告——《中国艺术疗愈发展报告蓝皮书》筹委会在京启动，其核心指导单位涵盖国家卫健委、文旅部、教育部相关直属机构，旨在构建艺术疗愈的学科框架与行业标准，为“传统文化+心理服务”提供专业指引与决策支持
+To implement this outline, the state has intensively launched special campaigns from 2025 to 2026: in April 2025, the General Office of the State Council issued the Circular on Launching the "Year of Pediatrics and Mental Health Services" Campaign (2025–2027), extending mental health services to communities, schools, enterprises and other scenarios, requiring the coverage rate of county-level mental health service outlets to reach 50% in 2025 and achieve full coverage of county-level online psychological services in 2027; in January 2026, the organizing committee of China Art Therapy Development Report Blue Book, China's first national-level development report in the field of art therapy, was launched in Beijing. Its core guiding authorities include relevant directly affiliated institutions of the National Health Commission, the Ministry of Culture and Tourism, and the Ministry of Education, aiming to build a disciplinary framework and industry standards for art therapy, and provide professional guidance and decision-making support for the integration of traditional culture and psychological services.
+从政策导向的演变看，2025-2026年的核心变化是从“体系建设”转向“服务深化”：此前政策的重点是“有没有”——比如是否建立心理援助热线、是否配备专职心理教师；而本轮政策的重点是“好不好”——比如服务是否贴合人群需求、是否能通过非药物手段实现更温和的干预其中，《蓝皮书》的启动是政策细化的里程碑事件：它首次将艺术疗愈从“辅助手段”定位为“心理健康服务体系的有机组成部分”，为“墨韵心调”这类以书法等传统艺术为载体的项目，提供了国家级的专业认可框架
+From the perspective of the evolution of policy orientation, the core change in 2025–2026 is the shift from "system construction" to "service deepening": previously, policies focused on "availability" — for instance, whether psychological assistance hotlines had been established and whether full-time psychological teachers had been assigned; while the current round of policies emphasizes "quality" — such as whether services meet the needs of target groups and whether milder interventions can be achieved through non-pharmaceutical means. Among these, the launch of the Blue Book marks a milestone in policy refinement: it for the first time positions art therapy as an "integral part of the mental health service system" rather than an "auxiliary method", providing a national-level professional recognition framework for programs like "Moyun Xindiao" that take traditional arts such as calligraphy as their carriers.
+2025年是《全国社会心理服务体系建设试点工作方案》的终期验收年，试点地区的成果直接推动了全国层面的政策升级从验收数据看，试点地区的核心指标均超额完成：全国333个地级市、直辖市的87个区县已全部完成心理门诊、睡眠门诊设置，心理门诊服务量较2024年同期提升17%，睡眠门诊服务量提升39%——这两项数据是政策落地成效的直接验证，也反映出群众对专业心理健康服务的需求正在快速释放​
+2025 marks the final acceptance year of the Pilot Work Plan for the Construction of a National Social Psychological Service System. The achievements of pilot areas have directly driven the upgrading of national-level policies. Judging from the acceptance data, all core indicators in pilot areas have been exceeded: 87 districts and counties under 333 prefecture-level cities and municipalities directly under the Central Government across the country have all set up psychological clinics and sleep clinics. The service volume of psychological clinics increased by 17% compared with the same period in 2024, and that of sleep clinics rose by 39%. These two sets of data serve as direct proof of the effective implementation of policies and also reflect the rapidly growing demand of the public for professional mental health services.
+试点工作的核心价值，在于探索出了可复制的“非药物干预”落地模式：比如部分试点城市将书法、音乐等艺术形式纳入社区心理健康服务包，针对轻度焦虑、抑郁群体开展定期干预；还有城市依托医院心理门诊，为患者提供“医疗咨询+艺术疗愈”的组合服务——这些实践不仅验证了非药物干预的有效性，更为后续政策的细化提供了参考案例​
+The core value of the pilot work lies in exploring a replicable implementation model of "non-pharmacological interventions". For instance, some pilot cities have incorporated artistic forms such as calligraphy and music into community mental health service packages to provide regular interventions for groups with mild anxiety and depression. Other cities, relying on psychological outpatient clinics in hospitals, offer patients a combined service of "medical consultation plus art therapy". These practices have not only verified the effectiveness of non-pharmacological interventions but also provided reference cases for the refinement of follow-up policies.
+2025年是《全国社会心理服务体系建设试点工作方案》的终期验收年，试点地区的成果直接推动了全国层面的政策升级从验收数据看，试点地区的核心指标均超额完成：全国333个地级市、直辖市的87个区县已全部完成心理门诊、睡眠门诊设置，心理门诊服务量较2024年同期提升17%，睡眠门诊服务量提升39%——这两项数据是政策落地成效的直接验证，也反映出群众对专业心理健康服务的需求正在快速释放​
+2025 marks the final acceptance year of the Pilot Work Plan for the Construction of a National Social Psychological Service System. The achievements of pilot areas have directly driven the upgrading of national-level policies. Judging from the acceptance data, all core indicators in pilot areas have been exceeded: 333 prefecture-level cities nationwide and 87 districts and counties under municipalities directly under the Central Government have all set up psychological clinics and sleep clinics. The service volume of psychological clinics increased by 17% compared with the same period in 2024, and that of sleep clinics rose by 39% — these two sets of data serve as direct proof of the effective implementation of policies and also reflect the rapid growth in public demand for professional mental health services.
+试点工作的核心价值，在于探索出了可复制的“非药物干预”落地模式：比如部分试点城市将书法、音乐等艺术形式纳入社区心理健康服务包，针对轻度焦虑、抑郁群体开展定期干预；还有城市依托医院心理门诊，为患者提供“医疗咨询+艺术疗愈”的组合服务——这些实践不仅验证了非药物干预的有效性，更为后续政策的细化提供了参考案例​
+The core value of the pilot work lies in exploring a replicable implementation model of "non-pharmacological interventions". For instance, some pilot cities have incorporated art forms such as calligraphy and music into community mental health service packages to provide regular interventions for groups with mild anxiety and depression. Other cities, relying on psychological outpatient clinics in hospitals, offer patients a combined service of "medical consultation plus art therapy". These practices have not only verified the effectiveness of non-pharmacological interventions but also provided reference cases for the refinement of subsequent policies.
+1.2.2 部门规章与跨部门协同政策
+Departmental Rules and Cross-Departmental Collaborative Policies
+教育部是学生心理健康工作的牵头部门，其政策体系围绕“全流程防护、全场景覆盖”构建2023年4月发布的《全面加强和改进新时代学生心理健康工作专项行动计划（2023—2025年）》明确了量化指标：到2025年，配备专（兼）职心理健康教育教师的学校比例达到95%，开展心理健康教育的家庭教育指导服务站点比例达到60%，高校专职心理咨询师师生比不低于1:4000且每校至少配备2名​
+2025年10月印发的《进一步加强中小学生心理健康工作十条措施》，则是对专项计划的细化与强化：文件不再仅停留在“队伍建设”层面，而是从减轻学业负担、保障睡眠等基础生理需求入手，系统性构建“健康教育-监测预警-咨询服务-干预处置”四位一体的工作体系——比如要求“每所学校至少配备1名专（兼）职心理教师”“建立学生心理问题线上线下联动发现机制”，同时明确将心理健康教育纳入学校考核指标，确保政策落地不打折扣值得注意的是，教育部的政策导向已从“危机干预”转向“积极心理建设”：2026年政府工作报告明确将美育与心理健康教育融合，提出“艺术教育不再是技能训练，而是情感教育、人格养成的重要途径”——这意味着书法、绘画等传统艺术形式，将正式成为学生心理健康教育的重要载体，而非此前的“课外活动”​
+The Ministry of Education is the leading department responsible for students' mental health work, and its policy system is built around the principles of "whole-process protection and all-scenario coverage". The Special Action Plan for Comprehensively Strengthening and Improving Students' Mental Health Work in the New Era (2023–2025), issued in April 2023, set clear quantitative targets: by 2025, the proportion of schools equipped with full-time or part-time mental health education teachers shall reach 95%, the proportion of family education guidance service stations offering mental health education shall reach 60%, and the ratio of full-time psychological counselors to students in institutions of higher education shall be no lower than 1:4,000, with at least two such counselors per university.
+The Ten Measures to Further Strengthen Mental Health Work Among Primary and Secondary School Students, issued in October 2025, refine and strengthen the special action plan. Rather than focusing only on "team building", the document starts with meeting basic physiological needs such as reducing academic burdens and ensuring sleep, and systematically establishes a four-in-one work system of "health education, monitoring and early warning, counseling services, and intervention and handling". For instance, it requires "each school to be equipped with at least one full-time or part-time psychological teacher" and "to establish an online-offline linked mechanism for detecting students' psychological problems". Meanwhile, it explicitly incorporates mental health education into school assessment indicators to ensure full policy implementation.
+Notably, the Ministry of Education's policy orientation has shifted from "crisis intervention" to "positive psychological development". The 2026 Government Work Report clearly integrates aesthetic education with mental health education, stating that "art education is no longer merely skill training but an important approach to emotional education and personality cultivation". This means traditional art forms such as calligraphy and painting will officially become important carriers of students' mental health education, rather than being treated as "extracurricular activities" as before.
+1.2.3 政策与“墨韵心调”项目契合点分析​
+Analysis of the Alignment Points between Policies and the "Ink Rhythm & Mental Regulation" Project
+综合2025-2026年的政策体系，其核心导向可总结为三点：
+Based on an integrated analysis of the 2025-2026 policy framework, its core orientations can be summarized in three points:​
+服务对象扩大化：从“患者”转向“全人群”，尤其关注青少年、职场人、老年人等重点群体的心理健康促进——比如教育部的政策覆盖从小学到高校的所有学生，民政部的社区康复服务覆盖精神障碍患者，国家卫健委的专项行动覆盖全年龄段群众
+Expansion of service recipients: shifting from "patients" to "the entire population", with a particular focus on mental health promotion among key groups such as adolescents, working professionals, and the elderly. For instance, policies issued by the Ministry of Education cover all students from primary schools to universities; community rehabilitation services provided by the Ministry of Civil Affairs cover people with mental disorders; and special campaigns launched by the National Health Commission cover people of all age groups.​
+服务形式多元化：鼓励非药物干预手段，明确支持艺术疗愈、传统文化与心理健康的融合——《蓝皮书》的启动、各地的书法疗愈试点，都验证了这一导向的落地节奏
+Diversified service forms: Encouragement of non-pharmaceutical interventions and clear support for the integration of art therapy, traditional culture and mental health — the launch of the Blue Book and pilot calligraphy therapy programs in various regions have all verified the implementation pace of this orientation.​
+服务场景基层化：强调社区、学校、企业等基层场景的服务供给，推动心理健康服务从“医院”走向“生活场景”——比如社区心理服务站、学校心理辅导室这些导向与“墨心智愈”项目的核心定位高度契合：​
+理念契合：项目以书法艺术为载体，本质是“非药物、非侵入式”的心理调适方式，完全符合政策对“艺术疗愈”的倡导方向——国家卫健委明确鼓励非药物干预，《蓝皮书》也将书法这类传统艺术形式列为重点研究领域​
+人群契合：项目的核心服务群体（高校学生、青年职场群体），正是政策重点关注的高需求群体——教育部将高校学生列为心理健康工作的核心对象，全总也将青年职场群体纳入重点服务范围​
+场景契合：项目可落地于社区、学校、企业等基层场景，与政策要求的“服务下沉”完全匹配——比如社区的心理服务站、高校的心理健康中心，都是项目可依托的落地载体​
+Grassroots-oriented service scenarios: Emphasis is placed on providing services in grassroots settings such as communities, schools, and enterprises, promoting the shift of mental health services from "hospitals" to "daily life scenarios" — for instance, community mental health service stations and school psychological counseling rooms. This orientation is highly consistent with the core positioning of the "Ink Mind Healing" project:
+Conceptual alignment: Taking calligraphy art as the carrier, the project essentially adopts a "non-pharmaceutical, non-invasive" approach to psychological adjustment, which fully aligns with the policy advocacy for "art therapy" — the National Health Commission explicitly encourages non-pharmaceutical interventions, and the Blue Book also lists traditional art forms such as calligraphy as key research areas.
+Target group alignment: The project's core service groups (university students and young working professionals) are precisely the high-need groups prioritized by policies — the Ministry of Education identifies university students as the core target of mental health work, and the All-China Federation of Trade Unions also includes young working professionals in its key service scope.
+Scenario alignment: The project can be implemented in grassroots settings such as communities, schools, and enterprises, fully matching the policy requirement of "service decentralization" — for example, community mental health service stations and university mental health centers are all feasible carriers for the project's implementation.
+1.3 项目可行性分析
+Project Feasibility Analysis
+1.3.1 政策可行性
+Policy feasibility
+项目方向与国家“健康中国2030”战略、心理健康服务体系建设以及数字技术赋能公共服务的政策导向高度一致高校、企业与社区场景对心理支持服务需求持续提升，为项目试点与推广提供了明确政策环境“墨韵心调”采用非医疗化、陪伴式、轻干预路径，能够在合规前提下补充传统心理服务供给，具备较强的政策适配性与社会协同基础
+The project direction is highly consistent with the national "Healthy China 2030" strategy, the development of the mental health service system, and the policy orientation of digital technology empowering public services. The continuous growth in demand for psychological support services in universities, enterprises and community scenarios provides a clear policy environment for the pilot and promotion of the project. "Moyun XinTiao" adopts a non-medical, companion-based and light-intervention approach, which can supplement the supply of traditional psychological services on the premise of compliance, and has strong policy adaptability and a foundation for social collaboration.
+1.3.2 市场可行性
+Market feasibility
+目标用户（高校学生、青年职场群体、心理亚健康人群）规模大、需求真实且具备持续性传统线下服务在覆盖率、成本与使用频率方面存在限制，数字化情绪调节产品具有明显替代与补充价值项目以“文化疗愈+AI个性化”切入差异化赛道，既能满足用户情绪调节需求，又能通过校园与企业渠道实现规模化触达，市场落地路径明确
+The target user groups (university students, young professionals, and people with suboptimal mental health) are large in scale, with genuine and sustained needs. Traditional offline services are limited in terms of coverage, cost, and frequency of use, making digital emotional regulation products of significant alternative and supplementary value. By entering a differentiated market segment with a focus on "cultural healing + AI personalization", the project not only meets users' emotional regulation needs but also achieves large-scale outreach through campus and corporate channels, with a clear market implementation path.
+1.3.3 技术可行性
+Technical Feasibility
+项目技术路线清晰，采用“情绪识别—内容生成—干预引导—疗效评估—模型迭代”闭环架构，具备工程实现可操作性在模型能力方面，可基于现有成熟大模型能力进行二次开发；在系统层面，通过模块化设计实现识别、生成、评估各环节解耦，便于迭代升级；在验证层面，可通过量表与行为数据双维度评估干预效果，形成可复现实证链路
+The project features a clear technical route, adopting a closed-loop architecture of "emotion recognition—content generation—intervention guidance—efficacy evaluation—model iteration", which is feasible for engineering implementation. In terms of model capabilities, secondary development can be carried out based on the capabilities of existing mature large models; at the system level, modular design is adopted to decouple the links of recognition, generation and evaluation, facilitating iterative upgrades; at the verification level, intervention effects can be assessed from both scale and behavioral data dimensions, forming a repeatable empirical chain.
+1.3.4 商业可行性
+Commercial Feasibility
+项目可采用“B端场景落地+C端持续服务”的双轮驱动模式前期通过高校心理中心、企业EAP等合作场景完成试点验证，中期依托标准化产品与服务流程实现复制扩张，后期形成订阅、服务包、联合内容合作等复合收益结构随着用户规模增长，平台边际服务成本下降，具备由验证期向稳态运营期过渡的商业可行性
+The project can adopt a two-wheel drive model of "B-side scenario implementation + C-side continuous service". In the early stage, pilot verification will be completed through cooperative scenarios such as university psychological centers and corporate EAPs. In the medium term, replication and expansion will be achieved relying on standardized products and service processes. In the later stage, a composite revenue structure will be formed, including subscriptions, service packages, and joint content cooperation. With the growth of user scale, the platform's marginal service cost will decrease, which makes it commercially feasible to transition from the verification period to the steady-state operation period.
+1.3.5 合规与版权可行性
+Compliance and Copyright Feasibility
+项目可通过数据分级管理、隐私脱敏、授权采集与日志审计等机制满足数据合规要求；在高风险场景中设置人工复核与干预边界，降低误判风险在知识产权层面，平台软件、流程方法、数据标注规范等均可形成可申报资产；对生成内容来源、使用权限与授权规则进行前置规范，可有效降低版权风险
+The project can meet data compliance requirements through mechanisms such as hierarchical data management, privacy desensitization, authorized collection, and log auditing; manual review and intervention boundaries are set in high-risk scenarios to reduce the risk of misjudgment. At the intellectual property level, platform software, process methods, data annotation specifications, and other items can all form registrable assets. Pre-regulating the source, usage rights, and authorization rules of generated content can effectively reduce copyright risks.
+1.3.6 团队与社会价值可行性
+Feasibility of Team and Social Value
+团队具备“技术开发+产品设计+运营落地”的复合能力，分工明确，执行链条完整，并具备导师与校内外资源支持基础
+项目在社会价值上兼顾普惠性与可持续性：一方面提升心理支持触达效率，降低服务门槛；另一方面推动传统文化与数字健康融合，具有教育示范价值、社会效益与推广意义
+The team possesses comprehensive capabilities integrating "technology development, product design, and operational implementation", with clear division of labor, a complete execution chain, and a foundation of support from mentors as well as internal and external resources.In terms of social value, the project balances inclusiveness and sustainability: on the one hand, it improves the reach efficiency of psychological support and lowers the threshold for services; on the other hand, it promotes the integration of traditional culture and digital health, which carries educational demonstration value, social benefits and promotional significance.
+1.4 市场分析
+Market Analysis
+1.4.1 行业市场规模
+Industry Market Size
+随着心理健康需求上升与数字化服务普及，情绪管理与数字疗愈赛道进入加速发展期高校心理服务、企业EAP、青年个人情绪调节等场景形成稳定需求来源，市场呈现“需求高频化、服务轻量化、产品智能化”趋势“墨韵心调”所处细分方向具备明显成长空间：一方面，传统线下服务供给有限；另一方面，用户对低门槛、可持续、具文化认同感的数字产品接受度不断提升
+With the rising demand for mental health and the popularization of digital services, the emotional management and digital therapy sector has entered a period of accelerated development. Scenarios such as psychological services in colleges and universities, corporate EAP programs, and personal emotional regulation among young people have formed stable sources of demand. The market is showing a trend of "high-frequency demand, lightweight services, and intelligent products". The segment where "Moyun Xintiao" operates boasts significant growth potential: on the one hand, the supply of traditional offline services is limited; on the other hand, users' acceptance of low-threshold, sustainable digital products with cultural identity is continuously increasing.
+1.4.2 行业概况
+Industry Overview
+本项目建议将“文旅市场概况”调整为“数字心理健康与情绪管理市场概况”当前行业正在从单点咨询向“陪伴式+评估式+个性化”服务演进，AI大模型和多模态生成技术提升了产品可用性与个体适配能力在政策支持、技术成熟和场景需求三重驱动下，行业正由早期探索向规范化、规模化过渡
+This project proposes revising "Overview of the Cultural and Tourism Market" to "Overview of the Digital Mental Health and Emotion Management Market". The current industry is evolving from single-point consulting to "accompanying + assessment + personalized" services. AI large models and multimodal generation technologies have improved product usability and individual adaptability. Driven by policy support, technological maturity and scenario demand, the industry is transitioning from early exploration to standardization and large-scale development.
+1.5 目标用户分析
+Target User Analysis
+目标用户聚焦三类核心群体：高校学生、初入职场青年、心理亚健康人群三类用户共同特征是压力来源多样、情绪波动频繁、对“非病理化且隐私友好”的调节方式需求强项目通过国画与音乐联动的多模态干预，提升情绪调节的沉浸感与持续使用意愿，能够更好匹配年轻用户偏好
+The target users focus on three core groups: college students, young people new to the workplace, and people with suboptimal mental health. These three types of users share common characteristics: diverse sources of stress, frequent emotional fluctuations, and a strong demand for "non-pathological and privacy-friendly" regulation methods. Through multi-modal intervention combining traditional Chinese painting and music, the project enhances the sense of immersion in emotional regulation and the willingness to continue using it, which can better match the preferences of young users.
+用户对像
+高校学生：学习与就业压力突出，偏好便捷、低打扰、可日常使用的工具
+职场青年：工作节奏快，重视即时调节效果与隐私保护
+心理亚健康群体：有长期管理需求，希望获得连续性的个性化支持
+综合来看，项目可通过“轻入口+高频触达+持续反馈”建立稳定用户粘性
+User personas
+College students: Faced with prominent academic and employment pressure, they prefer convenient, lowdisturbance tools suitable for daily use.
+Young professionals: Working at a fast pace, they value immediate regulatory effects and privacy protection.
+Groups with suboptimal mental health: In need of longterm management, they hope to receive continuous and personalized support.
+Overall, the project can build stable user stickiness through a "lightweight entry + highfrequency reach + continuous feedback" model.
+1.6 竞争分析
+Competitive Analysis
+1.6.1 竞争格局分析
+Competitive Landscape Analysis
+当前市场主要竞争类型包括：通用心理咨询平台、冥想/白噪音类应用、AI聊天陪伴工具、单模态情绪识别产品行业总体特点是产品同质化较高，文化表达弱，疗效评估链路不完整“墨心智愈”以“东方审美表达+多模态协同干预+效果闭环评估”切入，能够与现有产品形成错位竞争
+The main types of competition in the current market include: general psychological counseling platforms, meditation/white noise applications, AI chat companion tools, and single-modal emotion recognition products. The overall characteristics of the industry are high product homogeneity, weak cultural expression, and an incomplete efficacy evaluation chain. "Moxin Zhiyu" enters the market with "Oriental aesthetic expression + multi-modal collaborative intervention + closed-loop effect evaluation", enabling it to form misplaced competition with existing products.
+2 产品服务与技术方案
+Products, Services and Technical Solutions
+2.1 产品与服务介绍
+Introduction to Products and Services
+2.1.1 产品概述
+Product Overview
+“墨心智愈”是一款面向青年与心理亚健康人群的AI情绪调节产品，围绕“识别—生成—干预—评估”构建完整服务链路产品通过多模态交互方式采集用户情绪状态，结合国画与音乐生成能力，为用户提供个性化、低门槛、可持续的数字疗愈体验在服务形态上，项目支持C端日常使用与B端场景接入，可应用于高校心理支持、企业员工关怀及社区心理服务等场景
+"Ink Mind Healing" is an AI emotion regulation product designed for young people and people with suboptimal mental health. It builds a complete service chain around "identification – generation – intervention – evaluation". The product collects users' emotional states through multimodal interaction, and combines traditional Chinese painting and music generation capabilities to provide users with personalized, low-threshold and sustainable digital healing experiences. In terms of service forms, the project supports daily use by individual consumers and scenario access for business clients, and can be applied to scenarios such as psychological support in universities, employee care in enterprises, and community psychological services.
+2.1.2 产品定位
+Product positioning
+项目定位为“融合东方美学表达的智能化情绪干预平台”与通用心理陪伴工具相比，产品强调文化适配与个体化调节；与传统心理服务相比，产品强调高频触达与持续陪伴其核心价值在于：在保证科学评估框架的同时，降低用户使用门槛，提高情绪管理的可达性、可感知性与可持续性
+The project is positioned as an "intelligent emotional intervention platform integrating expressions of Oriental aesthetics". Compared with general psychological companionship tools, the product emphasizes cultural adaptation and individualized regulation; in contrast to traditional psychological services, it highlights high-frequency reach and continuous companionship. Its core value lies in: while ensuring a scientific evaluation framework, lowering the threshold for user access, and enhancing the accessibility, perceptibility and sustainability of emotional management.
+2.1.3 核心功能模块
+Core functional modules
+产品围绕用户完整体验路径构建功能体系，形成前端可感知、后端可评估、系统可迭代的闭环架构
+The product constructs a functional system around the complete user experience path, forming a closed-loop architecture that is perceptible at the front end, evaluable at the back end, and iterable within the system.
+（1）情绪识别与状态评估模块
+系统通过文本/语音输入、交互行为及量表信息，识别用户当前情绪状态与压力等级，输出个性化干预建议该模块作为全流程入口，决定后续内容生成与引导策略的精准性
+（2）国画与音乐生成干预模块
+系统根据识别结果调用视觉与音频生成能力，输出与情绪状态匹配的国画与音乐内容，形成“视觉—听觉—语义”协同干预体验该模块重点解决传统单模态方案沉浸感不足、个体适配弱的问题
+（3）疗效反馈与迭代优化模块
+系统通过用户反馈、行为数据与阶段性量表结果，对干预效果进行量化评估，并将有效样本回流模型训练，持续优化策略推荐与内容生成质量该模块保证产品从“可用”向“有效”持续升级，形成长期竞争壁垒
+Emotion Recognition and Status Assessment Module
+The system identifies users' current emotional states and stress levels through text/voice input, interactive behaviors and scale information, and outputs personalized intervention suggestions. Serving as the entry point of the entire process, this module determines the accuracy of subsequent content generation and guidance strategies.
+Traditional Chinese Painting and Music Generation Intervention Module
+Based on the recognition results, the system invokes visual and audio generation capabilities to output traditional Chinese painting and music content matching the emotional states, forming a collaborative intervention experience of "vision-audition-semantics". This module mainly addresses the problems of insufficient immersion and weak individual adaptation in traditional single-modal solutions.
+Efficacy Feedback and Iterative Optimization Module
+The system quantitatively evaluates intervention effects through user feedback, behavioral data and phased scale results, and returns valid samples to model training to continuously optimize the quality of strategy recommendation and content generation. This module ensures the product's continuous upgrading from "usable" to "effective" and forms a long-term competitive edge.
+2.2 技术架构与实现方案
+Technical Architecture and Implementation Scheme
+核心研究目标
+Core research objectives
+本项目聚焦多模态情感计算与东方艺术美学的交叉创新，以国画为核心载体，围绕 “情绪支持 ” 与 “ 共感交互 ” 两大核心目标，搭建系统化东方审美情绪坐标体系，研发可解释的东方艺术情绪表达模型，构建全维度多模态情绪支持体系。
+在心理健康领域，EmoVision平台通过多模态技术整合对患者进行多感官干预治疗。患者通过与EmoLLM模型进行多轮对话交流，通过文字或语音描述自身状态，emollm分析识别患者潜在心理问题，对患者相对欠缺的情感进行强化。
+基于情感诊断结果，大模型将EmoVision平台与传统文化结合进行干预。 EmoLLM从标注情绪的国画数据库中匹配作品用于情感治疗，通过ai实时生成新的国画作品，更新数据集用于治疗。
+治疗过程中，视听文三者结合。生成的情绪文本、 国画画面与音乐相符，多感官协同机制，极大的增强了治疗效果。
+This project focuses on the interdisciplinary innovation of multimodal affective computing and Oriental artistic aesthetics. With traditional Chinese painting as the core carrier, it centers on the two core goals of "emotional support" and "empathic interaction", establishes a systematic Oriental aesthetic emotional coordinate system, develops an interpretable emotional expression model for Oriental art, and constructs a comprehensive multimodal emotional support system.
+In the field of mental health, the EmoVision platform provides multi-sensory intervention therapy for patients through the integration of multimodal technologies. Patients communicate with the EmoLLM model through multiple rounds of dialogue, describing their conditions via text or voice. EmoLLM analyzes and identifies potential psychological problems of patients and strengthens the emotions that patients are relatively deficient in.
+Based on the results of emotional diagnosis, the large model integrates the EmoVision platform with traditional culture for intervention. EmoLLM matches works from an emotion-annotated traditional Chinese painting database for emotional therapy, generates new traditional Chinese paintings in real time through AI, and updates the dataset for therapeutic use.
+During treatment, audio, visual and textual elements are combined. The generated emotional text, traditional Chinese painting images and music are consistent with each other, and the multi-sensory synergy mechanism greatly enhances the therapeutic effect.
+核心研究内容
+Core research content
+（1）多模态融合的情绪诊断与情感需求深度解析
+本项目依托 EmoLLM 大模型搭建文本 + 语音 + 面部微表情三维多模态情绪感知体系，突破单一交互形式的局限。通过与用户开展多轮智能对话，结合多模态数据的综合分析，精准识别用户潜在情绪问题、深度解析情感需求倾向 , 提取需强化的目标情感维度，并为用户建立个性化情绪档案，形成科学、精准的情绪诊断结果，为后续个性化情绪支持提供核心依据。
+Multimodal Fusion-Based Emotional Diagnosis and In-Depth Analysis of Emotional Needs
+This project relies on the EmoLLM large model to build a three-dimensional multimodal emotion perception system integrating text, speech and facial microexpressions, breaking through the limitations of single interaction forms. Through multiple rounds of intelligent conversations with users and comprehensive analysis of multimodal data, it accurately identifies users' potential emotional problems, deeply parses their emotional need tendencies, extracts target emotional dimensions that require enhancement, and establishes personalized emotional profiles for users, forming scientific and accurate emotional diagnosis results that provide a core basis for subsequent personalized emotional support.
+图 5 Emollm模型框架
+Figure 5 Emollm Model
+Framework
+（2）构建系统化的东方审美情绪坐标体系，打造标注完整情绪维度与艺术特征的国画数据库，建立情绪特征与国画色彩、笔触、构图、意象等核心美学元素的可解释映射规则。EmoLLM 大模型根据情绪诊断结果，从数据库中智能筛选高契合度的国画作品；引入视频流动态化技术，实现静态国画的场景化、沉浸式呈现。若现有作品匹配度未达预期，将通过 AI 视觉模型实时生成贴合用户情感需求的个性化国画作品，并将优质生成内容同步更新至数据库，形成 “数据匹配 - 内容生成 - 数据库迭代 ” 的良性循环，实现东方艺术情绪表达的可解释性与动态化。
+（2） Construct a systematic coordinate system of Oriental aesthetic emotions, build a traditional Chinese painting database with complete annotations of emotional dimensions and artistic characteristics, and establish interpretable mapping rules between emotional features and core aesthetic elements of traditional Chinese paintings such as color, brushstrokes, composition and imagery. Based on emotional diagnosis results, the EmoLLM large model intelligently selects highly compatible traditional Chinese painting works from the database; video flow dynamic technology is introduced to realize scene-based and immersive presentation of static traditional Chinese paintings. If the matching degree of existing works fails to meet expectations, personalized traditional Chinese painting works that fit users' emotional needs will be generated in real time through an AI vision model, and high-quality generated content will be synchronously updated to the database, forming a virtuous cycle of "data matching - content generation - database iteration", and realizing the interpretability and dynamization of emotional expression in Oriental art.
+（3）视听文深度协同的多模态情绪支持机制构建
+打造 “视觉 - 听觉 - 文本 ” 三位一体的多模态情绪支持体系，确保各维度内容的情绪特征高度统一、协同赋能。视觉层面，以匹配或 AI 生成的国画作品为核心，通过动态化呈现强化情绪视觉传导；听觉层面，依托 AI 音频模型生成与国画情绪意境高度契合的背景音乐，实现音画同步的情绪渲染；文本层面，根据用户情感需求生成针对性情绪引导文本，通过智能交互实现正向情感疏导。借助多感官协同干预机制，强化情绪支持效果，实现从单一模态反馈到多模态深度协同情绪支持的升级。
+Construction of a Multimodal Emotional Support Mechanism with Deep Collaboration of Audio, Visual and Textual Content
+Establish a trinity multimodal emotional support system integrating "vision, audio and text" to ensure that the emotional characteristics of content in each dimension are highly unified and empower collaboratively. At the visual level, with traditional Chinese paintings matched or AI-generated as the core, emotional visual transmission is enhanced through dynamic presentation; at the audio level, background music highly consistent with the emotional artistic conception of traditional Chinese paintings is generated relying on AI audio models, realizing emotional rendering with synchronized sound and images; at the textual level, targeted emotional guidance texts are generated according to users' emotional needs, and positive emotional counseling is achieved through intelligent interaction. With the multi-sensory collaborative intervention mechanism, the effect of emotional support is strengthened, realizing the upgrading from single-modal feedback to deep multimodal collaborative emotional support.
+（4）群体化共感交互场景的设计与开发
+突破单一化个人体验局限，设计适配校园心理社群、社区艺术疗愈、线上情绪支持小组三大核心场景的群体共感交互系统。搭建群体情绪可视化模块，将群体成员的情绪状态通过东方艺术元素直观呈现，实现群体情绪的相互感知 ；开发共感创作交互功能，支持多人协同国画创作、基于群体整体情绪特征的集体国画生成，通过创作互动实现情绪的传递与共鸣；构建艺术主题共感交流模块，结合国画内容引导群体成员进行情感表达与相互支持，实现从个人情绪疏导到群体共感交互、规模化疗愈的突破。
+Design and Development of Group Empathetic Interaction Scenarios.
+Breaking through the limitations of individualized personal experience, design a group empathetic interaction system adapted to three core scenarios: campus psychological communities, community art therapy, and online emotional support groups. Build a group emotion visualization module that intuitively presents the emotional states of group members through Eastern artistic elements, enabling mutual perception of group emotions; develop empathetic creative interaction functions that support collaborative traditional Chinese painting creation by multiple people and collective traditional Chinese painting generation based on the overall emotional characteristics of the group, realizing emotional transmission and resonance through creative interaction; construct an art-themed empathetic communication module that guides group members in emotional expression and mutual support combined with traditional Chinese painting content, achieving a breakthrough from individual emotional counseling to group empathetic interaction and large-scale healing.
+（5）全流程疗效量化评估与系统智能迭代优化
+建立多维度、可量化的情绪支持疗效评估体系，通过实时捕捉用户面部微表情、生理信号变化，结合标准化情绪量表测评、用户主观体验反馈，对情绪支持效果进行阶段性量化评估与数据分析。系统将筛选高效的情绪支持方案与优质艺术内容，对 EmoLLM 大模型及各 AI 生成模型进行针对性重新训练与参数优化，迭代升级模型决策逻辑； 同时根据用户情绪动态变化与体验反馈，实时调整个性化情绪支持策略，形成 “疗效评估 - 模型优化 - 策略迭代 ” 的闭环机制，实现情绪支持方案的持续个性化、精准化升级。
+Quantitative Evaluation of Full-Process Therapeutic Effects and Intelligent Iterative Optimization of the System.
+Establish a multi-dimensional, quantifiable evaluation system for the therapeutic effects of emotional support. By capturing users' facial microexpressions and changes in physiological signals in real time, combined with standardized emotional scale assessments and users' subjective experience feedback, conduct phased quantitative evaluation and data analysis on the effectiveness of emotional support. The system will screen efficient emotional support programs and high-quality artistic content, carry out targeted retraining and parameter optimization for the EmoLLM large model and various AI generation models, and iteratively upgrade the model's decision-making logic. Meanwhile, adjust personalized emotional support strategies in real time according to users' dynamic emotional changes and experience feedback, forming a closed-loop mechanism of "therapeutic effect evaluation - model optimization - strategy iteration", so as to achieve continuous personalized and precise upgrading of emotional support programs.
+通过以上研究内容的落地实施，本项目将构建起 “感知 - 解析 - 支持 -交互 - 优化 ” 的全链路闭环情绪服务体系，在为用户提供个性化、沉浸式、多场景的非药物情绪干预体验的同时，通过人工智能技术赋予国画等东方传统艺术全新的表达形式与传播场景，推动心理健康服务与传统文化传承的双向赋能、协同发展。
+Through the implementation of the above research content, this project will establish a full-link closed-loop emotional service system of "perception-analysis-support-interaction-optimization". While providing users with personalized, immersive and multi-scenario non-pharmaceutical emotional intervention experiences, it will endow traditional Oriental arts such as traditional Chinese painting with new forms of expression and communication scenarios via artificial intelligence technology, promoting the two-way empowerment and coordinated development of mental health services and the inheritance of traditional culture.
+图 6 系统框架图
+Figure 6 System Framework Diagram
+核心技术模块实现
+Implementation of core technical modules
+针对上述多模态情绪支持机制与各研究内容的技术落地需求，本项目围绕“东方国画情绪疗愈 ” 目标，构建 “情绪识别→ 多模态生成→协同输出 ” 的闭环技术体系，核心模块实现如下：
+In response to the technical implementation requirements of the above multimodal emotion support mechanisms and various research contents, this project focuses on the goal of "emotional healing through traditional Chinese oriental paintings" and constructs a closed-loop technical system of "emotion recognition → multimodal generation → collaborative output". The core modules are implemented as follows:
+视觉生成模块以本地化部署 Stable Diffusion WebUI（txt2img API ) 为核心实现，可兼容阿里云通义万相等云端接 口，通过国画风格提示词工程与模型微调，生成匹配用户情绪的东方美学视觉内容。模块优先采用开源模型保障部署灵活性，同时预留云端接口扩展能力，适配不同场景下的生成效果与算力需求。
+The visual generation module is mainly implemented based on the locally deployed Stable Diffusion WebUI (txt2img API), and is compatible with cloud interfaces such as Alibaba Cloud Tongyi Wanxiang. Through traditional Chinese painting-style prompt engineering and model fine-tuning, it generates Oriental aesthetic visual content that matches user emotions. The module prioritizes the use of open-source models to ensure deployment flexibility, while reserving cloud interface expansion capabilities to adapt to generation effects and computing power requirements in different scenarios.
+音频生成模块采用火山引擎 BGM 生成接 口（如 GenBGMForTime）实现情绪适配背景音乐生成，对话与语音合成模块基于豆包大模型实现。音频内容将根据情绪强度与类型（如舒缓、沉静、开阔等东方情绪维度） 自动匹配节奏与音色，为用户提供沉浸式疗愈听觉体验；对话模块可支持用户情绪倾诉与反馈，强化交互性与共情效果。
+The audio generation module adopts the Volcano Engine BGM generation interface (such as GenBGMForTime) to generate emotionally adaptive background music. The dialogue and speech synthesis module is implemented based on the Doubao large model. Audio content will automatically match rhythm and timbre according to emotional intensity and type (such as soothing, calm, open and other oriental emotional dimensions), providing users with an immersive healing auditory experience; the dialogue module can support users' emotional expression and feedback, enhancing interactivity and empathy.
+情绪识别与联动模块基于 EmoLLM 完成用户文本输入 → JSON 情绪标签 / 强度输出 → 与 情绪映射配置文件（emotion_to_prompt.csv）联动，自动生成适配的文生图与音乐生成提示词，驱动后续多模态内容生成。该模块实现了 “用户情绪→技术指令 ” 的标准化转换，避免人工干预，保障疗愈内容与用户情绪的精准匹配。
+The emotion recognition and linkage module, based on EmoLLM, processes user text input → outputs JSON emotion labels/intensity → links with the emotion mapping configuration file (emotion_to_prompt.csv) to automatically generate suitable text-to-image and music generation prompts, driving subsequent multimodal content generation. This module realizes the standardized conversion of "user emotion → technical instructions", eliminates manual intervention, and ensures the precise matching of healing content with user emotions.
+多模态协同机制通过 payload 统一归档、情绪模板选择、共情文案生成、音画同步导出、运行日志（如系统测试日志smoke_test_log.csv）记录等工程化手段，实现文本情绪、视觉风格与音频氛围的高度协同。所有生成内容将关联同一情绪标签，确保疗愈体验的一致性与可控性，同时日志数据可用于后续模型优化与疗效分析。
+The multimodal collaboration mechanism achieves high coordination among textual emotions, visual styles, and audio atmospheres through engineering methods such as unified archiving of payloads, selection of emotional templates, generation of empathetic copy, synchronized audio-visual export, and recording of operation logs (e.g., system test logs smoke_test_log.csv). All generated content will be associated with the same emotional tag to ensure the consistency and controllability of the healing experience. Meanwhile, the log data can be used for subsequent model optimization and curative effect analysis.
+图 7 多模态情绪疗愈系统技术路线图
+Figure 7 Technical Roadmap of Multimodal Emotional Healing System
+本项目技术路线覆盖背景研究→市场验证→技术实现→ 落地迭代全流程，形成“数据准备→情绪推断→ 多模态生成→系统集成→试点迭代 ”的闭环研发路径，各阶段核心工作如下：
+The technical route of this project covers the entire process from background research, market validation, and technical implementation to landing and iteration, forming a closed-loop R&D path of "data preparation → emotion inference → multimodal generation → system integration → pilot iteration". The core work of each stage is as follows:
+阶段1 数据与规范制备：完成国画筛选与素材授权，制定标注规范与伦理说明，构建“豪放-婉约 ”“ 空寂-喧闹 ”等东方美学情绪坐标体系，形成情绪-美学三元数据雏形，为后续多模态生成提供合规、结构化的东方艺术数据基础。
+Stage 1 Data and Specification Preparation: Complete the screening of traditional Chinese paintings and material authorization, formulate annotation specifications and ethical statements, construct an Oriental aesthetic emotion coordinate system including "Unrestrained-Elegant", "Serene-Lively" and other dimensions, and form an initial prototype of ternary emotion-aesthetic data, laying a compliant and structured Oriental artistic data foundation for subsequent multimodal generation.
+（2）阶段2 情绪推断与模板：基于 EmoLLM 实现情绪结构化输出，构建
+`emotion_to_prompt.csv` 情绪映射配置文件，生成适配东方审美情绪的正/负向文生图提示词与情绪疏导文案，完成“用户情绪→技术指令 ”的标准化转换。
+Stage 2 Emotion Inference and Templates: Implement structured emotion output based on EmoLLM, construct the emotion_to_prompt.csv emotion mapping configuration file, generate positive/negative text-to-image prompts and emotional counseling copy adapted to Eastern aesthetic emotions, and complete the standardized conversion from "user emotions → technical instructions".
+阶段3 视觉/音频生成：调用本地化 Stable Diffusion WebUI 文生图接口（txt2img）与火山引擎 BGM 异步生成接 口，生成匹配情绪的国画风格视觉内容与适配背景音乐，实现音视频内容与 payload 数据的持久化存储。
+Stage 3 Visual/Audio Generation: Invoke the localized Stable Diffusion WebUI text-to-image interface (txt2img) and the Volcano Engine BGM asynchronous generation interface to generate traditional Chinese painting-style visual content and matching background music that align with emotions, and realize the persistent storage of audio and video content as well as payload data.
+阶段4 系统集成与评测：基于 Streamlit 搭建前端交互界面，完成核心`run_pipeline` 调度模块开发与子流程协同，通过场景用例与系统冒烟测试日志（ `smoke_test_log.csv`）验证功能完整性，开展系统可用性测试与情绪疗愈主观量表评估。
+Phase 4 System Integration and Evaluation: Build a front-end interactive interface based on Streamlit, complete the development of the core run_pipeline scheduling module and subprocess collaboration, verify functional integrity through scenario use cases and system smoke test logs, and conduct system usability testing and subjective scale evaluation of emotional healing.
+阶段5 试点与迭代：在校内或合作单位开展流水试点与场景测试，回收用户反馈与疗愈数据，基于试点结果完成多模态模板库与技术管线迭代优化，形成可扩展的模块化工作流，持续提升系统疗愈效果与用户体验。
+Phase 5 Pilot and Iteration: Conduct workflow pilots and scenario tests on campus or with cooperative organizations, collect user feedback and therapeutic data, complete iterative optimization of the multimodal template library and technical pipeline based on pilot results, form a scalable modular workflow, and continuously improve the system's therapeutic effect and user experience.
+2.3 三阶段实施规划
+Three-phase implementation plan
+第一阶段：核心功能联调与小样本内测（M1-M3）
+Phase 1: Core Function Joint Debugging and Small-Sample Internal Testing (M1-M3)
+此阶段以技术底座搭建为核心目标，重点完成系统整体架构的打通与核心功能的可用性验证
+完成前端界面、后端服务与数据库的联合调试，确保业务流程逻辑闭环运行
+基于有限的真实或模拟数据开展小范围内测，聚焦系统稳定性、响应速度及关键功能的可用性
+收集初期用户反馈，对交互设计、功能细节进行快速迭代与优化，为后续试点打下坚实基础
+This stage takes the construction of the technical foundation as its core objective, focusing on the integration of the overall system architecture and the verification of the availability of core functions.Joint debugging of the front-end interface, back-end services and database is completed to ensure the closed-loop operation of business process logic.Small-scale internal testing is carried out based on limited real or simulated data, with a focus on system stability, response speed and the availability of key functions.Initial user feedback is collected to rapidly iterate and optimize interaction design and functional details, laying a solid foundation for subsequent pilot projects.
+第二阶段：高校/合作机构试点验证与标准流程沉淀（M4-M6）
+Phase II: Pilot Verification and Standard Process Precipitation in Universities/Cooperative Institutions (M4-M6)
+进入真实场景验证阶段，选择目标高校或合作机构开展试点，实现从“技术可用”向“场景可用”的跨越
+在受控环境中部署系统，结合实际业务流程进行全链路测试，验证技术方案在真实场景中的适配性
+记录并梳理试点阶段的业务流程、操作规范与问题处理机制，形成可复用的标准流程与操作手册
+通过试点结果进一步优化架构设计，强化系统的可靠性与扩展性，为大规模复制提供依据
+Enter the real-scenario verification stage, select target universities or cooperative institutions to carry out pilot projects, and achieve the leap from "technically feasible" to "scenario-applicable".
+Deploy the system in a controlled environment, conduct end-to-end testing combined with actual business processes, and verify the adaptability of the technical solution in real scenarios.
+Record and sort out the business processes, operating specifications and problem handling mechanisms during the pilot phase, and form reusable standard procedures and operation manuals.
+Further optimize the architecture design based on the pilot results, enhance the system's reliability and scalability, and provide a basis for large-scale replication.
+第三阶段：场景扩展与标准化交付包形成（M7-M12）
+Phase III: Scenario Expansion and Standardized Delivery Package Development (M7-M12)
+在验证模式成熟的基础上，推动项目的规模化落地与产品化
+依据试点经验，逐步扩展应用场景，提升系统在不同环境下的适配能力
+通过模块化拆分与资源整合，持续优化成本结构，提升运维效率，降低长期运营投入
+封装形成标准化交付包，包含部署模板、配置规范、维护工具与培训材料，实现快速复制部署，支撑项目的可持续推广
+On the basis of a mature verification model, promote the large-scale implementation and productization of projects.Based on pilot experience, gradually expand application scenarios and improve the system's adaptability in different environments.Through modular decomposition and resource integration, continuously optimize the cost structure, enhance operation and maintenance efficiency, and reduce long-term operational investment.Develop standardized delivery packages, including deployment templates, configuration specifications, maintenance tools and training materials, to enable rapid replication and deployment and support the sustainable promotion of projects.
+2.4 工程可行性分析
+Engineering Feasibility Analysis
+项目整体技术路线成熟，工程实现具备良好可行性，主要体现在以下方面：
+The overall technical route of the project is mature, and its engineering implementation is highly feasible, which is mainly reflected in the following aspects:
+模块化架构支撑快速迭代与扩展
+Modular architecture supports rapid iteration and expansion
+系统采用模块化设计，各功能单元相对独立，可根据需求单独迭代或替换，降低了整体变更风险，便于后期功能扩展与性能优化
+The system adopts a modular design, with each functional unit being relatively independent. They can be iterated or replaced separately according to requirements, which reduces the risk of overall changes and facilitates later functional expansion and performance optimization.
+标准化接口提升系统互联与适配性
+Standardized interfaces improve system interconnection and adaptability
+统一的标准化接口设计确保系统能够与现有主流平台、硬件设备及第三方系统快速对接，提升整体架构的灵活性与互通性
+A unified and standardized interface design ensures that the system can be quickly connected with existing mainstream platforms, hardware devices, and third-party systems, improving the flexibility and interoperability of the overall architecture.
+降低运维复杂度保障长期稳定运行
+Reduce operational and maintenance complexity to ensure long-term stable operation
+通过规范化部署流程、监控机制与自动化工具，系统运维复杂度显著降低，可支持持续稳定运行，并具备快速故障恢复能力
+综上，项目从技术路径、实施节奏到工程实现均具备充分的可行性，能够保障项目高效、稳步推进，并最终形成具备高扩展性与高可用性的解决方案
+By standardizing the deployment process, monitoring mechanisms and automation tools, the complexity of system operation and maintenance has been significantly reduced, enabling sustained and stable operation as well as rapid fault recovery capabilities.
+In summary, the project is fully feasible in terms of technical approach, implementation schedule and engineering implementation, which can ensure the efficient and steady progress of the project and ultimately form a highly scalable and highly available solution.
+2.5 本章小结
+Summary of This Chapter
+本项目技术方案的关键优势在于：以Emo LLM为决策核心、以通义万相和豆包音乐为生成双引擎，结合专用数据集与疗效评估体系，形成“可识别、可干预、可评估、可迭代”的完整技术闭环该方案既具有工程落地可行性，也具备持续优化与规模复制能力，为项目冲击高等级赛事奖项提供坚实技术支撑
+The key advantages of the technical solution for this project lie in: taking Emo LLM as the decision-making core, using Tongyi Wanxiang and Doubao Music as the dual generation engines, and combining a dedicated dataset with a curative effect evaluation system to form a complete technical closed loop of "identifiable, intervenable, evaluable and iterable". This solution not only has engineering implementation feasibility but also possesses the capability of continuous optimization and large-scale replication, providing solid technical support for the project to compete for high-level competition awards.
+2.5.1 关键技术应用
+Application of Key Technologies
+项目关键技术聚焦“情绪识别精准化、干预内容个性化、效果评估量化”三条主线，通过多模型协同实现稳定输出技术选型遵循“可落地、可迭代、可评估”原则，优先采用成熟模型能力并结合项目场景进行二次优化，降低研发风险并提升实施效率
+The project's key technologies focus on three main lines: "precision in emotion recognition, personalization in intervention content, and quantification in effect evaluation". Stable output is achieved through multi-model collaboration. The technical selection follows the principles of "implementability, iterability, and evaluability". Priority is given to adopting mature model capabilities combined with secondary optimization for project scenarios, so as to reduce R&D risks and improve implementation efficiency.
+2.5.2 情绪识别与策略生成技术
+Emotion Recognition and Strategy Generation Technology
+系统基于情感理解模型对用户输入进行语义与情绪解析，输出情绪类型、强度等级与建议干预路径该模块通过上下文记忆与规则约束，提升识别稳定性和建议可执行性，为后续多模态生成提供统一控制信号
+Based on the emotion understanding model, the system conducts semantic and emotional analysis on user input, and outputs emotion types, intensity levels and recommended intervention paths. Through context memory and rule constraints, this module improves recognition stability and the executability of suggestions, providing unified control signals for subsequent multimodal generation.
+2.5.3 多模态内容生成与闭环优化技术
+Multimodal Content Generation and Closed-Loop Optimization Technology
+系统根据识别结果联动视觉模型与音频模型，生成与情绪状态匹配的国画及音乐内容，形成沉浸式干预体验干预结束后，通过量表、行为与反馈数据进行效果评估，并将高质量样本回流训练集，实现策略与内容的持续优化
+该技术路径使项目从“能生成内容”升级为“能验证效果并持续变好”的闭环系统
+Based on the recognition results, the system links the vision model and audio model to generate traditional Chinese painting and music content matching the emotional state, creating an immersive intervention experience. After the intervention, effect evaluation is conducted through scales, behavioral and feedback data, and high-quality samples are fed back to the training set to achieve continuous optimization of strategies and content.This technical path upgrades the project from a system that "can generate content" to a closed-loop system that "can verify effects and continuously improve".
+2.5.4 创新点
+Innovation Points
+技术创新点
+Technical innovation points
+“墨心智愈”是在原有项目基础上的升级版，不是简单地把聊天、图片和音乐拼在一起，而是做成了一个完整的“情绪干预系统”
+系统按照“识别情绪->生成内容->引导调节->评估效果->持续优化”五个步骤运行，每一步都有明确目标，最终目的是让用户在真实使用中获得稳定、可持续的情绪改善
+传统心理类工具大多是单一功能，比如只做聊天、只做冥想、只推音乐用户短期可能觉得新鲜，但长期效果往往不稳定
+本项目的不同点在于：它不仅“给内容”，还会“看结果”系统会记录用户反馈和情绪变化，再反过来优化下一次干预策略，让产品从“内容展示”变成“效果驱动”
+从应用场景看，本项目既可服务个人用户，也可进入高校、企业等组织场景，具有较强的推广和复制能力
+从技术价值看，本项目把AI能力与东方美学结合起来，形成了更符合本土文化体验的数字疗愈路径，这也是项目的重要创新意义
+"Ink Mind Healing" is an upgraded version based on the original project. Rather than simply combining chat, images, and music, it has been developed into a complete "emotional intervention system".
+The system operates in five steps: "emotion recognition → content generation → guided regulation → effect evaluation → continuous optimization", with clear objectives for each stage. Its ultimate goal is to help users achieve stable and sustainable emotional improvement through actual usage.
+Most traditional psychological tools offer only a single function, such as chat-only services, meditation-only modules, or music-only recommendations. While users may find them novel in the short term, their long-term effects are often inconsistent.
+What sets this project apart is that it not only "delivers content" but also "monitors outcomes". The system records user feedback and emotional changes, then optimizes subsequent intervention strategies accordingly, transforming the product from "content-oriented" to "effect-driven".
+In terms of application scenarios, the project can serve individual users as well as organizational settings such as universities and enterprises, demonstrating strong scalability and replicability.
+From a technological perspective, the project integrates AI capabilities with Eastern aesthetics, creating a digital healing pathway that better aligns with local cultural experiences — a key innovative aspect of the initiative.
+核心技术创新
+Core technological innovation
+情绪识别驱动的个体化干预
+Individualized Intervention Driven by Emotion Recognition
+系统会先判断“你现在的情绪状态是什么”，再决定“下一步该用什么方式帮你调节”
+举例来说：同样是压力大，有的人更适合放松型音乐，有的人更需要安静风格的国画引导系统不会“一刀切”，而是根据用户状态动态匹配干预内容
+这让干预更精准，也更容易让用户坚持使用
+The system will first determine "what your current emotional state is" and then decide "what method should be used to help you regulate it next".
+For example: when facing the same high pressure, some people are more suitable for relaxing music, while others need guidance from quiet-style traditional Chinese paintings. The system does not adopt a one-size-fits-all approach; instead, it dynamically matches intervention content according to the user's state.
+This makes interventions more precise and also makes it easier for users to stick to using the system.
+国画+音乐的多模态协同
+Multimodal Collaboration of Traditional Chinese Painting and Music
+项目不是单独给一张图或一段音乐，而是把视觉和听觉放在同一个干预流程里协同输出
+简单理解：系统会让“看到的画面”和“听到的音乐”在情绪方向上保持一致，例如都偏向舒缓、稳定或鼓励，从而提升沉浸感和情绪共鸣
+这种方式比单一模态更容易形成连续体验，对缓解焦虑、改善情绪波动更有帮助
+The project does not provide a single image or a piece of music independently; instead, it integrates visual and auditory elements into the same intervention process for coordinated output.To put it simply: the system ensures that the "visual scenes seen" and the "music heard" align in emotional orientation—for instance, both leaning towards soothing, stabilizing, or encouraging tones—thereby enhancing immersion and emotional resonance.This approach facilitates a more continuous experience compared to a single modality, making it more effective in alleviating anxiety and improving emotional fluctuations.
+可量化评估与迭代优化
+Quantifiable evaluation and iterative optimization
+本项目特别强调“有结果、看得见”每轮干预后，系统都会收集反馈数据（如满意度、使用时长、阶段量表变化等），判断这次干预是否有效
+如果效果不好，系统会调整策略；如果效果好，会把有效样本纳入优化过程
+这意味着项目不是“做完就结束”，而是“用一次、进步一次”，形成可持续迭代的闭环能力
+This project particularly emphasizes "delivering tangible, visible results". After each round of intervention, the system collects feedback data (such as satisfaction, usage duration, changes in stage scales, etc.) to determine whether the intervention was effective.
+If the effect is unsatisfactory, the system will adjust its strategy; if the effect is positive, the valid samples will be incorporated into the optimization process.
+This means the project does not end upon completion, but rather enables "improvement with each use", forming a closed-loop capability for sustainable iteration.
+与传统方案相比的创新优势
+Innovative advantages compared with traditional solutions
+与传统单模态心理工具相比，本项目在以下方面更具优势：
+更精准：先识别情绪，再推荐内容，不是固定模板
+更沉浸：国画和音乐协同输出，体验更完整
+更可验证：有评估指标和反馈机制，能证明效果
+更可持续：策略会迭代更新，长期使用价值更高
+更易落地：既能做个人服务，也能接入高校和企业场景
+Compared with traditional single-modal psychological tools, this project has more advantages in the following aspects:Higher accuracy:
+It first identifies emotions and then recommends content, rather than using fixed templates.
+Higher immersion: Traditional Chinese paintings and music are delivered in coordination, providing a more complete experience.
+More verifiable: It is equipped with evaluation indicators and feedback mechanisms to prove its effectiveness.
+More sustainable: Strategies are iteratively updated, delivering higher long-term usage value.
+Easier to implement: It can provide personal services as well as access to university and enterprise scenarios.
+创新带来的实际价值
+The practical value brought by innovation
+本项目的创新不只体现在技术上，还体现在落地价值上：
+对用户：获得低门槛、日常化、可持续的情绪支持
+对机构：提供可部署、可管理、可评估的数字心理服务能力
+对社会：提升心理健康服务的触达效率，降低服务成本
+对项目本身：可逐步沉淀算法流程、数据标准和知识产权，形成长期竞争壁垒
+The innovation of this project is reflected not only in technology but also in its implementation value:
+For users: access to low-threshold, daily, and sustainable emotional support
+For institutions: provision of deployable, manageable, and evaluable digital psychological service capabilities
+For society: improved reach efficiency of mental health services and reduced service costs
+For the project itself: gradual accumulation of algorithmic processes, data standards, and intellectual property rights to form a long-term competitive barrier
+运营模式与盈利模式
+Operation mode and profit model
+运营模式设计
+Operation mode design
+为保障项目落地发展，契合大学生创业的资源与规律，本项目采用“场景驱动+数据反馈+迭代优化”闭环运营模式，坚持务实循序渐进原则，先以高校与企业为试点验证，打磨产品服务后，逐步复制至更广泛用户群体，确保贴合市场需求、具备可持续性
+To ensure the project's implementation and development, and to align with the resources and laws governing college students' entrepreneurship, this project adopts a closed-loop operation model of "scenario-driven + data feedback + iterative optimization". Adhering to the principle of pragmatism and gradual progress, it will first take universities and enterprises as pilot sites for verification. After refining its products and services, it will gradually expand to a wider user base, ensuring alignment with market demand and long-term sustainability.
+运营中，结合大学生创业特点与用户需求，强调“低门槛触达—高频轻交互—持续陪伴服务”理念，兼顾质量与效率低门槛触达依托高校及校企合作渠道，简化接入流程、降低尝试成本，适配初期渠道有限的现状；高频轻交互贴合高校师生、企业从业者习惯，设计轻量化交互，提升用户粘性；持续陪伴服务组建精简团队，依托大学生专业优势提供及时服务，通过标准化流程提升交付效率、降低成本
+During operation, in light of the characteristics of college students' entrepreneurship and user needs, the philosophy of "low-threshold access – high-frequency light interaction – continuous accompanying services" is emphasized, balancing quality and efficiency. Low-threshold access relies on universities and university-enterprise cooperation channels, simplifies the access process, reduces trial costs, and adapts to the limited initial channel situation; high-frequency light interaction caters to the habits of university teachers, students and enterprise practitioners, with lightweight interaction designed to enhance user stickiness; for continuous accompanying services, a streamlined team is formed to provide timely services based on the professional advantages of college students, improving delivery efficiency and reducing costs through standardized processes.
+推进路径上，为匹配增长节奏与资源投入，规避盲目扩张等问题，项目遵循“试点期（验证）—扩展期（复制）—稳态期（规模化）”三阶段策略，分步骤推进，具体规划如下：
+In terms of the implementation path, to align the growth pace with resource input and avoid issues such as blind expansion, the project follows a three-phase strategy of "Pilot Phase (Verification) – Expansion Phase (Replication) – Steady-State Phase (Scaling Up)", advancing step by step, with the specific plan as follows:
+试点期聚焦“验证”，依托大学生实践优势，以高校及合作企业为试点，开展产品服务适配测试，收集用户反馈，验证商业模式与技术可行性，打磨团队、优化细节，为后续扩展积累经验
+The pilot phase focuses on "verification". Leveraging the practical advantages of college students, universities and cooperative enterprises will serve as pilot sites to conduct adaptation tests for products and services, collect user feedback, verify business models and technical feasibility, refine the team, optimize details, and accumulate experience for subsequent expansion.
+扩展期围绕“复制”，在试点验证通过后，复制成熟运营模式与服务流程，拓展至更多高校、企业及同类用户，优化资源配置、扩大团队规模，实现用户与服务质量同步提升，契合稳步扩张节奏
+The expansion phase centers on "replication". Following the successful verification of the pilot program, the mature operation models and service processes will be replicated and extended to more universities, enterprises and similar users. Resource allocation will be optimized, team size expanded, and synchronous improvement of users and service quality achieved, in line with the steady expansion pace.
+稳态期目标为“规模化”，在运营成熟、用户稳定后，完善标准化服务与长效机制，降低成本、提升盈利，探索多元盈利模式，打造核心品牌，实现从创业项目向成熟项目的转型
+The goal in the steady-state phase is "large-scale development". After achieving mature operations and a stable user base, we will refine standardized services and long-term mechanisms, reduce costs, improve profitability, explore diversified profit models, build a core brand, and realize the transformation from a startup project to a mature one.
+整体而言，项目运营与推进路径贴合大学生创业现状与需求，注重务实落地与风险控制，兼顾长期发展，保障项目稳步成长，助力创业目标实现
+Overall, the project operation and promotion path aligns with the current situation and needs of college students' entrepreneurship, emphasizing practical implementation and risk control, while taking into account long-term development to ensure the steady growth of the project and help achieve entrepreneurial goals.
+平台定位
+平台定位为“融合文化疗愈内容的智能情绪管理服务平台”，核心不在一次性内容输出，而在持续性情绪支持能力对用户端，平台提供可日常使用、隐私友好的调节工具；对机构端，平台提供可接入、可评估、可运营的数字化情绪服务能力，形成双边价值结构
+Platform Positioning
+The platform is positioned as an "intelligent emotion management service platform integrating cultural healing content". Its core lies not in one-off content output, but in sustainable emotional support capabilities. For end users, the platform provides daily usable, privacy-friendly adjustment tools; for institutions, it offers accessible, evaluable and operable digital emotional service capabilities, forming a bilateral value structure.
+盈利模式设计
+Profit model design
+项目采用“B端为主、C端增值补充”的复合收益结构B端通过高校心理中心、企业EAP、机构合作服务获取稳定收入；C端通过会员订阅、个性化服务包及主题内容付费实现长期补充通过标准化产品模块与流程化交付能力，项目可在不同场景中快速部署，提升收入稳定性和规模化效率
+The project adopts a composite revenue structure focused on B-end with C-end value-added supplements. On the B-end, stable income is obtained through services for university psychological centers, corporate EAP programs, and institutional partnerships; on the C-end, long-term supplementary revenue is realized via membership subscriptions, personalized service packages, and paid thematic content. Leveraging standardized product modules and process-based delivery capabilities, the project enables rapid deployment across diverse scenarios, enhancing revenue stability and scaling efficiency.
+收入来源分析
+Analysis of income sources
+核心收入来源围绕三大核心板块构建，形成多元且可持续的盈利体系：
+The core revenue sources are structured around three core segments, forming a diversified and sustainable profit system：
+一是机构服务收入，具体涵盖为合作机构提供系统技术支持的系统接入费、保障服务持续落地的年度服务费，以及针对特定需求开展定制化合作的项目合作费，为平台奠定稳定的收入基石；
+First, institutional service revenue, which specifically includes system access fees for providing system technical support to cooperative institutions, annual service fees to ensure the continuous implementation of services, and project cooperation fees for customized cooperation based on specific needs, laying a stable revenue foundation for the platform.
+二是用户增值收入，聚焦用户个性化需求，包括解锁专属权益的会员订阅服务、结合用户身心状态量身打造的个性化疗愈计划，以及围绕特定主题（如情绪管理、压力缓解等）推出的精品主题内容包，精准挖掘用户付费潜力；
+Second, user value-added income focuses on users' personalized needs, including membership subscription services for unlocking exclusive rights, personalized healing plans tailored to users' physical and mental conditions, as well as premium themed content packages launched around specific topics (such as emotional management, stress relief, etc.), to precisely tap into users' payment potential.
+三是生态合作收入，通过与行业内优质品牌开展深度联动推广、联合专业团队共创优质课程、共同策划执行线下线上联合活动等形式，拓宽收入边界并提升品牌影响力
+Third, ecological cooperation revenue. By conducting in-depth joint promotion with high-quality brands in the industry, co-creating premium courses with professional teams, and jointly planning and implementing online and offline joint activities, we will expand revenue boundaries and enhance brand influence.
+随着平台用户规模的持续扩大，用户粘性与复购意愿稳步增强，同时产品功能迭代升级与服务流程不断优化，产品成熟度显著提升，这使得平台的边际服务成本呈现逐步下降的良性趋势目前，平台已通过市场验证充分证明了商业模式的可行性，具备了从“验证可行”阶段向“持续盈利”阶段平稳过渡的坚实现实基础
+As the platform's user base continues to expand, user stickiness and repurchase intention have steadily increased. Meanwhile, with the iterative upgrading of product functions and continuous optimization of service processes, product maturity has improved significantly, leading to a benign downward trend in the platform's marginal service costs. At present, the platform has fully proven the feasibility of its business model through market validation, laying a solid practical foundation for a smooth transition from the "feasibility verification" stage to the "sustainable profitability" stage.
+3 运营管理与团队建设
+Operations Management and Team Building
+组织架构与团队介绍
+Organizational Structure and Team Introduction
+公司组织架构
+Company organizational structure
+项目采用“负责人统筹+专业小组协同”的组织方式，形成决策高效、执行闭环、反馈及时的管理结构整体架构围绕产品研发、技术实现、运营推广与外部合作四条主线展开，确保从需求洞察到落地交付的全流程可控在组织设计上，强调模块化分工与跨组协作机制，既保障专业深度，又提升项目推进效率
+The project adopts an organizational approach of "overall coordination by the person in charge plus collaboration of professional teams", forming a management structure with efficient decision-making, closed-loop execution and timely feedback. The overall framework is developed around four main lines: product research and development, technical implementation, operation and promotion, and external cooperation, ensuring the controllability of the entire process from demand insight to implementation and delivery. In terms of organizational design, emphasis is placed on modular division of labor and cross-team collaboration mechanisms, which not only guarantee professional depth but also improve project advancement efficiency.
+组织架构设计
+Organizational structure design
+组织架构由项目负责人统一统筹，下设技术组、产品组、运营组与合作支持单元技术组负责模型开发、系统架构与平台稳定；产品组负责用户研究、功能迭代与体验优化；运营组负责场景落地、合作拓展与用户增长；合作支持单元负责导师协同、资源对接与合规支持该架构能够支撑“研发—验证—推广—复盘”循环，满足项目从试点到规模化阶段的管理需求
+The organizational structure is uniformly coordinated by the project leader, with subordinate teams including a technical team, a product team, an operations team, and a cooperation support unit. The technical team is responsible for model development, system architecture, and platform stability; the product team is in charge of user research, function iteration, and experience optimization; the operations team handles scenario implementation, partnership expansion, and user growth; and the cooperation support unit manages mentor collaboration, resource connection, and compliance support. This structure can support the cycle of "research and development—verification—promotion—review", meeting the management requirements of the project from the pilot stage to the large-scale implementation stage.
+核心团队介绍
+Introduction to the Core Team
+团队成员拥有人工智能、产品设计、运营管理及项目执行等多领域的复合专业能力，可全面覆盖项目从启动、规划、执行到收尾的全生命周期关键环节团队内部角色分工清晰合理，岗位职责明确具体，在项目推进过程中执行节奏紧凑有序、成员之间协同配合紧密，具备高效快速的问题响应能力与稳定可靠的项目交付能力同时，依托专业导师的针对性指导以及校内外优质资源的联动整合，团队成员在技术研究深度与实际应用场景理解方面形成有效互补，进一步优化了项目方案，显著提升了项目整体的可行性与落地实施效果
+Team members possess comprehensive professional capabilities across multiple fields including artificial intelligence, product design, operational management and project implementation, enabling full coverage of key links throughout the entire project lifecycle from initiation, planning and execution to closure.The internal role division within the team is clear and rational, with distinct and specific job responsibilities. During project advancement, the implementation rhythm is compact and orderly, and members cooperate closely with each other, demonstrating efficient and rapid problem response capabilities as well as stable and reliable project delivery capabilities.In addition, relying on targeted guidance from professional mentors and the integrated linkage of high-quality resources both on and off campus, team members have formed effective complementarities in terms of in-depth technical research and understanding of practical application scenarios, further optimizing project plans and significantly enhancing the overall feasibility and implementation effect of the project.
+创始人团队
+Founding team
+创始团队聚焦“技术可行性 +场景可落地性+商业可持续性”三重目标，既能够推进核心算法与系统实现，也能够面向真实用户场景完成产品化转化团队在项目愿景、执行路径与阶段目标上保持一致，具备持续迭代和长期推进能力，是项目稳定发展的核心保障
+The founding team focuses on the three goals of "technical feasibility + scenario implementability + commercial sustainability". It can not only advance the implementation of core algorithms and systems, but also complete product transformation for real user scenarios. The team maintains alignment in project vision, implementation paths and phased objectives, and possesses the capacity for continuous iteration and long-term advancement, which serves as the core guarantee for the stable development of the project.
+运营管理与实施计划
+Operations Management and Implementation Plan
+运营管理体系
+Operation management system
+项目建立“目标分解—过程监控—结果复盘”的运营管理体系，以数据驱动运营决策通过周度例会、阶段评审与关键指标看板，实时监控产品性能、用户反馈和运营效果，确保各模块按计划推进管理体系强调闭环执行：问题发现、责任到人、节点跟踪、结果复核，提升组织执行力与项目确定性
+The project has established an operation management system featuring "goal decomposition – process monitoring – result review". Driven by data to inform operational decisions, it monitors product performance, user feedback and operational effectiveness in real time through weekly regular meetings, stage reviews and key indicator dashboards, ensuring all modules proceed as planned. The management system emphasizes closed-loop execution: problem identification, responsibility assignment, milestone tracking and result verification, so as to improve organizational execution capacity and project certainty.
+运营管理制度
+Operation Management System
+在制度层面，项目建立需求管理、版本管理、数据管理、风险管理和合规审查等机制需求管理保证优先级清晰；版本管理保证交付节奏稳定；数据管理保证隐私与质量；风险管理保证异常预警及时；合规审查保证上线内容与流程安全可控通过制度化治理，项目能够在快速迭代中保持质量与规范并重
+At the institutional level, the project has established mechanisms including requirements management, version management, data management, risk management, and compliance review. Requirements management ensures clear priorities; version management ensures a stable delivery rhythm; data management safeguards privacy and quality; risk management ensures timely early warning of anomalies; compliance review guarantees that launched content and processes are secure and controllable. Through institutional governance, the project can maintain equal emphasis on quality and standards amid rapid iterations.
+实施计划
+Implementation Plan
+项目实施遵循“试点验证—场景扩展—规模复制”的阶段策略前期聚焦最小可用产品与核心场景验证，中期扩展合作渠道并优化服务流程，后期实现标准化交付与规模化运营该路径兼顾风险控制与增长效率，能够在资源有限条件下稳步提升产品成熟度和市场影响力
+Project implementation follows a phased strategy of "pilot verification – scenario expansion – large-scale replication". In the early stage, efforts focus on verifying the minimum viable product and core scenarios; in the middle stage, cooperation channels are expanded and service processes are optimized; in the later stage, standardized delivery and large-scale operation are achieved. This approach balances risk control and growth efficiency, enabling the steady improvement of product maturity and market influence under limited resource conditions.
+项目里程碑
+Project milestone
+第一阶段完成需求定义、样本采集与原型搭建；第二阶段完成模型联调与小范围内测；第三阶段完成试点场景验证与效果评估；第四阶段完成多场景推广与持续优化每个里程碑均设置明确交付物（原型、测试报告、评估报告、合作成果），确保阶段成果可检查、可复盘、可复制
+Phase 1 completes requirement definition, sample collection and prototype construction; Phase 2 completes model joint debugging and small-scale internal testing; Phase 3 completes pilot scenario verification and effect evaluation; Phase 4 completes multi-scenario promotion and continuous optimization. Each milestone sets clear deliverables (prototypes, test reports, evaluation reports, and cooperation achievements) to ensure that phased results are inspectable, reviewable and replicable.
+市场营销与推广策略
+Marketing and Promotion Strategy
+品牌策略
+Brand strategy
+“墨心智愈”品牌策略以“科技向善、文化疗愈、长期陪伴”为核心，突出项目在心理健康服务中的社会价值与文化辨识度品牌传播强调专业可信与情绪友好并重，既体现技术能力，也体现人文温度通过统一视觉表达、核心价值主张与场景化内容输出，构建“可识别、可记忆、可传播”的品牌形象，提升用户初次转化与长期留存基础
+The brand strategy of "ink Mind Healing" centers on "technology for good, cultural healing, and long-term companionship", highlighting the social value and cultural distinctiveness of the project in mental health services. Brand communication emphasizes both professional credibility and emotional friendliness, reflecting not only technological capabilities but also humanistic care. Through unified visual expression, core value propositions and scenario-based content output, a "recognizable, memorable and communicable" brand image is built to lay the foundation for improving initial user conversion and long-term retention.
+品牌定位
+Brand positioning
+项目品牌定位为“融合东方美学的智能情绪管理品牌”，面向有情绪调节需求的青年与机构用户，提供可日常使用、可持续优化的数字化心理支持服务在竞争定位上，项目区别于单一内容工具与通用陪伴产品，强调“多模态干预+可量化评估 +场景化落地”的综合能力，建立差异化认知与价值锚点
+The project's brand positioning is defined as "an intelligent emotional management brand integrating oriental aesthetics". Targeting young people and institutional users with emotional regulation needs, it provides digital psychological support services that are suitable for daily use and capable of continuous optimization.In terms of competitive positioning, the project differentiates itself from single-content tools and general companion products by emphasizing its comprehensive capabilities of "multimodal intervention + quantifiable assessment + scenario-based implementation", thereby establishing differentiated perception and value anchors.
+营销策略
+Marketing Strategy
+项目营销整体采用“内容教育+场景试点+口碑扩散”的组合式推进路径，紧密围绕用户完整决策链路，系统规划“认知—体验—转化—复购”全流程运营动作前期以低门槛体验活动与专业优质内容为核心抓手，逐步建立用户信任与品牌认知；中期通过深度校园合作、企业定向合作等场景化试点，精准触达目标群体，有效提升用户转化效率与落地效果；后期依托数据化运营手段，持续优化用户服务与产品体验，进一步强化用户复购意愿与口碑推荐力度，最终形成可循环、可放大、可持续的增长飞轮
+The overall project marketing adopts a combined promotion path of "content education + scenario-based pilot programs + word-of-mouth diffusion". Centering closely on the complete user decision-making chain, it systematically plans the full-process operational actions of "cognition – experience – conversion – repurchase".In the early stage, it takes low-threshold experience activities and professional high-quality content as core drivers to gradually build user trust and brand awareness.In the middle stage, it carries out scenario-based pilots such as in-depth campus cooperation and targeted enterprise cooperation to precisely reach target groups, effectively improving user conversion efficiency and implementation results.In the later stage, relying on data-driven operation methods, it continuously optimizes user services and product experience, further strengthening users' willingness to repurchase and their enthusiasm for word-of-mouth recommendations, ultimately forming a recyclable, scalable and sustainable growth flywheel.
+线上营销策略
+Online marketing strategy
+线上运营的核心侧重点在于实现用户的精准触达与长期持续的互动，以此构建高效的线上运营体系一是借助短视频、图文科普、情绪测试等轻量化内容形式，有效提升品牌在目标人群中的曝光度与传播声量；二是依托真实案例化内容与用户正向反馈，增强产品说服力，建立稳固的市场可信度；三是通过私域社群运营与多样化活动机制，深度激活用户参与度，显著提升用户活跃度与长期留存率；四是利用全流程数据追踪工具，实时分析运营效果，持续优化投放策略与转化路径整体线上策略的核心目标，在于有效降低获客成本、全面提升用户体验与转化效率，同时为后续线下业务合作搭建稳定且高质量的流量入口
+The core focus of online operation lies in achieving precise user reach and long-term continuous interaction, so as to build an efficient online operation system. Firstly, lightweight content forms such as short videos, graphic popular science and emotional tests are adopted to effectively increase brand exposure and communication influence among target groups. Secondly, real case-based content and positive user feedback are relied on to enhance product persuasiveness and establish solid market credibility. Thirdly, private domain community operation and diversified activity mechanisms are used to deeply stimulate user participation and significantly improve user activity and long-term retention rate. Fourthly, full-process data tracking tools are utilized to analyze operation effects in real time and continuously optimize delivery strategies and conversion paths. The core goal of the overall online strategy is to effectively reduce customer acquisition costs, comprehensively improve user experience and conversion efficiency, and at the same time build a stable and high-quality traffic portal for subsequent offline business cooperation.
+4 风险应对与社会价值分析
+Risk Response and Social Value Analysis
+4.1 风险分析与应对措施
+Risk Analysis and Countermeasures
+本项目聚焦AI+国画艺术+心理疗愈创新赛道，在技术研发、市场推广、运营落地及合规管理等全流程中，面临外部环境变化、内部资源约束、行业标准缺失等多重潜在风险本章对项目全周期风险进行系统识别、分类梳理，并制定针对性、可落地的应对策略，保障项目稳定推进、可持续运营
+This project focuses on the innovative track of AI + traditional Chinese painting art + psychological healing. Throughout the entire process including technological research and development, market promotion, operational implementation and compliance management, it faces multiple potential risks such as changes in the external environment, constraints on internal resources and the absence of industry standards. This chapter systematically identifies and categorizes risks across the entire project cycle, and develops targeted and implementable response strategies to ensure the steady progress and sustainable operation of the project.
+4.1.1 风险识别与分类
+Risk Identification and Classification
+结合项目技术特性、运营模式、目标场景及团队特点，将项目风险划分为系统性风险与经营性风险两大类，全面覆盖外部环境、内部运营核心风险点.
+Based on the project's technical characteristics, operation model, target scenarios and team characteristics, the project risks are divided into two categories: systemic risks and operational risks, which fully cover the core risk points of the external environment and internal operations.
+系统性风险
+systematic risk
+系统性风险由行业政策、市场环境、技术迭代等外部因素引发，具有不可控性、影响范围广的特征，是项目需重点防控的外部风险
+Systemic risks are triggered by external factors such as industry policies, market conditions, and technological iteration. They are characterized by uncontrollability and wide-ranging impacts, and represent external risks that require key prevention and control in projects.
+①政策监管风险
+Policy and regulatory risks
+当前我国心理健康服务、数据安全监管政策持续趋严，数字心理干预产品需严格遵循《个人信息保护法》《网络安全法》及医疗健康相关合规要求本项目作为数字心理服务工具，涉及用户情绪、心理测评、行为轨迹等敏感数据采集与应用，同时需明确非医疗诊断的产品定位，若合规把控不到位，可能面临上线审核受阻、场景推广受限、合规处罚等风险，影响项目落地节奏
+At present, China's policies on mental health services and data security supervision are becoming increasingly stringent. Digital psychological intervention products must strictly comply with the Personal Information Protection Law, the Cybersecurity Law, and relevant compliance requirements for medical and health care. As a digital psychological service tool, this project involves the collection and application of sensitive data such as users' emotions, psychological evaluations, and behavioral trajectories. Meanwhile, it is necessary to clarify the product positioning of non-medical diagnosis. Inadequate compliance control may lead to risks such as blocked launch reviews, restricted scenario promotion, and compliance penalties, which will affect the project implementation progress.
+②市场竞争风险
+Market competition risks
+数字心理健康赛道处于快速升温阶段，AI情绪调节、艺术疗愈、冥想放松类产品不断涌现，市场同质化竞争加剧同类产品多聚焦通用心理干预，易出现功能模仿、价格竞争、渠道争抢等问题，导致本项目用户获取成本上升、高校与企业B端合作难度加大，差异化优势难以快速凸显
+The digital mental health sector is in a phase of rapid growth. Products such as AI-powered emotion regulation, art therapy, and meditation and relaxation tools are emerging continuously, intensifying homogeneous market competition. Most similar products focus on general psychological intervention, which easily leads to issues including functional imitation, price competition, and channel rivalry. As a result, user acquisition costs for this project have risen, cooperation with universities and enterprises on the B-side has become more difficult, and it is challenging to quickly highlight differentiated advantages.
+③技术迭代风险
+Risk of technological iteration
+AI大模型、多模态生成、情感计算等技术更新迭代速度极快，若项目现有技术方案未能持续优化升级，可能出现情绪识别精度不足、国画与音乐生成体验不佳、干预策略滞后等问题，导致产品功能落后于行业水平，用户体验下降，核心竞争力弱化
+Technologies such as large AI models, multimodal generation, and affective computing are evolving at an extremely fast pace. If the existing technical solutions of the project fail to be continuously optimized and upgraded, problems such as insufficient emotion recognition accuracy, poor experience in traditional Chinese painting and music generation, and delayed intervention strategies may arise, resulting in product functions lagging behind industry standards, declining user experience, and weakened core competitiveness.
+经营性风险
+Operational risks
+经营性风险由项目内部运营、用户管理、资源保障等因素引发，可通过优化管理、调整策略有效防控，是项目运营期的核心管控风险
+①用户留存风险
+项目核心用户为高校学生、青年职场人等年轻群体，该类用户对轻量化工具新鲜感易消退，对产品交互体验、干预效果、长期价值要求较高若产品交互设计繁琐、情绪干预效果不明显、陪伴感不足，易出现用户活跃度低、7日/30日留存率不佳、用户流失严重等问题，难以形成稳定用户群体
+②效果验证风险
+心理干预领域暂无全国统一的量化评估标准，行业多依赖主观感受判断效果本项目面向高校、企业等B端机构推广时，合作方对产品干预有效性、数据可信度、落地价值认可度不足，缺乏标准化验证体系，将直接影响项目规模化复制与商业合作推进
+③数据安全风险
+项目采集、存储、应用用户情绪状态、心理测评结果、交互行为等高度敏感数据，若数据防护措施不到位，可能出现数据泄露、滥用、未授权访问等问题，既违反数据合规要求，也会引发用户信任危机，对项目品牌与口碑造成不可逆损害
+④资源约束风险
+项目以大学生创业团队为核心，前期存在资金、人力、渠道三重资源约束：研发资金有限，难以支撑大规模技术迭代与市场推广；团队人力不足，研发、运营、推广工作难以全面铺开；校外渠道资源有限，B端合作对接效率较低，阶段性运营压力较大
+⑤落地适配风险
+高校、企业、社区等核心落地场景的需求存在显著差异，高校侧重学生心理健康普查与日常疏导，企业侧重员工压力管理与EAP服务，社区侧重普惠性心理关怀若项目采用标准化产品方案，未针对不同场景定制化适配，将导致试点落地效果不佳、复制推广效率低下
+Operational risks arise from factors such as internal project operation, user management, and resource guarantee. They can be effectively prevented and controlled through optimized management and adjusted strategies, and are the core risks to be managed and controlled during the project operation period.
+User retention risk
+The core users of the project are young groups such as college students and young professionals. Such users tend to lose interest quickly in lightweight tools and have high requirements for product interaction experience, intervention effects, and long-term value. If the product interaction design is cumbersome, the emotional intervention effect is not obvious, and the sense of companionship is insufficient, problems such as low user activity, poor 7-day/30-day retention rates, and severe user churn are likely to occur, making it difficult to form a stable user base.
+Effect verification risk
+There is currently no unified national quantitative evaluation standard in the field of psychological intervention, and the industry mostly relies on subjective feelings to judge effects. When the project is promoted to B-end institutions such as universities and enterprises, insufficient recognition from partners regarding the effectiveness of product intervention, data credibility, and implementation value, coupled with the lack of a standardized verification system, will directly affect the large-scale replication of the project and the advancement of commercial cooperation.
+Data security risk
+The project collects, stores, and applies highly sensitive data such as users' emotional states, psychological assessment results, and interactive behaviors. Inadequate data protection measures may lead to data leakage, abuse, unauthorized access, and other issues. This will not only violate data compliance requirements but also trigger a user trust crisis, causing irreversible damage to the project's brand and reputation.
+Resource constraint risk
+The project is centered on a college student entrepreneurship team, with triple resource constraints in the early stage: capital, manpower, and channels. Limited R&D funds make it difficult to support large-scale technological iteration and market promotion; insufficient team manpower prevents the full rollout of R&D, operation, and promotion work; limited off-campus channel resources lead to low efficiency in docking B-end cooperation, resulting in considerable phased operational pressure.
+Implementation adaptation risk
+There are significant differences in demand among core implementation scenarios such as universities, enterprises, and communities. Universities focus on college students' mental health screening and daily counseling, enterprises prioritize employee stress management and EAP services, and communities emphasize inclusive psychological care. If the project adopts a standardized product solution without customized adaptation for different scenarios, it will result in poor pilot implementation effects and low efficiency in replication and promotion.
+4.1.2 风险应对措施
+Risk response measures
+针对上述各类风险，项目建立全周期风险防控体系，遵循“预防为主、精准应对、快速迭代”原则，制定一对一可落地应对措施，最大限度降低风险影响
+In response to the various risks mentioned above, the project has established a full-cycle risk prevention and control system, adhering to the principles of "prevention first, precise response, and rapid iteration". It has developed one-to-one implementable countermeasures to minimize the impact of risks to the greatest extent.
+系统性风险应对
+Systemic Risk Response
+①政策监管风险应对
+严格遵守国家数据安全、心理健康服务相关法律法规，建立全流程合规管控机制：实行用户数据脱敏处理、授权采集、分级存储、日志审计，全程留痕可追溯；明确产品非医疗定位，不开展疾病诊断、治疗等超出范围的服务，建立高风险心理问题预警与专业机构转介机制；主动对接高校心理健康中心、行业协会，提前获取政策导向，确保产品合规上线、场景合规推广
+②市场竞争风险应对
+强化“国画疗愈+音乐干预+情感大模型”多模态差异化壁垒，沉淀专属“国画-情感”数据集、干预算法、疗效评估体系，形成不可复制的核心技术与内容优势；聚焦高校、企业两大核心场景深耕，打造标杆试点案例，以口碑带动合作拓展；突出东方文化适配性，区别于西方模式心理产品，提升用户文化认同感与品牌忠诚度
+③技术迭代风险应对
+采用模块化、解耦式技术架构设计，情绪识别、多模态生成、疗效评估等核心模块可独立升级、快速替换；持续对接心理学专家、AI技术导师，跟踪行业前沿技术，定期优化干预策略与内容生成效果；建立“技术研发-场景验证-反馈迭代”闭环，保障技术方案始终贴合用户需求与行业水平
+Response to Policy and Regulatory Risks
+Strictly comply with national laws and regulations concerning data security and mental health services, and establish a full-process compliance management and control mechanism: implement user data desensitization, authorized collection, hierarchical storage, and log auditing, with full-process traceable records; clearly define the non-medical positioning of the product, refrain from providing services beyond the scope such as disease diagnosis and treatment, and establish an early warning mechanism for high-risk psychological issues and a referral mechanism to professional institutions; proactively connect with university mental health centers and industry associations to obtain policy guidance in advance, ensuring compliant product launch and scenario-based promotion.
+Response to Market Competition Risks
+Strengthen the multi-modal differentiated barrier of "traditional Chinese painting therapy + music intervention + emotional large model", accumulate exclusive "traditional Chinese painting-emotion" datasets, intervention algorithms, and curative effect evaluation systems, forming irreplicable core technological and content advantages; focus on in-depth development of the two core scenarios of universities and enterprises, build benchmark pilot cases, and drive partnership expansion through word-of-mouth; highlight the adaptability of oriental culture, differentiate from Western-style psychological products, and enhance users' cultural identity and brand loyalty.
+Response to Technological Iteration Risks
+Adopt a modular and decoupled technical architecture design, allowing core modules such as emotion recognition, multi-modal generation, and curative effect evaluation to be independently upgraded and quickly replaced; continuously connect with psychological experts and AI technical advisors, track cutting-edge industry technologies, and regularly optimize intervention strategies and content generation effects; establish a closed loop of "technology R&D - scenario verification - feedback iteration" to ensure that technical solutions always align with user needs and industry standards.
+经营性风险应对
+Response to operational risks
+①用户留存风险应对
+以“低门槛触达—高频轻交互—持续陪伴服务”为核心运营理念，简化产品交互流程，打造轻量化、沉浸式使用体验；建立用户反馈闭环，通过问卷、社群、使用数据快速收集需求，迭代产品功能；推出阶段性情绪追踪、疗愈报告、个性化计划等增值服务，强化用户长期使用价值，提升粘性与留存率
+②效果验证风险应对
+构建双维度量化评估体系，结合GAD-7、PHQ-9等专业心理量表与用户行为数据、主观满意度，形成可量化、可复现的干预效果报告；联合高校心理学专业、心理健康中心开展实证研究，发布权威效果验证报告，提升B端合作方认可度；标准化效果验证流程，为规模化推广提供数据支撑
+③数据安全风险应对
+搭建全方位数据安全防护体系，采用加密存储、访问权限管控、隐私计算等技术，防范数据泄露与滥用；制定数据安全管理制度，明确团队成员数据使用规范，定期开展安全自查；主动符合数据合规要求，签署用户隐私授权协议，保障用户数据权益，筑牢信任基础
+④资源约束风险应对
+坚持“试点—复制—规模化”渐进式推进策略，控制前期资金与人力投入，优先落地需求明确、资源易对接的高校试点；依托高校导师资源、校企合作平台、创新创业政策，争取资金支持、技术指导与渠道对接；优化团队分工，聚焦核心工作，非核心环节寻求校外合作，降低运营成本
+⑤落地适配风险应对
+建立场景化定制适配流程，针对高校、企业、社区不同需求，推出标准化+定制化服务包，快速响应场景适配要求；沉淀试点场景的运营经验，形成可复制的落地手册、操作规范，提升多场景推广效率；提前对接场景负责人，精准把握需求痛点，确保产品落地即适配、落地即见效
+Response to User Retention Risks
+Adopt the core operation philosophy of "low-threshold access – high-frequency light interaction – continuous accompanying services", simplify product interaction processes, and create a lightweight and immersive user experience; establish a closed-loop user feedback mechanism to quickly collect demands through questionnaires, communities, and usage data, and iterate product functions; launch value-added services such as phased emotional tracking, healing reports, and personalized plans to enhance users' long-term usage value, and improve stickiness and retention rates.
+Response to Effect Verification Risks
+Build a two-dimensional quantitative evaluation system that integrates professional psychological scales such as GAD-7 and PHQ-9 with user behavior data and subjective satisfaction to form quantifiable and reproducible intervention effect reports; conduct empirical research in cooperation with university psychology departments and mental health centers, and issue authoritative effect verification reports to increase recognition from B-side partners; standardize the effect verification process to provide data support for large-scale promotion.
+Response to Data Security Risks
+Establish a comprehensive data security protection system using technologies such as encrypted storage, access permission control, and privacy computing to prevent data leakage and abuse; formulate data security management systems, clarify data usage specifications for team members, and conduct regular self-inspections on security; proactively comply with data compliance requirements, sign user privacy authorization agreements, protect users' data rights and interests, and consolidate the foundation of trust.
+Response to Resource Constraint Risks
+Adhere to the progressive promotion strategy of "pilot – replication – scaling up" to control early capital and human input, and prioritize the launch of pilots in universities with clear demands and easy resource connection; rely on university tutor resources, university-enterprise cooperation platforms, and innovation and entrepreneurship policies to secure financial support, technical guidance, and channel connection; optimize team division of labor, focus on core work, and seek off-campus cooperation for non-core links to reduce operating costs.
+Response to Implementation Adaptation Risks
+Establish a scenario-based customized adaptation process, launch standardized plus customized service packages for different needs of universities, enterprises, and communities to quickly respond to scenario adaptation requirements; summarize operation experience from pilot scenarios to form replicable implementation manuals and operation specifications, improving multi-scenario promotion efficiency; connect with scenario principals in advance to accurately grasp demand pain points, ensuring that products are adapted and effective upon implementation.
+4.2 社会价值
+Social Value
+本项目以“科技赋能心理服务、文化传承滋养心灵”为核心使命，聚焦社会心理健康刚需与传统文化创新转化两大痛点，兼具公益属性、文化属性与商业可持续性，从民生服务、文化传承、国家战略、行业创新、青年担当五大维度创造多元社会价值，助力社会高质量发展
+This project takes "empowering psychological services with technology and nourishing the mind through cultural inheritance" as its core mission. It focuses on two major pain points: the rigid demand for social mental health and the innovative transformation of traditional culture. Combining public welfare, cultural attributes and commercial sustainability, it creates diverse social values from five dimensions: people's livelihood services, cultural inheritance, national strategy, industrial innovation and youth responsibility, so as to boost the high-quality development of society.
+4.2.1 补齐心理健康服务短板，提升服务普惠性
+Address weaknesses in mental health services and enhance their accessibility and inclusiveness.
+当前我国心理亚健康人群规模庞大，传统心理服务存在资源不足、触达有限、病耻感强、门槛较高等痛点，大量高校学生、青年职场人难以获得及时、便捷的情绪疏导服务本项目以轻量化、非侵入式、低门槛的AI国画多模态疗愈为核心，打破时间、空间、地域限制，让情绪调节服务走向日常化、普及化；聚焦心理亚健康群体，提供隐私友好、易接受的数字疗愈服务，有效降低用户求助门槛，填补传统心理服务供给缺口，助力完善社会心理服务体系，推动心理健康服务从“小众专业”走向“大众普惠”
+At present, China has a large population of people with suboptimal mental health. Traditional psychological services are plagued by problems such as insufficient resources, limited reach, strong stigma, and high barriers. As a result, numerous university students and young professionals struggle to access timely and convenient emotional counseling services. Centered on lightweight, non-intrusive, and low-threshold AI traditional Chinese painting multimodal therapy, this project breaks the constraints of time, space, and region, making emotional regulation services daily and universally accessible. Focusing on groups with suboptimal mental health, it provides privacy-friendly and easily acceptable digital therapy services, effectively lowering the threshold for users to seek help, filling the supply gap of traditional psychological services, helping improve the social psychological service system, and promoting mental health services from being "professional for a small number of people" to "beneficial to the general public".
+4.2.2 推动传统文化创新转化，传承东方美学
+国画作为中华优秀传统文化的核心载体，蕴含深厚的东方美学与情感疗愈价值，但其现代化传播、年轻化普及面临场景单一、吸引力不足等问题本项目将国画艺术、东方审美与AI多模态技术深度融合，赋予传统文化心理健康应用新场景，让青年群体在情绪调节、艺术体验的过程中，直观感受国画的意境之美、文化之韵；通过AI生成、交互体验等创新形式，实现中华优秀传统文化的创造性转化与创新性发展，打破传统文化与年轻群体的隔阂，增强青年文化自信与民族认同感，为传统文化现代化传播提供创新路径
+4.2.3 助力健康中国战略落地，服务青年成长
+Support the implementation of the Healthy China Initiative and serve the growth of young people
+项目严格契合《“健康中国2030”规划纲要》、全国社会心理服务体系建设、学生心理健康工作等国家战略要求，以数字技术赋能非药物心理干预，为高校、企业、社区提供可落地、可评估、可复制的数字心理服务工具；助力提升全民心理健康素养，针对性疏导青年群体学业、就业、职场压力，塑造积极健康心态，降低心理危机风险，维护校园稳定与社会和谐；以实际行动践行健康中国战略，聚焦青年成长核心需求，为青年身心健康发展保驾护航
+The project strictly aligns with the national strategic requirements including the Healthy China 2030 Blueprint, the construction of a national social psychological service system, and mental health work for students. It empowers non-pharmaceutical psychological intervention with digital technologies, providing practical, evaluable and replicable digital psychological service tools for universities, enterprises and communities. It helps improve the national mental health literacy, specifically relieves academic, employment and workplace pressure among young people, fosters a positive and healthy mindset, reduces the risk of psychological crises, and safeguards campus stability and social harmony. By taking concrete actions to implement the Healthy China strategy, the project focuses on the core needs of youth development and safeguards the physical and mental healthy growth of young people.
+4.2.4 践行科技向善理念，创新数字健康服务模式
+Uphold the concept of technology for good and innovate the model of digital health services
+项目以情感大模型、多模态生成、情感计算等前沿技术为支撑，打造“情绪识别—干预引导—疗效评估—模型迭代”科学闭环，探索“AI+艺术+心理”融合的新型数字健康服务模式；突破传统心理服务单一模态、标准化、难量化的局限，实现个性化、精准化、沉浸式情绪干预，为数字健康产业提供创新实践样本；推动非药物心理干预技术的规范化、标准化发展，助力心理健康领域科技创新与服务升级，彰显科技向善的核心价值
+Supported by cutting-edge technologies such as affective large models, multimodal generation, and affective computing, the project builds a scientific closed loop of "emotion recognition – intervention guidance – efficacy evaluation – model iteration", and explores a new digital health service model integrating "AI + art + psychology". It breaks through the limitations of traditional psychological services, including single modality, standardization, and difficulty in quantification, and realizes personalized, precise, and immersive emotional intervention, providing an innovative practice sample for the digital health industry. The project also promotes the standardized development of non-pharmaceutical psychological intervention technologies, facilitates technological innovation and service upgrading in the mental health field, and embodies the core value of technology for good.
+4.2.5 彰显大学生创业担当，培育青年创新力量
+Demonstrate the entrepreneurial responsibility of college students and foster the innovative power of young people
+项目立足社会真实痛点，以大学生创业团队为主体，将智能科学、心理学、艺术设计等专业知识与社会需求深度结合，兼顾公益价值与商业可持续性，为大学生创新创业提供“技术创新+社会服务”的示范模板；团队在项目研发、运营、推广过程中，提升专业能力、实践能力与社会责任意识，培育兼具创新精神与担当意识的青年人才；以青年创新力量回应社会民生需求，彰显当代大学生心系社会、勇于创新、乐于奉献的精神风貌，为青年创新创业树立正向标杆
+Based on real social pain points, the project is led by a college student entrepreneurship team, which deeply integrates professional knowledge such as intelligent science, psychology, and art design with social demands. It balances public welfare value and commercial sustainability, providing a demonstration model of "technological innovation plus social services" for college students' innovation and entrepreneurship. During the project's research and development, operation and promotion, the team has enhanced professional competence, practical ability and sense of social responsibility, cultivating young talents with both innovative spirit and sense of responsibility. By responding to people's livelihood needs with youthful innovative strength, it demonstrates the spiritual outlook of contemporary college students who care about society, dare to innovate and are willing to contribute, setting a positive benchmark for youth innovation and entrepreneurship.
+5 附录
+Appendix
+5.1 调研数据报告
+Research Data Report
+数据类别
+Data category
+核心数据内容
+Core data content
+数据来源/说明
+Data Source/Notes
+行业公开统计数据
+Publicly available industry statistics
+1.2025年中国在线心理咨询用户规模6500万人、市场规模87.3亿元，同比增长28.6%
+In 2025, the number of online psychological counseling users in China reached 65 million, with a market size of 8.73 billion yuan, a year-on-year increase of 28.6%.
+2.73.6%的城镇居民处于心理亚健康状态
+73.6% of urban residents are in a state of psychological sub-health.
+3.全国每10万人仅配2.7名心理治疗师，缺口超40万人；高校专职心理教师师生比1:5200，未达≥1:4000标准
+There are only 2.7 psychotherapists per 100,000 people nationwide, leaving a shortage of more than 400,000; the ratio of full-time psychological teachers to students in colleges and universities is 1:5,200, failing to meet the standard of no less than 1:4,000.
+中国心理学会&艾瑞咨询《2025-2026中国心理健康服务数字化发展白皮书》
+Chinese Psychological Society & iResearch Consulting Group 2025-2026 White Paper on the Digital Development of Mental Health Services in China
+《中国城镇居民心理健康白皮书》
+White Paper on Mental Health of Chinese Urban Residents
+行业公开统计与教育部政策要求
+Public industry statistics and policy requirements of the Ministry of Education
+政策试点验收数据
+Data for policy pilot acceptance
+全国333个地级市及直辖市87个区县心理门诊/睡眠门诊设置完成率100%
+The completion rate of the establishment of psychological clinics/sleep clinics in 333 prefecture-level cities and 87 districts and counties under municipalities directly under the Central Government across the country has reached 100%.
+试点地区心理门诊、睡眠门诊服务量较2024年分别提升17%、39%
+The service volumes of psychological clinics and sleep clinics in pilot regions increased by 17% and 39% respectively compared with 2024.
+国家卫健委“全国社会心理服务体系建设试点”2025年终期验收结果
+National Health Commission of the People's Republic of China: Final Acceptance Results of the "National Pilot Program for the Construction of Social Psychological Service System" (2025 Year-end)
+官方量化指标数据
+Official quantitative indicator data
+教育部要求高校专职心理教师师生比≥1:4000，每校至少配2名专职教师，纳入考核
+The Ministry of Education requires that the student-to-teacher ratio for full-time psychological teachers in colleges and universities be no less than 1:4000, with each institution having at least 2 full-time teachers, and this requirement shall be included in the assessment.
+全国中小学专（兼）职心理教师配备率95%，专职不足40%，农村约18%
+The allocation rate of full-time and part-time psychological teachers in primary and secondary schools nationwide is 95%, while the proportion of full-time teachers is less than 40%, and that in rural areas stands at approximately 18%.
+教育部2025年专项政策文件
+Special Policy Document of the Ministry of Education for 2025
+项目自建专属数据集
+Build a dedicated dataset for the project
+含1000幅国画样本库、东方美学情绪坐标、观画行为实验、对话日志+量表得分样本，形成三大专属样本库
+Including a sample library of 1,000 traditional Chinese paintings, an Eastern aesthetic emotion coordinate system, painting-viewing behavior experiments, and dialogue logs + scale score samples, forming three exclusive dedicated sample libraries.
+双盲交叉验证，Kappa系数≥0.85
+Double-blind cross-validation, Kappa coefficient ≥ 0.85
+数据脱敏匿名，权限分级，符合《个人信息保护法》
+Data desensitization and anonymization, permission classification, in compliance with the Personal Information Protection Law
+项目自主采集、标注与验证
+Independent collection, annotation and verification of projects
+专业测评工具数据
+Professional evaluation tool data
+GAD-7量表：Cronbach'sα0.84-0.92，场景适配灵敏度82%
+GAD-7 Scale: Cronbach's α 0.84-0.92, scenario-adapted sensitivity 82%
+初中生干预后GAD-7降3.2分，缓解率76.5%；AI方案4周GAD-7从12.6降至8.4
+After intervention among junior high school students, the GAD-7 score decreased by 3.2 points, with a remission rate of 76.5%; using the AI program, the GAD-7 score dropped from 12.6 to 8.4 within 4 weeks.
+国际通用临床量表；深圳南山外国语学校实验；豆包音乐大模型临床对照实验
+Internationally universal clinical scales; Experiment of Shenzhen Nanshan Foreign Languages School; Clinical controlled experiment of Doubao Music Large Model
+权威行业报告数据
+Authoritative industry report data
+《中国艺术疗愈发展报告蓝皮书》为国内首个国家级艺术疗愈行业报告
+The Blue Book of the Development Report on Art Therapy in China is the first national-level industry report on art therapy in China.
+2.2025年中国艺术疗愈市场规模约50亿元，年复合增长率超20%
+In 2025, the scale of China's art therapy market was approximately 5 billion yuan, with a compound annual growth rate exceeding 20%.
+国家卫健委、文旅部、教育部直属机构联合指导编撰
+Compiled under the joint guidance of agencies directly under the National Health Commission, the Ministry of Culture and Tourism, and the Ministry of Education
+5.2 技术相关材料
+表1  2.1核心技术架构（四层协同架构）
+Table 1 2.1 Core Technical Architecture (Four-Layer Collaborative Architecture)
+架构层级
+architecture hierarchy
+核心功能与技术逻辑
+Core Functions and Technical Logic
+数据层
+Data layer
+由项目自建的三大专属样本库（情绪识别、视觉/音频匹配、疗效验证）构成，同时整合通用多模态情感数据集（如EmoBench）；其中EmoBench数据集包含约287000个多模态指令样本，覆盖图像、视频、文本三类数据，为模型的情感理解能力提供基础支撑
+It consists of three self-built exclusive sample databases for the project (emotion recognition, visual/audio matching, and efficacy verification), while integrating general multimodal emotion datasets such as EmoBench. Among them, the EmoBench dataset contains approximately 287,000 multimodal instruction samples covering three types of data: images, videos, and texts, providing fundamental support for the model's emotional comprehension capabilities.
+模型层
+model layer
+以Emo LLM情感大模型为核心决策引擎，搭配通义万相（视觉生成）、豆包音乐大模型（音频生成）两大内容生成工具；通义万相支持60+可控美学参数（如光影、色彩、构图），可实现国画风格的精准还原与定制化生成；豆包音乐大模型支持11种曲风、10种情绪分类，可根据用户实时状态调整音乐参数
+With the Emo LLM as the core decision-making engine, it is equipped with two major content generation tools: Tongyi Wanxiang (visual generation) and Doubao Music LLM (audio generation). Tongyi Wanxiang supports more than 60 controllable aesthetic parameters (such as light and shadow, color, and composition), enabling the accurate restoration and customized generation of traditional Chinese painting styles. The Doubao Music LLM supports 11 music genres and 10 emotion classifications, and can adjust music parameters according to users' real-time status.
+应用层
+Application layer
+包含情绪识别与状态评估、多模态内容生成干预、疗效反馈与模型迭代三大核心模块；情绪识别模块支持文本、语音、图像多模态数据输入，可实时捕捉用户的情绪波动；多模态内容生成模块可根据用户情绪标签，生成适配的国画与音乐内容；疗效反馈模块可自动采集用户的量表得分与行为数据，驱动模型迭代
+It consists of three core modules: emotion recognition and state assessment, multimodal content generation intervention, and efficacy feedback and model iteration. The emotion recognition module supports multimodal data input including text, voice and images, enabling real-time capture of users' emotional fluctuations. The multimodal content generation module can produce adaptive traditional Chinese painting and music content based on users' emotion tags. The efficacy feedback module automatically collects users' scale scores and behavioral data to drive model iteration.
+评估层
+Evaluation Layer
+采用前后测设计、A/B测试、周度策略迭代复盘的验证体系；通过GAD-7/PHQ-9量表的前后测得分差异，结合用户满意度、7/30日留存率等运营指标，量化评估干预效果
+Adopt a verification system featuring pre-test and post-test design, A/B testing, and weekly strategic iteration and review; quantitatively evaluate intervention effects through score differences in pre-test and post-test results of the GAD-7/PHQ-9 scales, combined with operational indicators such as user satisfaction and 7/30-day retention rates.
+表2  2.2核心技术底座与模型参数
+Table 2 2.2 Core Technology Foundation and Model Parameters
+模型
+名称
+Model Name
+基础参数
+Basic Parameters
+场景适配
+Scenario adaptation
+其他关键细节
+Other key details
+Emo LLM情感大模型
+Emo LLM Emotional Large Model
+基于GLM-4大模型基座开发，包含90亿、320亿、1300亿参数版本，具备8k+上下文记忆长度，可覆盖长周期的用户情绪跟踪需求
+Developed based on the GLM-4 large model foundation, it includes versions with 9 billion, 32 billion, and 130 billion parameters, features a context memory length of over 8k tokens, and can meet the demand for long-term user emotion tracking.
+在多模态情感理解任务上，较基线模型平均提升12.1%；尤其在国画情绪匹配场景，其准确率达89%，显著高于通用多模态模型的72%，可精准识别国画中的“气韵”与用户情绪的匹配度
+On the multimodal sentiment understanding task, it achieves an average improvement of 12.1% compared with the baseline model; especially in the traditional Chinese painting emotion matching scenario, its accuracy reaches 89%, which is significantly higher than the 72% of general multimodal models, and can accurately identify the matching degree between the "artistic charm" in traditional Chinese paintings and users' emotions.
+训练数据：涵盖项目自建的国画情绪匹配样本库与通用多模态情感数据集（如Emo Bench），其中Emo Bench数据集包含约287000个多模态指令样本，由GPT-4生成的问题模板标注而成；
+Training data: Covers the self-built traditional Chinese painting emotion matching sample library and general multimodal emotion datasets (such as Emo Bench). Among them, the Emo Bench dataset contains approximately 287,000 multimodal instruction samples, annotated using question templates generated by GPT-4.
+伦理设计：配备“价值对齐”模块，针对敏感话题（如自杀倾向、重度抑郁）设置严格的触发词拦截与转介流程，确保模型输出符合心理健康服务的伦理规范
+Ethical Design: Equipped with a "value alignment" module, strict trigger word interception and referral procedures are set for sensitive topics (such as suicidal ideation and severe depression) to ensure that the model's output complies with the ethical norms of mental health services.
+通义万相（视觉生成模型）
+采用Wan2.2版本的50亿参数混合TI2V模型，支持60+可控美学参数（如光影、色彩、构图、笔触风格），可实现局部编辑、风格迁移等精细化操作
+Adopting the 5-billion-parameter hybrid TI2V model of Wan2.2 version, it supports more than 60 controllable aesthetic parameters (such as light and shadow, color, composition, and brushstroke style), enabling refined operations like local editing and style transfer.
+针对国画风格还原场景完成专项训练；通过学习徐悲鸿《六骏图》、黄公望《富春山居图》等经典国画的笔触、墨韵特征，其风格还原准确率达92%，可生成符合东方美学审美的定制化国画内容
+Conduct special training on restoring scenes in the traditional Chinese painting style; by learning the brushstroke and ink charm characteristics of classic traditional Chinese paintings such as Six Steeds by Xu Beihong and Dwelling in the Fuchun Mountains by Huang Gongwang, the style restoration accuracy reaches 92%, enabling the generation of customized traditional Chinese painting content that conforms to Oriental aesthetic standards.
+可与Emo LLM的情绪识别结果实时联动；例如当用户情绪标签为“轻度焦虑”时，模型会自动生成“留白充足、色彩柔和的山水题材”国画，其情绪匹配准确率达87%
+It can be linked in real time with the emotion recognition results of Emo LLM; for example, when the user's emotion label is "mild anxiety", the model will automatically generate traditional Chinese paintings with "sufficient blank space, soft colors and landscape themes", with an emotion matching accuracy rate of 87%.
+豆包音乐大模型（音频生成模型）
+支持11种曲风（如国风、纯音乐、轻爵士等）、10种情绪分类（如平静、放松、愉悦等），可调整语速、语调、句间停顿等10+精细化参数，生成的音乐自然度达91%
+Supports 11 music genres (such as Chinese style, pure music, light jazz, etc.) and 10 emotion categories (such as calm, relaxed, joyful, etc.), with more than 10 refined parameters adjustable including speech rate, intonation, and inter-sentence pause, and the generated music achieves a naturalness rate of 91%.
+针对艺术疗愈场景，支持根据用户实时状态（如呼吸频率、语速节奏、GAD-7量表得分）动态调整音乐参数；例如当用户呼吸频率超过18次/分钟时，模型会自动降低音乐节奏至60-80BPM，延长句间停顿时间，帮助用户平复情绪
+For art therapy scenarios, it supports dynamically adjusting music parameters based on the user's real-time status (such as respiratory rate, speech rhythm, and GAD-7 scale score); for example, when the user's respiratory rate exceeds 18 breaths per minute, the model will automatically slow down the music tempo to 60–80 BPM and extend the pause time between phrases to help the user calm their emotions.
+在临床对照实验中，该模型生成的音乐干预4周后，用户GAD-7平均分从12.6降至8.4，降幅优于传统音乐治疗组的27%，有效验证了其疗愈效果
+In a clinical controlled experiment, after 4 weeks of music intervention generated by this model, the users' average GAD-7 score decreased from 12.6 to 8.4, with a reduction rate superior to the 27% of the traditional music therapy group, effectively verifying its healing effect.
+5.3 政策支撑材料
+Policy support materials
+表1 具体政策支撑明细（2023-2026年有效文件）
+Table 1 Details of Specific Policy Support (Valid Documents, 2023-2026)
+政策
+类别
+Policy Category
+政策名称
+Policy Name
+发布时间/相关说明
+Release Time/Relevant Notes
+核心内容
+Core content
+政策作用
+Policy effect
+国家顶层战略
+《“健康中国2030”规划纲要》
+Healthy China 2030 Plan Outline
+长期有效，核心目标至2030年
+Valid for a long term, with the core goal extending to 2030
+将心理健康纳入公共卫生服务体系，明确提出“到2030年，居民心理健康素养水平提升至30%”的战略目标
+Incorporate mental health into the public health service system, and clearly put forward the strategic goal of "raising the level of residents' mental health literacy to 30% by 2030".
+为项目的科普与服务普及提供核心政策依据，明确心理健康服务的公共属性
+Provide core policy support for the popularization of science and services related to the project, and clarify the public nature of mental health services.
+《关于开展“儿科和精神卫生服务年”行动（2025—2027年）的通知》
+Notice on Launching the "Year of Pediatrics and Mental Health Services" Campaign (2025–2027)
+2025-2027年实施
+To be implemented from 2025 to 2027
+要求常住人口超过30万人的县至少设置有病房的县级公立医院精神科，常住人口30万人以下的县至少有1所设置精神心理门诊的县级公立医院
+Counties with a permanent population of more than 300,000 shall have at least one psychiatric department in a county-level public hospital with inpatient wards, and counties with a permanent population of fewer than 300,000 shall have at least one county-level public hospital equipped with a psychiatric and psychological outpatient clinic.
+填补县域精神卫生服务的空白，为项目的下沉场景提供政策保障
+Fill the gap in mental health services at the county level and provide policy support for the grassroots implementation scenarios of the project
+教育部专项政策
+《全面加强和改进新时代学生心理健康工作专项行动计划（2023—2025年）》
+Special Action Plan for Comprehensively Strengthening and Improving Students' Mental Health Work in the New Era (2023–2025)
+2023-2025年实施
+Implemented from 2023 to 2025
+将“艺术表达治疗”列为校园心理服务的重要技术手段，要求每所中小学至少配备1名具备艺术治疗资质的心理教师
+Include "art expression therapy" as an important technical method for campus psychological services, requiring each primary and secondary school to be staffed with at least one psychological teacher qualified in art therapy.
+明确艺术疗愈在校园场景的合法地位，为项目的校园落地提供刚性需求支撑
+Clarify the legal status of art therapy in campus settings to provide rigid demand support for the campus implementation of the project.
+《关于全面推进健康学校建设的指导意见》
+Guiding Opinions on Comprehensively Promoting the Construction of Healthy Schools
+2026年2月发布
+Released in February 2026
+明确将美育纳入“五育并举”促心理健康的工作格局，要求义务教育阶段艺术课时占比不低于9%，每学期至少开展1次全员参与的艺术展演活动
+It clearly incorporates aesthetic education into the work pattern of "promoting mental health through the simultaneous development of five types of education", requiring that art classes account for no less than 9% of total class hours in compulsory education, and that at least one full-participation art performance activity be held each semester.
+为项目的校园场景落地提供课程与活动载体，明确美育与心理健康融合的考核标准
+Provide curriculum and activity carriers for the campus scenario implementation of the project, and clarify the assessment standards for the integration of aesthetic education and mental health education.
+《进一步加强中小学生心理健康工作十条措施》
+Ten Measures for Further Strengthening Mental Health Work Among Primary and Secondary School Students
+2023-2026年有效
+Valid from 2023 to 2026
+构建“学校-家庭-社会-医疗机构”四位一体的心理服务体系，将心理健康工作纳入刚性考核
+Construct a four-in-one psychological service system of "school-family-society-medical institution" and incorporate mental health work into rigid assessment
+为项目的校园场景落地提供协同机制保障，确保服务能覆盖全流程的学生心理需求
+Provide a collaborative mechanism guarantee for the campus scenario implementation of the project, ensuring that services can cover the entire process of students' psychological needs.
+国家卫健委专项政策
+《全国社会心理服务体系建设试点工作方案》
+Work Plan for the Pilot Program of the National Social Psychological Service System Construction
+2025年终期验收
+2025 Year-End Acceptance
+2025年终期验收结果显示，试点地区心理门诊设置完成率达100%，服务量同比增长17%
+The 2025 year-end acceptance results show that the completion rate of psychological outpatient clinics set up in pilot areas reached 100%, with service volume increasing by 17% year-on-year.
+直接验证非药物心理干预场景的政策支持力度，为项目的医疗场景落地提供参考标准
+Directly verify the intensity of policy support for non-pharmaceutical psychological intervention scenarios, providing reference standards for the implementation of the project in medical scenarios.
+《关于加强心理健康服务体系建设的指导意见》
+Guiding Opinions on Strengthening the Construction of the Mental Health Service System
+2024年发布
+Released in 2024
+明确提出要推动艺术疗法在心理健康服务中的应用，鼓励各级医疗机构引入艺术疗法服务
+It clearly proposes to promote the application of art therapy in mental health services and encourages medical institutions at all levels to introduce art therapy services.
+明确艺术疗愈在医疗场景的合法地位，为项目的医疗场景落地提供政策依据
+Clarify the legal status of art therapy in medical settings and provide policy support for the implementation of related projects in medical scenarios.
+海南省地方政策
+《海南省推动康养产业发展三年行动方案（2025-2027年）》
+Hainan Province Three-Year Action Plan for Promoting the Development of the Health and Wellness Industry (2025-2027)
+2025-2027年实施
+To be implemented from 2025 to 2027
+将针对睡眠障碍及精神心理亚健康人群的心理干预服务纳入康养产业范畴，明确提出要“开发黎苗医药、中医药和心理干预服务”
+Psychological intervention services for people with sleep disorders and suboptimal mental health will be incorporated into the health and wellness industry, with a clear requirement to "develop Li and Miao ethnic medicines, traditional Chinese medicine, and psychological intervention services".
+将项目纳入海南自贸港的重点产业规划，为项目的区域落地提供产业政策支撑
+Incorporate the project into the key industrial planning of the Hainan Free Trade Port to provide industrial policy support for the regional implementation of the project.
+《海南省数字健康体系与数字健康经济高质量发展三年攻坚行动计划（2024—2026年）》
+Three-Year Action Plan for the High-Quality Development of Hainan's Digital Health System and Digital Health Economy (2024-2026)
+2024-2026年实施
+Implemented from 2024 to 2026
+支持数字化心理健康筛查及接续健康服务，要求“制定完善服务标准和流程规范，提升全省儿童和青少年心理健康服务标准化规范化水平”
+Support digital mental health screening and follow-up health services, requiring the "formulation and improvement of service standards and process specifications to enhance the standardized and normalized level of mental health services for children and adolescents across the province".
+为项目的数字化服务模式提供政策支持，明确服务标准的方向
+Provide policy support for the digital service model of the project and clarify the direction of service standards.
+海口市教育局专项方案
+Special Program of Haikou Municipal Education Bureau
+2025年实施
+Implemented in 2025
+要求2025年实现中小学专职心理教师配备率100%，将心理健康教育纳入必修课程
+It is required that the allocation rate of full-time psychological teachers in primary and secondary schools reach 100% by 2025, and mental health education shall be incorporated into compulsory courses.
+为项目的校园场景落地提供具体的落地保障，明确项目在海口地区的服务优先级
+Provide specific implementation guarantees for the project's landing in campus scenarios, and clarify the service priority of the project in the Haikou area.
+省文旅厅试点项目
+Pilot Project of the Provincial Department of Culture and Tourism
+2025年启动
+Launched in 2025
+启动“艺术疗愈+非遗美育”新型公共文化空间试点，全年举办9期基层骨干培训班，覆盖美术、书法、音乐等艺术门类，近300人次参训
+Launch a pilot program for a new type of public cultural space featuring "art therapy + intangible cultural heritage aesthetic education". Hold 9 training courses for grassroots backbone personnel throughout the year, covering art categories such as fine arts, calligraphy and music, with nearly 300 participants.
+为项目提供区域化的落地场景，为项目的非遗融合方向提供参考案例
+Provide regionalized implementation scenarios for the project and offer reference cases for the project's direction of integrating intangible cultural heritage.
+表2  3.5政策导向总结
+Table 2 Summary of 3.5 Policy Orientation
+政策导向方向
+Policy orientation
+核心内容
+core content
+与项目的关联
+Relevance to the project
+服务对象全覆盖
+Full coverage of service recipients
+从青少年、老年人向全人群扩展，重点聚焦青少年、高压职场人等核心群体；政策明确要求将心理健康服务覆盖全生命周期
+Expanding from adolescents and the elderly to the entire population, with a focus on core groups such as teenagers and high-pressure workplace professionals; the policy explicitly requires mental health services to cover the entire life cycle.
+与项目的目标用户群体高度契合，为项目的服务范围拓展提供政策依据
+It is highly compatible with the target user group of the project and provides a policy basis for the expansion of the project's service scope.
+服务形式多元化
+鼓励非药物干预、传统文化+心理服务融合，明确艺术疗愈的合法地位；政策将艺术表达治疗列为校园心理服务的重要技术手段
+Encourage non-pharmaceutical interventions and the integration of traditional culture with psychological services, and clarify the legal status of art therapy; policies shall list expressive arts therapy as an important technical means for campus psychological services.
+为项目“AI多模态+东方美学艺术疗愈”的核心模式提供直接政策依据
+Provide direct policy support for the core model of the project "AI Multimodal + Oriental Aesthetics Art Therapy".
+服务场景下沉
+从医院、高校向社区、企业、县域下沉，要求县域精神卫生服务网点实现全覆盖；填补县域精神卫生服务的空白
+Expanding from hospitals and universities to communities, enterprises, and counties, it is required to achieve full coverage of mental health service outlets in counties; fill the gaps in county-level mental health services.
+为项目的下沉场景（社区、企业、县域）提供广阔的市场空间和政策保障
+Provide broad market space and policy support for the project's sinking scenarios (communities, enterprises, and counties).

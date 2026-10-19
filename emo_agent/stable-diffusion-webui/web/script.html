@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数字人交流 - 剧本创作 | StoryVerse AI</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .chat-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+        margin-top: 2rem;
+        min-height: 600px;
+      }
+      
+      .chat-sidebar {
+        background: rgba(17, 25, 54, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        padding: 2rem;
+        backdrop-filter: blur(18px);
+      }
+      
+      .chat-main {
+        background: rgba(17, 25, 54, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        padding: 2rem;
+        backdrop-filter: blur(18px);
+        display: grid;
+        grid-template-rows: 1fr auto;
+        gap: 1.5rem;
+      }
+      
+      .chat-messages {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        overflow-y: auto;
+        max-height: 500px;
+        padding: 1rem;
+      }
+      
+      .message {
+        display: flex;
+        gap: 1rem;
+        animation: fadeIn 0.3s ease;
+      }
+      
+      .message.user {
+        flex-direction: row-reverse;
+      }
+      
+      .message-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+      
+      .message.user .message-avatar {
+        background: linear-gradient(135deg, rgba(255, 107, 129, 0.3), rgba(255, 191, 210, 0.3));
+      }
+      
+      .message.ai .message-avatar {
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(147, 197, 253, 0.3));
+      }
+      
+      .message-content {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 1rem 1.5rem;
+        max-width: 70%;
+        line-height: 1.6;
+      }
+      
+      .message.user .message-content {
+        background: rgba(255, 107, 129, 0.15);
+        border-color: rgba(255, 107, 129, 0.3);
+      }
+      
+      .chat-input-area {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-end;
+      }
+      
+      .chat-input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 1rem 1.5rem;
+        color: var(--text-primary);
+        font-size: 1rem;
+        resize: none;
+        min-height: 60px;
+        max-height: 150px;
+        font-family: inherit;
+      }
+      
+      .chat-input:focus {
+        outline: none;
+        border-color: rgba(255, 107, 129, 0.5);
+        background: rgba(255, 255, 255, 0.08);
+      }
+      
+      .send-button {
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, rgba(255, 107, 129, 0.95), rgba(255, 191, 210, 0.95));
+        border: none;
+        border-radius: 16px;
+        color: var(--bg-primary);
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      
+      .send-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(255, 107, 129, 0.4);
+      }
+      
+      .script-preview {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      
+      .script-preview h3 {
+        margin-bottom: 1rem;
+        color: var(--accent);
+      }
+      
+      .script-content {
+        white-space: pre-wrap;
+        line-height: 1.8;
+        color: var(--text-secondary);
+      }
+      
+      .quick-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      
+      .quick-action-btn {
+        padding: 0.8rem 1.2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: left;
+      }
+      
+      .quick-action-btn:hover {
+        background: rgba(255, 107, 129, 0.15);
+        border-color: rgba(255, 107, 129, 0.3);
+        color: var(--text-primary);
+      }
+      
+      .character-selector {
+        margin-top: 1.5rem;
+      }
+      
+      .character-selector label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #000000;
+        font-size: 0.9rem;
+      }
+      
+      .character-selector select {
+        width: 100%;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #000000;
+        font-family: inherit;
+      }
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .typing-indicator {
+        display: flex;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+      }
+      
+      .typing-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        animation: typing 1.4s infinite;
+      }
+      
+      .typing-dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      
+      .typing-dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      
+      @keyframes typing {
+        0%, 60%, 100% {
+          transform: translateY(0);
+          opacity: 0.7;
+        }
+        30% {
+          transform: translateY(-10px);
+          opacity: 1;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .chat-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="noise-overlay"></div>
+    <nav class="topbar">
+      <a class="topbar__brand" href="index.html">
+        <span class="logo-heart" aria-hidden="true"></span>
+        <span>StoryVerse AI</span>
+      </a>
+      <div class="topbar__links">
+        <a href="script.html" class="is-active">数字人交流</a>
+        <a href="generation.html">视频创作</a>
+        <a href="editor.html">视频剪辑</a>
+        <a href="index.html">首页</a>
+      </div>
+      <button class="topbar__cta">保存剧本</button>
+    </nav>
+
+    <main>
+      <section class="detail-hero">
+        <div class="detail-hero__copy">
+          <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>/</span>
+            <span>数字人交流</span>
+          </div>
+          <span class="eyebrow">💬 AI 对话创作</span>
+          <h1>数字人交流 - 剧本创作</h1>
+          <p>
+            与AI数字人实时对话，智能生成历史故事剧本。支持多角色设定、情节发展建议、历史背景知识库，让您的创作过程充满灵感与互动。
+          </p>
+          <div class="detail-hero__actions">
+            <button class="primary" id="new-script-btn">新建剧本</button>
+            <button class="ghost" id="load-script-btn">加载历史</button>
+          </div>
+        </div>
+        <div class="detail-hero__visual">
+          <div class="detail-orb">
+            <div class="detail-orb__chip">🤖 AI助手</div>
+            <div class="detail-orb__chip">📜 剧本生成</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="chat-container">
+          <div class="chat-sidebar">
+            <h3 style="margin-bottom: 1.5rem;">创作设置</h3>
+            
+            <div class="character-selector">
+              <label>选择数字人角色</label>
+              <select id="character-select">
+                <option value="historian">历史学家</option>
+                <option value="storyteller">说书人</option>
+                <option value="scholar">学者</option>
+                <option value="narrator">旁白</option>
+                <option value="emperor">皇帝</option>
+                <option value="general">将军</option>
+                <option value="minister">大臣</option>
+                <option value="poet">诗人</option>
+                <option value="philosopher">哲学家</option>
+                <option value="merchant">商人</option>
+                <option value="monk">僧人</option>
+                <option value="scholar-lady">才女</option>
+                <option value="warrior">武士</option>
+                <option value="artisan">工匠</option>
+                <option value="farmer">农民</option>
+                <option value="hermit">隐士</option>
+              </select>
+            </div>
+            
+            <div class="character-selector" style="margin-top: 1.5rem;">
+              <label>历史时期</label>
+              <select id="period-select">
+                <option value="yanhuang">炎黄时期</option>
+                <option value="xia">夏朝</option>
+                <option value="shang">商朝</option>
+                <option value="zhou">周朝</option>
+                <option value="spring-autumn">春秋时期</option>
+                <option value="warring-states">战国时期</option>
+                <option value="qin">秦朝</option>
+                <option value="han">汉朝</option>
+                <option value="three-kingdoms">三国时期</option>
+                <option value="jin">晋朝</option>
+                <option value="northern-southern">南北朝</option>
+                <option value="sui">隋朝</option>
+                <option value="tang">唐朝</option>
+                <option value="five-dynasties">五代十国</option>
+                <option value="song">宋朝</option>
+                <option value="yuan">元朝</option>
+                <option value="ming">明朝</option>
+                <option value="qing">清朝</option>
+                <option value="custom">自定义</option>
+              </select>
+            </div>
+            
+            <div class="quick-actions">
+              <button class="quick-action-btn" data-prompt="创作一个关于秦始皇统一六国的历史故事">📜 秦始皇统一六国</button>
+              <button class="quick-action-btn" data-prompt="创作一个关于三国演义中赤壁之战的故事">🔥 赤壁之战</button>
+              <button class="quick-action-btn" data-prompt="创作一个关于唐朝盛世的宫廷故事">🏛️ 唐朝盛世</button>
+              <button class="quick-action-btn" data-prompt="创作一个关于丝绸之路的商旅故事">🐫 丝绸之路</button>
+            </div>
+            
+            <div class="script-preview" id="script-preview" style="display: none;">
+              <h3>生成的剧本</h3>
+              <div class="script-content" id="script-content"></div>
+              <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+                <button class="ghost" style="flex: 1;" id="export-script-btn">导出剧本</button>
+                <button class="primary" style="flex: 1;" id="use-script-btn">使用此剧本</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="chat-main">
+            <div class="chat-messages" id="chat-messages">
+              <div class="message ai">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content" id="welcome-message">
+                  您好！我是您的AI创作助手。我可以帮助您创作精彩的历史故事剧本。请告诉我您想要创作什么主题的历史故事？
+                </div>
+              </div>
+            </div>
+            
+            <div class="chat-input-area">
+              <textarea 
+                class="chat-input" 
+                id="chat-input" 
+                placeholder="输入您的想法或问题，例如：我想创作一个关于...的历史故事"
+                rows="3"
+              ></textarea>
+              <button class="send-button" id="send-btn">发送</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 StoryVerse AI · 数字人交互视频及历史故事视频创作平台</p>
+    </footer>
+
+    <script>
+      const chatMessages = document.getElementById('chat-messages');
+      const chatInput = document.getElementById('chat-input');
+      const sendBtn = document.getElementById('send-btn');
+      const quickActionBtns = document.querySelectorAll('.quick-action-btn');
+      const scriptPreview = document.getElementById('script-preview');
+      const scriptContent = document.getElementById('script-content');
+      
+      let conversationHistory = [];
+      
+      function addMessage(content, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user' : 'ai'}`;
+        
+        const avatar = document.createElement('div');
+        avatar.className = 'message-avatar';
+        avatar.textContent = isUser ? '👤' : '🤖';
+        
+        const messageContent = document.createElement('div');
+        messageContent.className = 'message-content';
+        messageContent.textContent = content;
+        
+        messageDiv.appendChild(avatar);
+        messageDiv.appendChild(messageContent);
+        chatMessages.appendChild(messageDiv);
+        
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        return messageDiv;
+      }
+      
+      function showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message ai';
+        typingDiv.id = 'typing-indicator';
+        
+        const avatar = document.createElement('div');
+        avatar.className = 'message-avatar';
+        avatar.textContent = '🤖';
+        
+        const typingContent = document.createElement('div');
+        typingContent.className = 'message-content';
+        typingContent.innerHTML = '<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+        
+        typingDiv.appendChild(avatar);
+        typingDiv.appendChild(typingContent);
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+      
+      function removeTypingIndicator() {
+        const indicator = document.getElementById('typing-indicator');
+        if (indicator) {
+          indicator.remove();
+        }
+      }
+      
+      function getCharacterStyle(character) {
+        const styles = {
+          'historian': '作为历史学家，我将为您提供严谨的历史考据和准确的时代背景。',
+          'storyteller': '作为说书人，我将用生动的语言为您讲述精彩的历史故事。',
+          'scholar': '作为学者，我将从学术角度为您分析历史事件和人物。',
+          'narrator': '作为旁白，我将以客观的视角为您叙述历史故事。',
+          'emperor': '朕将以帝王之视角，为您讲述那段波澜壮阔的历史。',
+          'general': '作为将军，我将从军事战略的角度为您分析历史战役。',
+          'minister': '作为大臣，我将从政治和治理的角度为您解读历史。',
+          'poet': '作为诗人，我将用诗意的语言为您描绘历史画卷。',
+          'philosopher': '作为哲学家，我将从思想层面为您解析历史意义。',
+          'merchant': '作为商人，我将从经济贸易的角度为您讲述历史。',
+          'monk': '作为僧人，我将以禅意和智慧为您解读历史。',
+          'scholar-lady': '作为才女，我将用优雅的文笔为您描绘历史故事。',
+          'warrior': '作为武士，我将从武者的角度为您讲述历史。',
+          'artisan': '作为工匠，我将从技艺传承的角度为您讲述历史。',
+          'farmer': '作为农民，我将从民间视角为您讲述历史。',
+          'hermit': '作为隐士，我将以超脱的视角为您解读历史。'
+        };
+        return styles[character] || styles['historian'];
+      }
+      
+      function getPeriodInfo(period) {
+        const periods = {
+          'yanhuang': '炎黄时期（约公元前3000年）',
+          'xia': '夏朝（约公元前2070年-前1600年）',
+          'shang': '商朝（约公元前1600年-前1046年）',
+          'zhou': '周朝（约公元前1046年-前256年）',
+          'spring-autumn': '春秋时期（公元前770年-前476年）',
+          'warring-states': '战国时期（公元前475年-前221年）',
+          'qin': '秦朝（公元前221年-前207年）',
+          'han': '汉朝（公元前202年-220年）',
+          'three-kingdoms': '三国时期（220年-280年）',
+          'jin': '晋朝（265年-420年）',
+          'northern-southern': '南北朝（420年-589年）',
+          'sui': '隋朝（581年-618年）',
+          'tang': '唐朝（618年-907年）',
+          'five-dynasties': '五代十国（907年-960年）',
+          'song': '宋朝（960年-1279年）',
+          'yuan': '元朝（1271年-1368年）',
+          'ming': '明朝（1368年-1644年）',
+          'qing': '清朝（1644年-1912年）',
+          'custom': '自定义时期'
+        };
+        return periods[period] || periods['custom'];
+      }
+      
+      function generateAIResponse(userMessage) {
+        const character = document.getElementById('character-select').value;
+        const period = document.getElementById('period-select').value;
+        
+        const characterStyle = getCharacterStyle(character);
+        const periodInfo = getPeriodInfo(period);
+        
+        // 根据角色和历史时期生成个性化响应
+        const responses = [
+          `${characterStyle} 关于"${userMessage}"这个主题，在${periodInfo}这个历史时期，让我为您构思一个精彩的剧本框架...`,
+          `${characterStyle} 这是一个很有趣的主题！在${periodInfo}的历史背景下，我建议我们可以从以下几个角度展开：`,
+          `根据您选择的${periodInfo}背景，我已经为您生成了一个初步的剧本大纲。您觉得这个方向如何？`,
+          `太好了！基于${periodInfo}的历史背景，我已经为您创作了一个完整的历史故事剧本。剧本包含了多个场景、角色对话和情节发展。`,
+        ];
+        
+        // 如果用户提到剧本相关关键词，生成示例剧本
+        if (userMessage.includes('剧本') || userMessage.includes('故事') || userMessage.includes('创作')) {
+          return {
+            message: responses[Math.floor(Math.random() * responses.length)],
+            script: generateSampleScript(userMessage, character, period)
+          };
+        }
+        
+        return {
+          message: responses[Math.floor(Math.random() * responses.length)],
+          script: null
+        };
+      }
+      
+      function generateSampleScript(topic, character, period) {
+        const periodInfo = getPeriodInfo(period);
+        const characterName = document.getElementById('character-select').selectedOptions[0].text;
+        
+        return `【历史故事剧本】
+
+标题：${topic || '历史故事'}
+历史时期：${periodInfo}
+创作角色：${characterName}
+
+【第一幕：开场】
+场景：${periodInfo}的历史场景
+时间：清晨
+
+旁白：在${periodInfo}的历史长河中，有这样一段故事...
+
+【第二幕：发展】
+角色A：让我们开始这段旅程。
+角色B：是的，这将是一个难忘的故事。
+
+【第三幕：高潮】
+（情节发展，冲突与解决）
+
+【第四幕：结尾】
+旁白：历史告诉我们，${periodInfo}的故事永远值得铭记...
+
+【剧终】`;
+      }
+      
+      function sendMessage() {
+        const message = chatInput.value.trim();
+        if (!message) return;
+        
+        // 添加用户消息
+        addMessage(message, true);
+        conversationHistory.push({ role: 'user', content: message });
+        chatInput.value = '';
+        
+        // 显示输入指示器
+        showTypingIndicator();
+        
+        // 模拟AI响应延迟
+        setTimeout(() => {
+          removeTypingIndicator();
+          const response = generateAIResponse(message);
+          addMessage(response.message, false);
+          conversationHistory.push({ role: 'assistant', content: response.message });
+          
+          // 如果有生成的剧本，显示预览
+          if (response.script) {
+            scriptContent.textContent = response.script;
+            scriptPreview.style.display = 'block';
+          }
+        }, 1500);
+      }
+      
+      sendBtn.addEventListener('click', sendMessage);
+      
+      chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+      
+      // 快速操作按钮
+      quickActionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const prompt = btn.dataset.prompt;
+          chatInput.value = prompt;
+          sendMessage();
+        });
+      });
+      
+      // 导出剧本
+      document.getElementById('export-script-btn')?.addEventListener('click', () => {
+        const script = scriptContent.textContent;
+        const blob = new Blob([script], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = '剧本.txt';
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+      
+      // 使用剧本（跳转到视频创作页面）
+      document.getElementById('use-script-btn')?.addEventListener('click', () => {
+        const script = scriptContent.textContent;
+        localStorage.setItem('currentScript', script);
+        window.location.href = 'generation.html';
+      });
+      
+      // 当角色或历史时期改变时，更新欢迎消息
+      function updateWelcomeMessage() {
+        const character = document.getElementById('character-select').value;
+        const period = document.getElementById('period-select').value;
+        const characterStyle = getCharacterStyle(character);
+        const periodInfo = getPeriodInfo(period);
+        
+        const welcomeMessage = document.getElementById('welcome-message');
+        if (welcomeMessage && chatMessages.children.length === 1) {
+          welcomeMessage.textContent = `${characterStyle} 我专注于${periodInfo}的历史故事创作。请告诉我您想要创作什么主题的历史故事？`;
+        }
+      }
+      
+      document.getElementById('character-select')?.addEventListener('change', updateWelcomeMessage);
+      document.getElementById('period-select')?.addEventListener('change', updateWelcomeMessage);
+      
+      // 初始化欢迎消息
+      window.addEventListener('DOMContentLoaded', () => {
+        updateWelcomeMessage();
+      });
+    </script>
+  </body>
+</html>
+

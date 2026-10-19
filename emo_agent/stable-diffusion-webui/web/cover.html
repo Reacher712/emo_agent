@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>溯古-智像 - AI创作平台</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* 封面页面专用样式 */
+      .cover-page {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        overflow: hidden;
+        z-index: 9999;
+      }
+
+      /* 背景动画效果 */
+      .cover-background {
+        position: absolute;
+        inset: 0;
+        background: 
+          radial-gradient(circle at 30% 30%, rgba(200, 16, 46, 0.25), transparent 50%),
+          radial-gradient(circle at 70% 70%, rgba(212, 175, 55, 0.2), transparent 50%),
+          radial-gradient(circle at 50% 50%, rgba(0, 206, 209, 0.15), transparent 60%),
+          linear-gradient(135deg, #1a1a1a 0%, #2d1f1f 50%, #1a1a1a 100%);
+        background-size: 200% 200%;
+        animation: gradientShift 15s ease infinite;
+        z-index: -2;
+      }
+
+      @keyframes gradientShift {
+        0%, 100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      /* 装饰性光效 */
+      .cover-glow {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent 70%);
+        animation: pulse 4s ease-in-out infinite;
+        z-index: -1;
+      }
+
+      .cover-glow:nth-child(2) {
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(circle, rgba(200, 16, 46, 0.12), transparent 70%);
+        animation-delay: 1s;
+        animation-duration: 5s;
+      }
+
+      .cover-glow:nth-child(3) {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(0, 206, 209, 0.1), transparent 70%);
+        animation-delay: 2s;
+        animation-duration: 6s;
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 0.3;
+        }
+      }
+
+      /* 主标题容器 */
+      .cover-title-container {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        margin-bottom: 4rem;
+        animation: fadeInUp 1.5s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* 主标题 */
+      .cover-main-title {
+        font-size: clamp(4rem, 12vw, 8rem);
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--accent-gold) 0%,
+          var(--accent-gold-light) 30%,
+          var(--accent) 60%,
+          var(--accent-gold) 100%
+        );
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 
+          0 0 40px rgba(212, 175, 55, 0.5),
+          0 0 80px rgba(200, 16, 46, 0.3);
+        animation: titleShine 3s ease-in-out infinite;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      @keyframes titleShine {
+        0%, 100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      /* 标题装饰线 */
+      .cover-title-decoration {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent-gold),
+          var(--accent),
+          var(--accent-gold),
+          transparent
+        );
+        animation: lineExpand 1.5s ease-out 0.5s both;
+      }
+
+      @keyframes lineExpand {
+        from {
+          width: 0;
+          opacity: 0;
+        }
+        to {
+          width: 200px;
+          opacity: 1;
+        }
+      }
+
+      /* 进入首页按钮 */
+      .cover-enter-btn {
+        position: relative;
+        z-index: 1;
+        padding: 1.2rem 3.5rem;
+        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+        font-weight: 600;
+        color: var(--text-primary);
+        background: linear-gradient(135deg, rgba(200, 16, 46, 0.9), rgba(220, 20, 60, 0.9));
+        border: 2px solid var(--accent-gold);
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 
+          0 8px 32px rgba(0, 0, 0, 0.4),
+          0 0 20px rgba(200, 16, 46, 0.4),
+          inset 0 1px 0 rgba(212, 175, 55, 0.3);
+        animation: fadeInUp 1.5s ease-out 0.5s both;
+        text-decoration: none;
+        display: inline-block;
+        letter-spacing: 0.1em;
+        overflow: hidden;
+      }
+
+      .cover-enter-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(212, 175, 55, 0.3),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .cover-enter-btn:hover {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 
+          0 12px 48px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(200, 16, 46, 0.6),
+          0 0 40px rgba(212, 175, 55, 0.4),
+          inset 0 1px 0 rgba(212, 175, 55, 0.5);
+        border-color: var(--accent-gold-light);
+      }
+
+      .cover-enter-btn:hover::before {
+        left: 100%;
+      }
+
+      .cover-enter-btn:active {
+        transform: translateY(-2px) scale(1.02);
+      }
+
+      /* 副标题文字 */
+      .cover-subtitle {
+        font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+        color: var(--text-secondary);
+        margin-top: 0.5rem;
+        opacity: 0.8;
+        letter-spacing: 0.05em;
+      }
+
+      /* 粒子效果容器 */
+      .cover-particles {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-gold);
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+        10%, 90% {
+          opacity: 0.6;
+        }
+        50% {
+          transform: translateY(-100px) translateX(50px);
+          opacity: 0.3;
+        }
+      }
+
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .cover-title-container {
+          margin-bottom: 3rem;
+        }
+
+        .cover-enter-btn {
+          padding: 1rem 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="noise-overlay"></div>
+    
+    <!-- 封面页面 -->
+    <div class="cover-page">
+      <!-- 背景层 -->
+      <div class="cover-background"></div>
+      
+      <!-- 光效装饰 -->
+      <div class="cover-glow" style="top: 20%; left: 10%;"></div>
+      <div class="cover-glow" style="top: 60%; right: 15%;"></div>
+      <div class="cover-glow" style="bottom: 20%; left: 50%;"></div>
+      
+      <!-- 粒子效果 -->
+      <div class="cover-particles" id="particles"></div>
+      
+      <!-- 主标题容器 -->
+      <div class="cover-title-container">
+        <h1 class="cover-main-title">溯古-智像</h1>
+        <div class="cover-title-decoration"></div>
+      </div>
+      
+      <!-- 进入首页按钮 -->
+      <a href="index.html" class="cover-enter-btn" id="enter-btn">
+        进入首页
+        <span class="cover-subtitle" style="display: block; margin-top: 0.3rem; font-size: 0.7em;">
+          探索AI创作的无限可能
+        </span>
+      </a>
+    </div>
+
+    <script type="module">
+      // ============================================
+      // CosyVoice 本地服务连接和 API 测试
+      // ============================================
+      
+      // CosyVoice 本地服务地址
+      const COSYVOICE_LOCAL_URL = "http://127.0.0.1:50000";
+      
+      let gradioClient = null;
+      let Client = null;
+      
+      // 加载 Gradio Client
+      async function loadGradioClient() {
+        try {
+          console.log('📦 正在加载 Gradio Client...');
+          // 优先尝试 esm.sh（支持 CORS）
+          const module = await import("https://esm.sh/@gradio/client@0.15.0");
+          console.log('📦 模块导入成功，检查 Client 属性...');
+          console.log('📦 模块内容:', Object.keys(module));
+          
+          // 检查不同的可能导出名称
+          if (module.Client) {
+            Client = module.Client;
+            console.log('✅ 使用 module.Client');
+          } else if (module.default && module.default.Client) {
+            Client = module.default.Client;
+            console.log('✅ 使用 module.default.Client');
+          } else if (module.default && typeof module.default.connect === 'function') {
+            // 如果 default 本身就是 Client
+            Client = module.default;
+            console.log('✅ 使用 module.default 作为 Client');
+          } else {
+            console.error('❌ 无法找到 Client 导出');
+            console.error('模块结构:', module);
+            return false;
+          }
+          
+          // 验证 Client 是否正确
+          if (!Client || typeof Client.connect !== 'function') {
+            console.error('❌ Client 未正确初始化');
+            console.error('Client 类型:', typeof Client);
+            return false;
+          }
+          
+          console.log('✅ Gradio Client 加载成功');
+          console.log('✅ Client.connect 方法存在:', typeof Client.connect);
+          return true;
+        } catch (error) {
+          console.warn('⚠️ esm.sh 加载失败，尝试 jsdelivr:', error);
+          try {
+            // 备选方案：jsdelivr
+            const module = await import("https://cdn.jsdelivr.net/npm/@gradio/client@0.15.0/dist/index.mjs");
+            console.log('📦 jsdelivr 模块导入成功，检查 Client 属性...');
+            
+            // 检查不同的可能导出名称
+            if (module.Client) {
+              Client = module.Client;
+              console.log('✅ 使用 module.Client');
+            } else if (module.default && module.default.Client) {
+              Client = module.default.Client;
+              console.log('✅ 使用 module.default.Client');
+            } else if (module.default && typeof module.default.connect === 'function') {
+              Client = module.default;
+              console.log('✅ 使用 module.default 作为 Client');
+            } else {
+              console.error('❌ 无法找到 Client 导出');
+              return false;
+            }
+            
+            // 验证 Client 是否正确
+            if (!Client || typeof Client.connect !== 'function') {
+              console.error('❌ Client 未正确初始化');
+              return false;
+            }
+            
+            console.log('✅ 使用 jsdelivr CDN 加载 Gradio Client 成功');
+            return true;
+          } catch (error2) {
+            console.error('❌ 所有 CDN 加载失败:', error2);
+            return false;
+          }
+        }
+      }
+      
+      // 步骤1：连接到 CosyVoice 本地服务
+      async function connectToCosyVoice() {
+        // 确保 Client 已加载
+        if (!Client) {
+          const loaded = await loadGradioClient();
+          if (!loaded || !Client) {
+            console.error('❌ 无法加载 Gradio Client，跳过 CosyVoice 连接');
+            console.error('💡 Client 状态:', Client);
+            return null;
+          }
+        }
+        
+        // 再次检查 Client 是否存在
+        if (!Client || typeof Client.connect !== 'function') {
+          console.error('❌ Client 未正确初始化');
+          console.error('💡 Client 类型:', typeof Client);
+          console.error('💡 Client 值:', Client);
+          return null;
+        }
+        
+        try {
+          console.log('🔗 正在连接到 CosyVoice 本地服务:', COSYVOICE_LOCAL_URL);
+          const app = await Client.connect(COSYVOICE_LOCAL_URL);
+          console.log('✅ 成功连接到 CosyVoice 本地服务');
+          gradioClient = app;
+          return app;
+        } catch (error) {
+          console.error('❌ 连接 CosyVoice 失败:', error);
+          console.log('💡 请检查：');
+          console.log('1. CosyVoice 服务是否在运行');
+          console.log('2. 访问 http://127.0.0.1:50000 是否能打开界面');
+          console.log('3. 端口是否被占用');
+          return null;
+        }
+      }
+      
+      // 步骤2：测试简单 API（验证连接）
+      async function testCosyVoiceConnection() {
+        try {
+          console.log('🧪 开始测试 CosyVoice API 连接...');
+          
+          if (!gradioClient) {
+            const app = await connectToCosyVoice();
+            if (!app) {
+              return false;
+            }
+          }
+          
+          // 测试最简单的端点 /generate_seed
+          console.log('📡 测试 /generate_seed 端点...');
+          const seedResult = await gradioClient.predict("/generate_seed", {});
+          console.log('✅ CosyVoice API 测试成功，随机种子:', seedResult.data[0]);
+          
+          return true;
+        } catch (error) {
+          console.error('❌ CosyVoice API 测试失败:', error);
+          console.log('请检查：');
+          console.log('1. CosyVoice 服务是否在运行');
+          console.log('2. 访问 http://127.0.0.1:50000 是否能打开界面');
+          console.log('3. 端口是否被占用');
+          return false;
+        }
+      }
+      
+      // 测试其他 API 端点
+      async function testOtherEndpoints() {
+        if (!gradioClient) {
+          console.warn('⚠️ Gradio Client 未连接，跳过其他端点测试');
+          return;
+        }
+        
+        try {
+          // 测试 /change_instruction 端点
+          console.log('📡 测试 /change_instruction 端点...');
+          const instructionResult = await gradioClient.predict("/change_instruction", {
+            mode: "3s极速复刻"
+          });
+          console.log('✅ /change_instruction 端点测试成功:', instructionResult);
+        } catch (error) {
+          console.warn('⚠️ /change_instruction 端点测试失败:', error.message);
+        }
+      }
+      
+      // 步骤3：完整调用示例（测试音频生成，但不实际生成）
+      async function testGenerateAudioAPI() {
+        if (!gradioClient) {
+          console.warn('⚠️ Gradio Client 未连接，无法测试音频生成 API');
+          return false;
+        }
+        
+        try {
+          console.log('🎤 测试 /generate_audio 端点（验证端点可访问性）...');
+          
+          // 注意：实际生成音频需要完整的参数，包括音频文件
+          // 这里只是验证端点存在，不实际生成音频
+          console.log('💡 /generate_audio 端点需要以下参数：');
+          console.log('   - tts_text: 要合成的文本（必需）');
+          console.log('   - mode_checkbox_group: 推理模式（必需）');
+          console.log('   - prompt_wav_upload: 音频文件（必需）');
+          console.log('   - prompt_wav_record: 录制音频（可选）');
+          console.log('   - prompt_text: Prompt 文本（可选）');
+          console.log('   - instruct_text: Instruct 文本（可选）');
+          console.log('   - seed: 随机种子（可选）');
+          console.log('   - stream: 流式推理（可选）');
+          console.log('✅ /generate_audio 端点已确认存在');
+          console.log('💡 实际音频生成功能请前往"音频克隆"页面使用');
+          
+          return true;
+        } catch (error) {
+          console.warn('⚠️ /generate_audio 端点测试失败:', error.message);
+          return false;
+        }
+      }
+      
+      // 诊断 CosyVoice 服务状态
+      async function diagnoseCosyVoice() {
+        console.log('🔍 开始诊断 CosyVoice 调用状态...');
+        
+        // 1. 检查本地服务是否可达
+        try {
+          const response = await fetch(COSYVOICE_LOCAL_URL);
+          console.log(`✅ 本地服务可达 (状态: ${response.status})`);
+        } catch (error) {
+          console.log('❌ 无法访问本地服务:', error.message);
+          console.log('💡 请确保 CosyVoice 正在运行：');
+          console.log('   访问 http://127.0.0.1:50000 应该能看到 Gradio 界面');
+        }
+        
+        // 2. 检查 Client 是否可用
+        if (!Client) {
+          const loaded = await loadGradioClient();
+          if (!loaded) {
+            console.log('❌ Gradio Client 未加载');
+            return;
+          }
+        }
+        console.log('✅ Gradio Client 已加载');
+        
+        // 3. 测试连接
+        const connected = await connectToCosyVoice();
+        if (connected) {
+          // 4. 测试 API 端点
+          await testCosyVoiceConnection();
+          await testOtherEndpoints();
+          await testGenerateAudioAPI();
+        }
+      }
+      
+      // 初始化 CosyVoice 连接和测试
+      async function initCosyVoiceConnection() {
+        console.log('🚀 开始初始化 CosyVoice 本地服务连接...');
+        
+        // 步骤 1: 连接到本地服务
+        const connected = await connectToCosyVoice();
+        if (!connected) {
+          console.warn('⚠️ CosyVoice 本地服务连接失败');
+          return;
+        }
+        
+        // 步骤 2: 测试 API 端点
+        await testCosyVoiceConnection();
+        await testOtherEndpoints();
+        await testGenerateAudioAPI();
+        
+        console.log('✅ CosyVoice 初始化完成');
+      }
+      
+      // 将诊断函数暴露到全局，方便在控制台调用
+      window.diagnoseCosyVoice = diagnoseCosyVoice;
+      
+      // ============================================
+      // 页面视觉效果
+      // ============================================
+      
+      // 创建粒子效果
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 30;
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.top = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 8 + 's';
+          particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // 页面加载完成后初始化
+      document.addEventListener('DOMContentLoaded', async () => {
+        // 创建粒子效果
+        createParticles();
+        
+        // 按钮点击效果
+        const enterBtn = document.getElementById('enter-btn');
+        enterBtn.addEventListener('click', (e) => {
+          // 添加点击动画
+          enterBtn.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            enterBtn.style.transform = '';
+          }, 150);
+        });
+        
+        // 初始化 CosyVoice 连接（在后台进行，不影响页面显示）
+        // 延迟 1 秒后执行，确保页面已完全加载
+        setTimeout(() => {
+          initCosyVoiceConnection().catch(err => {
+            console.error('CosyVoice 初始化错误:', err);
+          });
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>视频一键生成 · InspireLab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="noise-overlay"></div>
+    <nav class="topbar">
+      <a class="topbar__brand" href="index.html">
+        <span class="logo-heart" aria-hidden="true"></span>
+        <span>InspireLab</span>
+      </a>
+      <div class="topbar__links">
+        <a href="media.html">素材中心</a>
+        <a class="is-active" href="video.html">极速出片</a>
+        <a href="avatar.html">虚拟数字人</a>
+        <a href="index.html#workflow">流程亮点</a>
+      </div>
+      <button class="topbar__cta" data-action="book-demo">预约演示</button>
+    </nav>
+
+    <main>
+      <section class="detail-hero">
+        <div class="detail-hero__copy">
+          <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>›</span>
+            <span>视频一键生成</span>
+          </div>
+          <span class="eyebrow">Auto Video Studio</span>
+          <h1>脚本到出片，全流程 AI 一镜到底</h1>
+          <p>
+            输入脚本、关键词或网址，系统自动生成镜头规划、素材匹配、配音配乐与字幕。多人协作实时预览，效率提升三倍以上。
+          </p>
+          <div class="detail-hero__actions">
+            <a class="primary" href="#video-pipeline">了解生成流程</a>
+            <button class="ghost" data-action="create-video">预约制作顾问</button>
+          </div>
+          <div class="detail-hero__metrics">
+            <div class="metric">
+              <strong>5 分钟</strong>
+              <span>平均出片时间</span>
+            </div>
+            <div class="metric">
+              <strong>4K</strong>
+              <span>最高输出画质</span>
+            </div>
+          </div>
+        </div>
+        <div class="detail-hero__visual">
+          <div class="detail-orb" aria-hidden="true"></div>
+          <span class="detail-orb__chip">镜头规划</span>
+          <span class="detail-orb__chip">语音合成</span>
+        </div>
+      </section>
+
+      <section class="section-block" id="video-pipeline">
+        <div class="section-block__header">
+          <h2>自动生成 · 精准控场</h2>
+          <p>
+            针对短视频、广告、教育等场景提供自适应模板。AI 根据脚本语义拆分镜头，并匹配最佳素材组合。
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>📝 脚本理解</h3>
+            <p>
+              多模态大模型解析语气、场景与时长，自动标注镜头意图并生成拍摄清单。
+            </p>
+            <div class="feature-card__footer">支持 18 种行业剧本格式</div>
+          </article>
+          <article class="feature-card">
+            <h3>🎧 声画匹配</h3>
+            <p>
+              一键选择配音演员与音乐风格，AI 自动调整节奏、音量和情绪曲线，形成动态分镜表。
+            </p>
+            <div class="feature-card__footer">内置 120+ 音色与版权曲库</div>
+          </article>
+          <article class="feature-card">
+            <h3>🖥️ 智能剪辑</h3>
+            <p>
+              基于视觉评分自动选择转场、滤镜与字幕样式，生成可继续编辑的时间线工程。
+            </p>
+            <div class="feature-card__footer">可导出至 PR、AE、Final Cut</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="video-timeline">
+        <div class="section-block__header">
+          <h2>协作透明，修改无负担</h2>
+          <p>
+            可视化生成流程，随时在浏览器内调整画面、文案与音轨，保存版本便于对比。</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-step" data-step="01">
+            <h3>导入脚本或模板</h3>
+            <p>
+              上传文稿、Markdown 或演示文档，系统自动同步素材建议与镜头数量。
+            </p>
+          </div>
+          <div class="timeline-step" data-step="02">
+            <h3>协同审核</h3>
+            <p>
+              团队成员实时评论镜头，AI 汇总修改意见并生成新版镜头脚本。
+            </p>
+          </div>
+          <div class="timeline-step" data-step="03">
+            <h3>一键出片与分发</h3>
+            <p>
+              导出成片并同步至多渠道，自动生成封面与文案，支持定时发布。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-cta">
+        <h2>把故事交给 AI 剪辑师</h2>
+        <p>立即申请试用，5 分钟感受从脚本到出片的全新速度。</p>
+        <div class="detail-cta__actions">
+          <a class="primary" href="index.html">返回首页</a>
+          <button class="ghost" data-action="book-demo">预约专属顾问</button>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="modal">
+      <button class="modal__close" data-action="close-modal">✕</button>
+      <div class="modal__content"></div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

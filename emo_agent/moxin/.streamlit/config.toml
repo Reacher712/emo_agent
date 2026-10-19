@@ -1,0 +1,11 @@
+[theme]
+base = "dark"
+primaryColor = "#3256a0"
+backgroundColor = "#0f172a"
+secondaryBackgroundColor = "#1e293b"
+textColor = "#f1f5f9"
+font = "sans serif"
+
+# 多页面门户以首页卡片导航为主，隐藏左侧自动页面列表（需较新版本 Streamlit）
+[client]
+showSidebarNavigation = false

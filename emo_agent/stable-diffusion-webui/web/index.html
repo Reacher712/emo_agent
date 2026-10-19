@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI创作平台 - 图片生成 & 数字人生成</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="noise-overlay"></div>
+    
+    <!-- 导航栏 -->
+    <nav class="topbar">
+      <a class="topbar__brand" href="index.html">
+        <span class="logo-heart" aria-hidden="true"></span>
+        <span>AI创作平台</span>
+      </a>
+      <div class="topbar__links">
+        <a href="index.html" class="nav-link active" id="home-link">首页</a>
+        <a href="voice-clone.html" class="nav-link" id="voice-clone-link">音频克隆</a>
+        <a href="image-gen.html" class="nav-link">图片生成</a>
+        <a href="image-to-video.html" class="nav-link">图生视频</a>
+        <a href="digital-human.html" class="nav-link">数字人生成</a>
+      </div>
+      <button class="topbar__cta" id="settings-btn">设置</button>
+    </nav>
+
+    <!-- 主容器 -->
+    <main class="main-container">
+      <!-- 首页 -->
+      <section id="home" class="home-section active">
+        <!-- 背景视频 -->
+        <video class="home-background-video" autoplay muted loop playsinline>
+          <source src="数字人背景视频.mp4" type="video/mp4">
+        </video>
+        
+        <!-- 视频遮罩层 -->
+        <div class="home-video-overlay"></div>
+        
+        <!-- 首页内容 -->
+        <div class="home-content">
+          <div class="home-title">
+            <h1 class="home-main-title">AI创作平台</h1>
+            <p class="home-subtitle">探索AI创作的无限可能</p>
+          </div>
+          
+          <!-- 功能卡片 -->
+          <div class="home-features">
+            <a href="voice-clone.html" 
+               class="home-feature-card" 
+               data-feature="voice-clone">
+              <div class="feature-icon">🎤</div>
+              <h3 class="feature-title">音频克隆</h3>
+              <p class="feature-desc">使用先进的语音合成技术，克隆和生成自然流畅的语音</p>
+              <div class="feature-arrow">→</div>
+            </a>
+            
+            <a href="image-gen.html" 
+               class="home-feature-card" 
+               data-feature="image-gen">
+              <div class="feature-icon">🎨</div>
+              <h3 class="feature-title">图片生成</h3>
+              <p class="feature-desc">从文字描述生成精美图片，支持多种风格和LoRA模型</p>
+              <div class="feature-arrow">→</div>
+            </a>
+            
+            <a href="image-to-video.html" 
+               class="home-feature-card" 
+               data-feature="image-to-video">
+              <div class="feature-icon">🎬</div>
+              <h3 class="feature-title">图生视频</h3>
+              <p class="feature-desc">将静态图片转换为动态视频，支持多种动画效果和风格</p>
+              <div class="feature-arrow">→</div>
+            </a>
+            
+            <a href="digital-human.html" 
+               class="home-feature-card" 
+               data-feature="digital-human">
+              <div class="feature-icon">🤖</div>
+              <h3 class="feature-title">数字人生成</h3>
+              <p class="feature-desc">创建逼真的数字人形象，支持语音合成和动作生成</p>
+              <div class="feature-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- AI 聊天侧边栏切换按钮（独立，始终可见） -->
+    <button id="chat-toggle-btn" class="chat-toggle-btn" title="展开/收起 AI 助手">
+      <span class="chat-icon">💬</span>
+    </button>
+
+    <!-- AI 聊天侧边栏 -->
+    <div id="ai-chat-sidebar" class="ai-chat-sidebar">
+      <!-- 聊天面板 -->
+      <div class="chat-panel">
+        <div class="chat-header">
+          <h3>AI 助手</h3>
+          <div class="chat-header-actions">
+            <button id="chat-clear-btn" class="icon-btn-small" title="清空对话">🗑️</button>
+            <button id="chat-close-btn" class="icon-btn-small" title="收起">✕</button>
+          </div>
+        </div>
+
+        <div class="chat-tabs">
+          <button class="chat-tab active" data-tab="script">剧本生成</button>
+          <button class="chat-tab" data-tab="prompt">提示词生成</button>
+        </div>
+
+        <div class="chat-content">
+          <!-- 消息列表 -->
+          <div id="chat-messages" class="chat-messages">
+            <div class="chat-welcome">
+              <div class="welcome-icon">🤖</div>
+              <p>你好！我是 AI 助手</p>
+              <p class="welcome-hint">我可以帮你：</p>
+              <ul class="welcome-features">
+                <li>📝 生成创意剧本</li>
+                <li>✨ 生成 AI 提示词</li>
+                <li>💡 提供创作建议</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 输入区域 -->
+          <div class="chat-input-area">
+            <div class="quick-actions">
+              <button class="quick-action-btn" data-action="script-short">短剧本</button>
+              <button class="quick-action-btn" data-action="script-long">长剧本</button>
+              <button class="quick-action-btn" data-action="prompt-image">图片提示词</button>
+              <button class="quick-action-btn" data-action="prompt-video">视频提示词</button>
+            </div>
+            <div class="chat-input-wrapper">
+              <textarea 
+                id="chat-input" 
+                class="chat-input" 
+                placeholder="输入你的需求，例如：生成一个关于未来科技的短剧本..."
+                rows="3"
+              ></textarea>
+              <button id="chat-send-btn" class="chat-send-btn" title="发送">
+                <span>发送</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 设置弹窗 -->
+    <dialog id="settings-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>设置</h2>
+          <button class="modal-close" id="close-settings">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="setting-group">
+            <label>Stable Diffusion WebUI API 地址</label>
+            <input type="text" id="api-url" class="text-input" placeholder="http://192.168.1.100:7860">
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+              填入运行 WebUI 的设备 IP 地址和端口（默认 7860）
+            </p>
+          </div>
+          <div class="setting-group">
+            <label>默认质量</label>
+            <select id="default-quality" class="select-input">
+              <option value="standard">标准</option>
+              <option value="high">高清</option>
+              <option value="ultra">超高清</option>
+            </select>
+          </div>
+          <div class="setting-group">
+            <label>DeepSeek API Key</label>
+            <input type="password" id="deepseek-api-key" class="text-input" placeholder="sk-...">
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+              用于 AI 助手功能，获取 API Key 请访问 <a href="https://platform.deepseek.com/api_keys" target="_blank" style="color: var(--accent-color);">DeepSeek 平台</a>
+            </p>
+          </div>
+          <div class="setting-group">
+            <label>可灵 (Kling) API 配置</label>
+            <input type="text" id="kling-access-key" class="text-input" placeholder="请输入访问密钥 (Access Key)" style="margin-bottom: 0.5rem;">
+            <input type="password" id="kling-secret-key" class="text-input" placeholder="请输入密钥 (Secret Key)">
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+              用于图生视频功能，获取 API 密钥请访问 <a href="https://app.klingai.com/cn/" target="_blank" style="color: var(--accent-color);">可灵 AI 平台</a>
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="secondary-btn" id="cancel-settings">取消</button>
+          <button class="primary-btn" id="save-settings">保存</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="script.js?v=20251223-26"></script>
+  </body>
+</html>

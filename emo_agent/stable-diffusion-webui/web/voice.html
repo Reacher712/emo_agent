@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CosyVoice 语音合成系统 - 最终修复版</title>
+    <style>
+        /* 保持原有样式，只添加必要的修复 */
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2196F3;
+            --danger-color: #f44336;
+            --warning-color: #ff9800;
+            --dark-color: #333;
+            --light-color: #f5f5f5;
+            --border-color: #ddd;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        
+        .logo h1 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+        }
+        
+        .tagline {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        /* 主内容区 */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 卡片样式 */
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            height: 100%;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .card-header h2 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        /* 表单元素 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+        }
+        
+        /* 按钮样式 */
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #3d8b40;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #0b7dda;
+        }
+        
+        .btn-block {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* 音频上传区 */
+        .audio-upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 15px;
+        }
+        
+        .audio-upload-area:hover {
+            border-color: var(--secondary-color);
+            background: rgba(33, 150, 243, 0.05);
+        }
+        
+        /* 模式切换 */
+        .mode-tabs {
+            display: flex;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .mode-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background: var(--light-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .mode-tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* 音频播放器 */
+        .audio-player-container {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .audio-player {
+            width: 100%;
+            margin: 15px 0;
+        }
+        
+        /* 隐藏元素 */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* 状态指示器 */
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .status-connected {
+            background: rgba(76, 175, 80, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .status-disconnected {
+            background: rgba(244, 67, 54, 0.1);
+            color: var(--danger-color);
+        }
+        
+        .status-loading {
+            background: rgba(255, 152, 0, 0.1);
+            color: var(--warning-color);
+        }
+        
+        /* 警告信息 */
+        .warning-box {
+            background: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        /* 图标样式 */
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            stroke-width: 0;
+            stroke: currentColor;
+            fill: currentColor;
+        }
+        
+        .icon-microphone:before { content: "🎤"; }
+        .icon-comment:before { content: "💬"; }
+        .icon-sliders:before { content: "⚙️"; }
+        .icon-font:before { content: "🔤"; }
+        .icon-quote:before { content: "💭"; }
+        .icon-language:before { content: "🌐"; }
+        .icon-audio:before { content: "🎵"; }
+        .icon-seed:before { content: "🌱"; }
+        .icon-play:before { content: "▶️"; }
+        .icon-dice:before { content: "🎲"; }
+        .icon-download:before { content: "📥"; }
+        .icon-share:before { content: "📤"; }
+        .icon-history:before { content: "📜"; }
+        .icon-trash:before { content: "🗑️"; }
+        .icon-server:before { content: "🖥️"; }
+        .icon-bolt:before { content: "⚡"; }
+        .icon-save:before { content: "💾"; }
+        .icon-terminal:before { content: "💻"; }
+        .icon-eye:before { content: "👁️"; }
+        .icon-broom:before { content: "🧹"; }
+        .icon-check:before { content: "✅"; }
+        .icon-warning:before { content: "⚠️"; }
+        .icon-cloud-upload:before { content: "☁️⬆️"; }
+        .icon-spinner:before { content: "🌀"; }
+        .icon-circle:before { content: "●"; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header>
+            <div class="logo">
+                <span class="icon icon-microphone"></span>
+                <h1>CosyVoice 语音合成系统</h1>
+            </div>
+            <p class="tagline">基于 CosyVoice2-0.5B 模型的智能语音生成平台</p>
+            
+            <div class="status-indicator" id="status-indicator">
+                <span class="icon icon-circle"></span>
+                <span id="status-text">连接中...</span>
+            </div>
+        </header>
+        
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <!-- 左侧：语音生成 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="icon icon-comment"></span>
+                    <h2>语音生成设置</h2>
+                </div>
+                
+                <!-- 模式选择 -->
+                <div class="form-group">
+                    <label><span class="icon icon-sliders"></span> 推理模式</label>
+                    <div class="mode-tabs">
+                        <div class="mode-tab active" data-mode="3s极速复刻">3s极速复刻</div>
+                        <div class="mode-tab" data-mode="自然语言控制">自然语言控制</div>
+                    </div>
+                </div>
+                
+                <!-- 模式说明 -->
+                <div id="mode-warning" class="warning-box hidden">
+                    <span class="icon icon-warning"></span>
+                    <span id="mode-warning-text"></span>
+                </div>
+                
+                <!-- 合成文本 -->
+                <div class="form-group">
+                    <label for="tts-text"><span class="icon icon-font"></span> 合成文本</label>
+                    <textarea id="tts-text" placeholder="请输入需要合成的文本内容...">CosyVoice迎来全面升级，提供更准、更稳、更快、更好的语音生成能力。</textarea>
+                </div>
+                
+                <!-- 3s极速复刻模式参数 -->
+                <div id="prompt-section" class="form-group">
+                    <label for="prompt-text"><span class="icon icon-quote"></span> Prompt 文本</label>
+                    <input type="text" id="prompt-text" placeholder="请输入prompt文本，例如：希望你以后能够做的比我还好呦。">
+                    <small style="color: #666; display: block; margin-top: 5px;">提示：用于3s极速复刻模式，指导语音风格</small>
+                </div>
+                
+                <!-- 自然语言控制模式参数 -->
+                <div id="instruct-section" class="form-group hidden">
+                    <label for="instruct-text"><span class="icon icon-language"></span> Instruct 文本</label>
+                    <input type="text" id="instruct-text" placeholder="请输入instruct文本，例如：用四川话说这句话。">
+                    <small style="color: #666; display: block; margin-top: 5px;">提示：用于自然语言控制模式，指导语音表达方式</small>
+                </div>
+                
+                <!-- 音频上传 -->
+                <div class="form-group">
+                    <label><span class="icon icon-audio"></span> 参考音频</label>
+                    <div class="audio-upload-area" id="audio-upload-area">
+                        <span class="icon icon-cloud-upload"></span>
+                        <p id="upload-area-text">点击或拖拽音频文件到此区域（可选）</p>
+                        <p><small>支持 WAV, MP3 格式，采样率不低于16kHz</small></p>
+                    </div>
+                    <input type="file" id="audio-file" accept=".wav,.mp3,.ogg" style="display: none;">
+                    <div id="audio-info" class="hidden">
+                        <p><span class="icon icon-check"></span> 已选择文件: <span id="audio-filename"></span></p>
+                        <audio id="audio-preview" controls style="width: 100%; margin-top: 10px;"></audio>
+                    </div>
+                </div>
+                
+                <!-- 随机种子 -->
+                <div class="form-group">
+                    <label for="seed"><span class="icon icon-seed"></span> 随机种子</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="number" id="seed" value="12345" style="flex: 1;">
+                        <button class="btn btn-secondary" onclick="generateSeed()">
+                            <span class="icon icon-dice"></span> 随机生成
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 生成按钮 -->
+                <button class="btn btn-primary btn-block" onclick="generateAudio()" id="generate-btn">
+                    <span class="icon icon-play"></span> 生成语音
+                </button>
+                
+                <!-- 音频播放器 -->
+                <div class="audio-player-container" id="audio-container" style="display: none;">
+                    <h3><span class="icon icon-audio"></span> 生成的语音</h3>
+                    <audio id="audio-player" controls class="audio-player"></audio>
+                    <div style="margin-top: 10px; display: flex; gap: 10px;">
+                        <button class="btn btn-secondary" onclick="downloadAudio()" id="download-btn">
+                            <span class="icon icon-download"></span> 下载音频
+                        </button>
+                        <button class="btn" onclick="shareAudio()" id="share-btn">
+                            <span class="icon icon-share"></span> 分享
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧：历史记录和设置 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="icon icon-history"></span>
+                    <h2>历史记录</h2>
+                </div>
+                
+                <div class="history-list" id="history-list">
+                    <!-- 历史记录会动态添加到这里 -->
+                    <div style="text-align: center; color: #666; padding: 20px;">
+                        <span class="icon icon-history" style="font-size: 2em; margin-bottom: 10px;"></span>
+                        <p>暂无历史记录</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-block" onclick="clearHistory()">
+                        <span class="icon icon-trash"></span> 清空历史记录
+                    </button>
+                </div>
+                
+                <!-- 设置区域 -->
+                <div class="card-header" style="margin-top: 30px;">
+                    <span class="icon icon-server"></span>
+                    <h2>系统设置</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label for="api-url"><span class="icon icon-server"></span> API 地址</label>
+                    <input type="text" id="api-url" value="http://127.0.0.1:50000">
+                </div>
+                
+                <div class="form-group">
+                    <label><span class="icon icon-bolt"></span> 自动播放</label>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" id="auto-play" checked>
+                        <label for="auto-play" style="margin: 0;">生成后自动播放音频</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label><span class="icon icon-save"></span> 自动保存</label>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" id="auto-save" checked>
+                        <label for="auto-save" style="margin: 0;">自动保存到历史记录</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 调试日志 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="icon icon-terminal"></span>
+                <h2>调试日志</h2>
+                <div style="margin-left: auto; display: flex; gap: 10px;">
+                    <button class="btn" onclick="toggleLogs()" id="toggle-logs-btn">
+                        <span class="icon icon-eye"></span> 显示/隐藏
+                    </button>
+                    <button class="btn" onclick="clearLogs()">
+                        <span class="icon icon-broom"></span> 清空
+                    </button>
+                </div>
+            </div>
+            
+            <div class="log-container" id="log-container">
+                <!-- 日志会动态添加到这里 -->
+                <div class="log-item log-info">系统初始化完成</div>
+                <div class="log-item log-info">正在连接 CosyVoice API...</div>
+            </div>
+        </div>
+        
+        <!-- 底部 -->
+        <footer style="text-align: center; margin-top: 20px; color: #666;">
+            <p>CosyVoice 语音合成系统 &copy; 2024 | 基于 <a href="https://github.com/FunAudioLLM/CosyVoice" target="_blank">CosyVoice</a> 项目</p>
+            <p style="margin-top: 5px; font-size: 0.8rem;">本系统仅用于学习和测试目的</p>
+        </footer>
+    </div>
+
+    <script>
+        // 全局变量
+        let API_BASE = 'http://127.0.0.1:50000';
+        let history = JSON.parse(localStorage.getItem('cosyvoice_history') || '[]');
+        let currentAudioUrl = '';
+        let currentAudioData = null;
+        let currentMode = '3s极速复刻';
+        let uploadedFilePath = null;
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+        
+        // 初始化应用
+        function initializeApp() {
+            log('系统初始化开始...', 'info');
+            
+            // 设置模式切换
+            setupModeTabs();
+            
+            // 设置音频上传
+            setupAudioUpload();
+            
+            // 加载历史记录
+            loadHistory();
+            
+            // 恢复设置
+            loadSettings();
+            
+            // 更新API地址
+            updateApiBase();
+            
+            // 测试API连接
+            setTimeout(() => testConnection(), 1000);
+            
+            log('系统初始化完成', 'info');
+        }
+        
+        // 设置模式切换
+        function setupModeTabs() {
+            const tabs = document.querySelectorAll('.mode-tab');
+            const promptSection = document.getElementById('prompt-section');
+            const instructSection = document.getElementById('instruct-section');
+            const warningBox = document.getElementById('mode-warning');
+            const warningText = document.getElementById('mode-warning-text');
+            const uploadAreaText = document.getElementById('upload-area-text');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 移除所有active类
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // 添加active类到当前标签
+                    this.classList.add('active');
+                    
+                    // 更新当前模式
+                    currentMode = this.dataset.mode;
+                    
+                    // 显示/隐藏对应的部分
+                    if (currentMode === '3s极速复刻') {
+                        promptSection.classList.remove('hidden');
+                        instructSection.classList.add('hidden');
+                        warningBox.classList.add('hidden');
+                        uploadAreaText.textContent = '点击或拖拽音频文件到此区域（可选）';
+                        log('切换到 3s极速复刻 模式', 'info');
+                    } else if (currentMode === '自然语言控制') {
+                        promptSection.classList.add('hidden');
+                        instructSection.classList.remove('hidden');
+                        warningBox.classList.remove('hidden');
+                        warningText.textContent = '自然语言控制模式需要提供参考音频文件！';
+                        uploadAreaText.textContent = '点击或拖拽音频文件到此区域（可选）';
+                        log('切换到 自然语言控制 模式', 'info');
+                    }
+                });
+            });
+        }
+        
+        // 设置音频上传
+        function setupAudioUpload() {
+            const uploadArea = document.getElementById('audio-upload-area');
+            const fileInput = document.getElementById('audio-file');
+            const audioInfo = document.getElementById('audio-info');
+            const audioFilename = document.getElementById('audio-filename');
+            const audioPreview = document.getElementById('audio-preview');
+            
+            // 点击上传区域
+            uploadArea.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            // 拖拽上传
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#2196F3';
+                this.style.backgroundColor = 'rgba(33, 150, 243, 0.05)';
+            });
+            
+            uploadArea.addEventListener('dragleave', function() {
+                this.style.borderColor = '#ddd';
+                this.style.backgroundColor = 'transparent';
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#ddd';
+                this.style.backgroundColor = 'transparent';
+                
+                if (e.dataTransfer.files.length) {
+                    fileInput.files = e.dataTransfer.files;
+                    handleFileSelect();
+                }
+            });
+            
+            // 文件选择变化
+            fileInput.addEventListener('change', handleFileSelect);
+            
+            async function handleFileSelect() {
+                if (fileInput.files.length) {
+                    const file = fileInput.files[0];
+                    audioFilename.textContent = file.name;
+                    
+                    // 预览音频
+                    const url = URL.createObjectURL(file);
+                    audioPreview.src = url;
+                    audioInfo.classList.remove('hidden');
+                    
+                    // 自动上传到服务器
+                    uploadedFilePath = await uploadAudioToServer(file);
+                    
+                    log(`已选择音频文件: ${file.name}`, 'success');
+                }
+            }
+        }
+        
+        // 上传音频到服务器
+        async function uploadAudioToServer(file) {
+            const formData = new FormData();
+            formData.append('files', file);
+            
+            try {
+                const response = await fetch(`${API_BASE}/upload`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result && result.length > 0) {
+                        const filePath = result[0];
+                        log(`音频上传成功: ${filePath}`, 'success');
+                        return filePath;
+                    }
+                }
+            } catch (error) {
+                log(`音频上传失败: ${error.message}`, 'error');
+            }
+            
+            return null;
+        }
+        
+        // 测试API连接
+        async function testConnection() {
+            const statusIndicator = document.getElementById('status-indicator');
+            const statusText = document.getElementById('status-text');
+            
+            statusIndicator.className = 'status-indicator status-loading';
+            statusText.textContent = '连接中...';
+            
+            try {
+                const response = await fetch(`${API_BASE}/`);
+                if (response.ok) {
+                    statusIndicator.className = 'status-indicator status-connected';
+                    statusText.textContent = '已连接';
+                    log('API连接成功', 'success');
+                } else {
+                    statusIndicator.className = 'status-indicator status-disconnected';
+                    statusText.textContent = '连接失败';
+                    log(`API连接失败: ${response.status}`, 'error');
+                }
+            } catch (error) {
+                statusIndicator.className = 'status-indicator status-disconnected';
+                statusText.textContent = '连接错误';
+                log(`API连接错误: ${error.message}`, 'error');
+            }
+        }
+        
+        // 更新API地址
+        function updateApiBase() {
+            const apiUrlInput = document.getElementById('api-url');
+            API_BASE = apiUrlInput.value.trim();
+            if (!API_BASE) {
+                API_BASE = 'http://127.0.0.1:50000';
+                apiUrlInput.value = API_BASE;
+            }
+            log(`API地址更新为: ${API_BASE}`, 'info');
+        }
+        
+        // 生成随机种子
+        async function generateSeed() {
+            const seedInput = document.getElementById('seed');
+            const generateBtn = document.getElementById('generate-btn');
+            
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<span class="icon icon-spinner"></span> 生成中...';
+            
+            try {
+                const response = await fetch(`${API_BASE}/run/predict`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        data: [],
+                        fn_index: 0,
+                        session_hash: generateSessionHash()
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    const seed = result.data[0].value;
+                    seedInput.value = seed;
+                    log(`生成随机种子: ${seed}`, 'success');
+                } else {
+                    // 如果API失败，使用本地随机数
+                    const seed = Math.floor(Math.random() * 100000000);
+                    seedInput.value = seed;
+                    log(`API生成种子失败，使用本地随机种子: ${seed}`, 'warning');
+                }
+            } catch (error) {
+                // 如果发生错误，使用本地随机数
+                const seed = Math.floor(Math.random() * 100000000);
+                seedInput.value = seed;
+                log(`生成种子失败，使用本地随机种子: ${seed}`, 'warning');
+            } finally {
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = '<span class="icon icon-play"></span> 生成语音';
+            }
+        }
+        
+        // 生成语音 - 修复版
+        async function generateAudio() {
+            const ttsText = document.getElementById('tts-text').value.trim();
+            const mode = currentMode;
+            const promptText = document.getElementById('prompt-text').value.trim();
+            const instructText = document.getElementById('instruct-text').value.trim();
+            const seed = parseInt(document.getElementById('seed').value);
+            const generateBtn = document.getElementById('generate-btn');
+            const audioContainer = document.getElementById('audio-container');
+            const audioPlayer = document.getElementById('audio-player');
+            
+            // 验证输入
+            if (!ttsText) {
+                alert('请输入合成文本');
+                return;
+            }
+            
+            if (mode === '3s极速复刻' && !promptText) {
+                alert('3s极速复刻模式需要prompt文本');
+                return;
+            }
+            
+            if (mode === '自然语言控制' && !instructText) {
+                alert('自然语言控制模式需要instruct文本');
+                return;
+            }
+            
+            log(`开始生成语音... (模式: ${mode}, 种子: ${seed})`, 'info');
+            
+            // 更新按钮状态
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<span class="icon icon-spinner"></span> 生成中...';
+            
+            try {
+                // 构建音频数据
+                let audioData = null;
+                if (uploadedFilePath) {
+                    audioData = {
+                        path: uploadedFilePath,
+                        url: `${API_BASE}/file=${encodeURIComponent(uploadedFilePath)}`,
+                        orig_name: document.getElementById('audio-filename').textContent || 'audio.wav',
+                        meta: {
+                            _type: "gradio.FileData"
+                        }
+                    };
+                    log(`使用上传的音频文件: ${uploadedFilePath}`, 'info');
+                } else {
+                    log('未提供音频文件，将使用默认设置', 'info');
+                }
+                
+                // 根据Gradio配置构建请求数据
+                const requestData = [
+                    ttsText,          // 合成文本
+                    mode,             // 推理模式
+                    promptText,       // prompt文本
+                    audioData,        // 音频文件上传
+                    null,             // 音频录制 (不使用)
+                    instructText,     // instruct文本
+                    seed,             // 随机种子
+                    false             // 流式推理
+                ];
+                
+                log(`发送请求到API...`, 'info');
+                
+                const response = await fetch(`${API_BASE}/run/predict`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        data: requestData,
+                        fn_index: 1,
+                        session_hash: generateSessionHash()
+                    })
+                });
+                
+                log(`API响应状态: ${response.status}`, 'info');
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    log('语音生成成功', 'success');
+                    
+                    // 处理音频响应
+                    if (result.data && result.data[0]) {
+                        const audioOutput = result.data[0];
+                        
+                        if (audioOutput.url) {
+                            currentAudioUrl = audioOutput.url.replace(/\\/g, '/');
+                            currentAudioData = audioOutput;
+                        } else if (audioOutput.path) {
+                            currentAudioUrl = `${API_BASE}/file=${encodeURIComponent(audioOutput.path)}`;
+                            currentAudioData = audioOutput;
+                        }
+                        
+                        // 设置音频播放器
+                        audioPlayer.src = currentAudioUrl;
+                        audioContainer.style.display = 'block';
+                        
+                        // 自动播放
+                        if (document.getElementById('auto-play').checked) {
+                            setTimeout(() => {
+                                audioPlayer.play().catch(e => {
+                                    log('自动播放被阻止，请手动点击播放', 'warning');
+                                });
+                            }, 500);
+                        }
+                        
+                        // 保存到历史记录
+                        if (document.getElementById('auto-save').checked) {
+                            addToHistory({
+                                text: ttsText.substring(0, 50) + (ttsText.length > 50 ? '...' : ''),
+                                mode: mode,
+                                seed: seed,
+                                timestamp: new Date().toISOString(),
+                                audioUrl: currentAudioUrl
+                            });
+                        }
+                        
+                        log(`音频生成成功: ${currentAudioUrl}`, 'success');
+                    } else {
+                        log('响应中没有找到音频数据', 'warning');
+                    }
+                } else {
+                    const errorText = await response.text();
+                    log(`语音生成失败: ${errorText}`, 'error');
+                    
+                    // 尝试不带音频（降级处理）
+                    if (mode === '自然语言控制') {
+                        log('尝试不带音频的生成...', 'info');
+                        await generateWithoutAudio(ttsText, mode, promptText, instructText, seed);
+                    } else {
+                        alert(`生成失败: ${errorText.substring(0, 100)}`);
+                    }
+                }
+            } catch (error) {
+                log(`请求失败: ${error.message}`, 'error');
+                alert(`请求失败: ${error.message}`);
+            } finally {
+                // 恢复按钮状态
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = '<span class="icon icon-play"></span> 生成语音';
+            }
+        }
+        
+        // 降级处理：不带音频生成
+        async function generateWithoutAudio(ttsText, mode, promptText, instructText, seed) {
+            const requestData = [
+                ttsText,
+                mode,
+                promptText,
+                null,  // 没有音频
+                null,
+                instructText,
+                seed,
+                false
+            ];
+            
+            try {
+                const response = await fetch(`${API_BASE}/run/predict`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        data: requestData,
+                        fn_index: 1,
+                        session_hash: generateSessionHash()
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    const audioPlayer = document.getElementById('audio-player');
+                    const audioContainer = document.getElementById('audio-container');
+                    
+                    if (result.data && result.data[0]) {
+                        currentAudioUrl = result.data[0].url || result.data[0];
+                        audioPlayer.src = currentAudioUrl;
+                        audioContainer.style.display = 'block';
+                        log('降级处理成功（不带音频）', 'success');
+                    }
+                }
+            } catch (error) {
+                log(`降级处理失败: ${error.message}`, 'error');
+            }
+        }
+        
+        // 下载音频
+        function downloadAudio() {
+            if (!currentAudioUrl) {
+                alert('没有可下载的音频');
+                return;
+            }
+            
+            const link = document.createElement('a');
+            link.href = currentAudioUrl;
+            link.download = `cosyvoice_${Date.now()}.wav`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            log('音频下载开始', 'info');
+        }
+        
+        // 历史记录功能
+        function loadHistory() {
+            const historyList = document.getElementById('history-list');
+            historyList.innerHTML = '';
+            
+            if (history.length === 0) {
+                historyList.innerHTML = `
+                    <div style="text-align: center; color: #666; padding: 20px;">
+                        <span class="icon icon-history" style="font-size: 2em; margin-bottom: 10px;"></span>
+                        <p>暂无历史记录</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            history.forEach((item, index) => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerHTML = `
+                    <div class="history-text">${item.text}</div>
+                    <div class="history-actions">
+                        <button onclick="playHistoryItem(${index})" title="播放"><span class="icon icon-play"></span></button>
+                        <button onclick="deleteHistoryItem(${index})" title="删除"><span class="icon icon-trash"></span></button>
+                    </div>
+                `;
+                historyList.appendChild(historyItem);
+            });
+        }
+        
+        function addToHistory(item) {
+            history.unshift(item); // 添加到开头
+            
+            // 限制历史记录数量
+            if (history.length > 50) {
+                history = history.slice(0, 50);
+            }
+            
+            // 保存到本地存储
+            localStorage.setItem('cosyvoice_history', JSON.stringify(history));
+            
+            // 更新显示
+            loadHistory();
+            
+            log('已添加到历史记录', 'info');
+        }
+        
+        function playHistoryItem(index) {
+            if (history[index] && history[index].audioUrl) {
+                const audioPlayer = document.getElementById('audio-player');
+                const audioContainer = document.getElementById('audio-container');
+                
+                currentAudioUrl = history[index].audioUrl;
+                audioPlayer.src = currentAudioUrl;
+                audioContainer.style.display = 'block';
+                audioPlayer.play();
+                
+                log(`播放历史记录 #${index + 1}`, 'info');
+            }
+        }
+        
+        function deleteHistoryItem(index) {
+            if (confirm('确定要删除这条记录吗？')) {
+                history.splice(index, 1);
+                localStorage.setItem('cosyvoice_history', JSON.stringify(history));
+                loadHistory();
+                log('历史记录已删除', 'info');
+            }
+        }
+        
+        function clearHistory() {
+            if (history.length === 0) {
+                alert('历史记录已为空');
+                return;
+            }
+            
+            if (confirm('确定要清空所有历史记录吗？')) {
+                history = [];
+                localStorage.removeItem('cosyvoice_history');
+                loadHistory();
+                log('历史记录已清空', 'info');
+            }
+        }
+        
+        // 设置管理
+        function loadSettings() {
+            const savedSettings = localStorage.getItem('cosyvoice_settings');
+            if (savedSettings) {
+                const settings = JSON.parse(savedSettings);
+                
+                if (settings.apiUrl) {
+                    document.getElementById('api-url').value = settings.apiUrl;
+                    updateApiBase();
+                }
+                
+                if (settings.autoPlay !== undefined) {
+                    document.getElementById('auto-play').checked = settings.autoPlay;
+                }
+                
+                if (settings.autoSave !== undefined) {
+                    document.getElementById('auto-save').checked = settings.autoSave;
+                }
+            }
+            
+            // 监听设置变化
+            document.getElementById('api-url').addEventListener('change', function() {
+                updateApiBase();
+                saveSettings();
+                testConnection();
+            });
+            
+            document.getElementById('auto-play').addEventListener('change', saveSettings);
+            document.getElementById('auto-save').addEventListener('change', saveSettings);
+        }
+        
+        function saveSettings() {
+            const settings = {
+                apiUrl: document.getElementById('api-url').value,
+                autoPlay: document.getElementById('auto-play').checked,
+                autoSave: document.getElementById('auto-save').checked
+            };
+            
+            localStorage.setItem('cosyvoice_settings', JSON.stringify(settings));
+            log('设置已保存', 'info');
+        }
+        
+        // 日志功能
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logContainer = document.getElementById('log-container');
+            const logItem = document.createElement('div');
+            logItem.className = `log-item log-${type}`;
+            logItem.textContent = `[${timestamp}] ${message}`;
+            logContainer.appendChild(logItem);
+            logContainer.scrollTop = logContainer.scrollHeight;
+            
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+        
+        function toggleLogs() {
+            const logContainer = document.getElementById('log-container');
+            const toggleBtn = document.getElementById('toggle-logs-btn');
+            
+            if (logContainer.style.display === 'none') {
+                logContainer.style.display = 'block';
+                toggleBtn.innerHTML = '<span class="icon icon-eye"></span> 隐藏';
+            } else {
+                logContainer.style.display = 'none';
+                toggleBtn.innerHTML = '<span class="icon icon-eye"></span> 显示';
+            }
+        }
+        
+        function clearLogs() {
+            const logContainer = document.getElementById('log-container');
+            logContainer.innerHTML = '';
+            log('日志已清空', 'info');
+        }
+        
+        // 工具函数
+        function generateSessionHash() {
+            return Math.random().toString(36).substring(2, 15);
+        }
+    </script>
+</body>
+</html>

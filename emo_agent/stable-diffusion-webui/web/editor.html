@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>视频剪辑并美化 | StoryVerse AI</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .editor-layout {
+        display: grid;
+        grid-template-columns: 250px 1fr 300px;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        min-height: 600px;
+      }
+      
+      .editor-sidebar {
+        background: rgba(17, 25, 54, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        padding: 1.5rem;
+        backdrop-filter: blur(18px);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .editor-main {
+        background: rgba(17, 25, 54, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        padding: 2rem;
+        backdrop-filter: blur(18px);
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 1.5rem;
+      }
+      
+      .editor-toolbar {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .toolbar-btn {
+        padding: 0.6rem 1.2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 0.9rem;
+      }
+      
+      .toolbar-btn:hover {
+        background: rgba(255, 107, 129, 0.15);
+        border-color: rgba(255, 107, 129, 0.3);
+        color: var(--text-primary);
+      }
+      
+      .toolbar-btn.active {
+        background: rgba(255, 107, 129, 0.25);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      
+      .video-canvas {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        aspect-ratio: 16 / 9;
+        display: grid;
+        place-items: center;
+        position: relative;
+        overflow: hidden;
+        margin: 1rem 0;
+      }
+      
+      .video-canvas video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      
+      .timeline-container {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 1rem;
+        min-height: 200px;
+      }
+      
+      .timeline-track {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        align-items: center;
+      }
+      
+      .track-label {
+        width: 80px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        flex-shrink: 0;
+      }
+      
+      .track-content {
+        flex: 1;
+        display: flex;
+        gap: 0.5rem;
+        overflow-x: auto;
+        padding: 0.5rem;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+      }
+      
+      .timeline-clip {
+        min-width: 100px;
+        height: 60px;
+        background: linear-gradient(135deg, rgba(255, 107, 129, 0.3), rgba(255, 191, 210, 0.3));
+        border: 1px solid rgba(255, 107, 129, 0.5);
+        border-radius: 6px;
+        display: grid;
+        place-items: center;
+        cursor: move;
+        position: relative;
+        font-size: 0.75rem;
+        color: var(--text-primary);
+      }
+      
+      .timeline-clip:hover {
+        border-color: var(--accent);
+        transform: scale(1.05);
+      }
+      
+      .properties-panel {
+        background: rgba(17, 25, 54, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        padding: 1.5rem;
+        backdrop-filter: blur(18px);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-height: 800px;
+        overflow-y: auto;
+      }
+      
+      .property-group {
+        display: grid;
+        gap: 1rem;
+      }
+      
+      .property-group h4 {
+        color: var(--accent);
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .property-item {
+        display: grid;
+        gap: 0.5rem;
+      }
+      
+      .property-item label {
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+      }
+      
+      .property-item input,
+      .property-item select {
+        padding: 0.6rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-family: inherit;
+      }
+      
+      .property-item input[type="range"] {
+        padding: 0;
+      }
+      
+      .slider-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .slider-container input[type="range"] {
+        flex: 1;
+      }
+      
+      .slider-value {
+        min-width: 50px;
+        text-align: right;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+      }
+      
+      .effect-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        margin-top: 0.5rem;
+      }
+      
+      .effect-btn {
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+      
+      .effect-btn:hover {
+        background: rgba(255, 107, 129, 0.15);
+        border-color: rgba(255, 107, 129, 0.3);
+        color: var(--text-primary);
+      }
+      
+      .export-panel {
+        margin-top: 2rem;
+        padding: 2rem;
+        background: rgba(17, 25, 54, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        backdrop-filter: blur(18px);
+      }
+      
+      .export-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      
+      .export-option {
+        padding: 1.5rem;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      
+      .export-option:hover {
+        border-color: var(--accent);
+        transform: translateY(-4px);
+      }
+      
+      .export-option-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      @media (max-width: 1200px) {
+        .editor-layout {
+          grid-template-columns: 1fr;
+        }
+        
+        .editor-sidebar,
+        .properties-panel {
+          max-height: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="noise-overlay"></div>
+    <nav class="topbar">
+      <a class="topbar__brand" href="index.html">
+        <span class="logo-heart" aria-hidden="true"></span>
+        <span>StoryVerse AI</span>
+      </a>
+      <div class="topbar__links">
+        <a href="script.html">数字人交流</a>
+        <a href="generation.html">视频创作</a>
+        <a href="editor.html" class="is-active">视频剪辑</a>
+        <a href="index.html">首页</a>
+      </div>
+      <button class="topbar__cta">导出视频</button>
+    </nav>
+
+    <main>
+      <section class="detail-hero">
+        <div class="detail-hero__copy">
+          <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>/</span>
+            <span>视频剪辑</span>
+          </div>
+          <span class="eyebrow">✂️ 专业剪辑工具</span>
+          <h1>视频剪辑并美化</h1>
+          <p>
+            专业的视频剪辑工具，支持转场特效、字幕添加、音效配乐、色彩调整等丰富功能，让您的历史故事视频更加精彩动人。
+          </p>
+          <div class="detail-hero__actions">
+            <button class="primary" id="import-video-btn">导入视频</button>
+            <button class="ghost" id="load-project-btn">加载项目</button>
+          </div>
+        </div>
+        <div class="detail-hero__visual">
+          <div class="detail-orb">
+            <div class="detail-orb__chip">✂️ 剪辑工具</div>
+            <div class="detail-orb__chip">🎨 美化特效</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="editor-layout">
+          <div class="editor-sidebar">
+            <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">工具</h3>
+            
+            <button class="toolbar-btn active" data-tool="select">
+              <span>🔧</span> 选择工具
+            </button>
+            <button class="toolbar-btn" data-tool="cut">
+              <span>✂️</span> 剪切
+            </button>
+            <button class="toolbar-btn" data-tool="text">
+              <span>📝</span> 添加字幕
+            </button>
+            <button class="toolbar-btn" data-tool="audio">
+              <span>🎵</span> 添加音效
+            </button>
+            <button class="toolbar-btn" data-tool="transition">
+              <span>✨</span> 转场效果
+            </button>
+            <button class="toolbar-btn" data-tool="filter">
+              <span>🎨</span> 滤镜
+            </button>
+            <button class="toolbar-btn" data-tool="color">
+              <span>🌈</span> 色彩调整
+            </button>
+            
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+              <h4 style="margin-bottom: 1rem; font-size: 0.95rem;">历史风格模板</h4>
+              <button class="toolbar-btn" style="width: 100%; margin-bottom: 0.5rem;">
+                🏛️ 古代宫廷
+              </button>
+              <button class="toolbar-btn" style="width: 100%; margin-bottom: 0.5rem;">
+                🎭 戏曲风格
+              </button>
+              <button class="toolbar-btn" style="width: 100%; margin-bottom: 0.5rem;">
+                📜 古籍风格
+              </button>
+              <button class="toolbar-btn" style="width: 100%;">
+                🖼️ 水墨画风
+              </button>
+            </div>
+          </div>
+          
+          <div class="editor-main">
+            <div class="editor-toolbar">
+              <button class="toolbar-btn">⏮️</button>
+              <button class="toolbar-btn">⏸️</button>
+              <button class="toolbar-btn">⏭️</button>
+              <div style="flex: 1;"></div>
+              <span style="color: var(--text-secondary); font-size: 0.9rem;">00:00 / 00:00</span>
+            </div>
+            
+            <div class="video-canvas" id="video-canvas">
+              <div style="text-align: center; color: var(--text-secondary);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🎬</div>
+                <div>视频预览区域</div>
+                <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">
+                  导入视频或从视频创作页面加载项目
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-container">
+              <div class="timeline-track">
+                <div class="track-label">视频轨道</div>
+                <div class="track-content" id="video-track">
+                  <!-- 视频片段将显示在这里 -->
+                </div>
+              </div>
+              <div class="timeline-track">
+                <div class="track-label">音频轨道</div>
+                <div class="track-content" id="audio-track">
+                  <!-- 音频片段将显示在这里 -->
+                </div>
+              </div>
+              <div class="timeline-track">
+                <div class="track-label">字幕轨道</div>
+                <div class="track-content" id="subtitle-track">
+                  <!-- 字幕片段将显示在这里 -->
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="properties-panel">
+            <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">属性面板</h3>
+            
+            <div class="property-group">
+              <h4>转场效果</h4>
+              <div class="effect-grid">
+                <button class="effect-btn">淡入淡出</button>
+                <button class="effect-btn">滑动</button>
+                <button class="effect-btn">缩放</button>
+                <button class="effect-btn">旋转</button>
+                <button class="effect-btn">模糊</button>
+                <button class="effect-btn">擦除</button>
+              </div>
+            </div>
+            
+            <div class="property-group">
+              <h4>色彩调整</h4>
+              <div class="property-item">
+                <label>亮度</label>
+                <div class="slider-container">
+                  <input type="range" min="0" max="200" value="100" id="brightness-slider">
+                  <span class="slider-value" id="brightness-value">100%</span>
+                </div>
+              </div>
+              <div class="property-item">
+                <label>对比度</label>
+                <div class="slider-container">
+                  <input type="range" min="0" max="200" value="100" id="contrast-slider">
+                  <span class="slider-value" id="contrast-value">100%</span>
+                </div>
+              </div>
+              <div class="property-item">
+                <label>饱和度</label>
+                <div class="slider-container">
+                  <input type="range" min="0" max="200" value="100" id="saturation-slider">
+                  <span class="slider-value" id="saturation-value">100%</span>
+                </div>
+              </div>
+              <div class="property-item">
+                <label>色温</label>
+                <div class="slider-container">
+                  <input type="range" min="-100" max="100" value="0" id="temperature-slider">
+                  <span class="slider-value" id="temperature-value">0</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="property-group">
+              <h4>字幕设置</h4>
+              <div class="property-item">
+                <label>字体</label>
+                <select id="font-select">
+                  <option>思源宋体</option>
+                  <option>楷体</option>
+                  <option>行楷</option>
+                  <option>隶书</option>
+                </select>
+              </div>
+              <div class="property-item">
+                <label>字号</label>
+                <input type="number" value="24" min="12" max="72" id="font-size">
+              </div>
+              <div class="property-item">
+                <label>颜色</label>
+                <input type="color" value="#ffffff" id="font-color">
+              </div>
+              <div class="property-item">
+                <label>位置</label>
+                <select id="text-position">
+                  <option>底部居中</option>
+                  <option>顶部居中</option>
+                  <option>中间居中</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="property-group">
+              <h4>音频设置</h4>
+              <div class="property-item">
+                <label>音量</label>
+                <div class="slider-container">
+                  <input type="range" min="0" max="100" value="80" id="volume-slider">
+                  <span class="slider-value" id="volume-value">80%</span>
+                </div>
+              </div>
+              <div class="property-item">
+                <label>背景音乐</label>
+                <select id="bgm-select">
+                  <option>无</option>
+                  <option>古筝</option>
+                  <option>二胡</option>
+                  <option>笛子</option>
+                  <option>琵琶</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="export-panel">
+        <h2 style="margin-bottom: 1rem;">导出视频</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+          选择导出格式和分辨率，生成最终的历史故事视频作品。
+        </p>
+        
+        <div class="export-options">
+          <div class="export-option" data-format="mp4-1080p">
+            <div class="export-option-icon">📹</div>
+            <h4>MP4 (1080p)</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+              高清视频，适合网络分享
+            </p>
+          </div>
+          
+          <div class="export-option" data-format="mp4-4k">
+            <div class="export-option-icon">🎬</div>
+            <h4>MP4 (4K)</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+              超高清视频，最佳画质
+            </p>
+          </div>
+          
+          <div class="export-option" data-format="mov">
+            <div class="export-option-icon">🎥</div>
+            <h4>MOV</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+              专业格式，适合后期处理
+            </p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+          <button class="ghost" id="preview-export-btn">预览导出</button>
+          <button class="primary" id="export-btn">开始导出</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 StoryVerse AI · 数字人交互视频及历史故事视频创作平台</p>
+    </footer>
+
+    <script>
+      // 加载项目数据
+      window.addEventListener('DOMContentLoaded', () => {
+        const projectData = localStorage.getItem('videoProject');
+        if (projectData) {
+          try {
+            const project = JSON.parse(projectData);
+            loadProject(project);
+          } catch (e) {
+            console.error('Failed to load project:', e);
+          }
+        }
+      });
+      
+      function loadProject(project) {
+        const videoTrack = document.getElementById('video-track');
+        const images = project.images || [];
+        
+        images.forEach((img, index) => {
+          const clip = document.createElement('div');
+          clip.className = 'timeline-clip';
+          clip.textContent = `场景 ${index + 1}`;
+          clip.dataset.index = index;
+          videoTrack.appendChild(clip);
+        });
+        
+        // 更新视频预览
+        const canvas = document.getElementById('video-canvas');
+        canvas.innerHTML = `
+          <div style="text-align: center; color: var(--text-secondary);">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">✅</div>
+            <div>已加载 ${images.length} 个场景</div>
+            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">
+              可以在时间线上进行剪辑和编辑
+            </div>
+          </div>
+        `;
+      }
+      
+      // 工具按钮切换
+      document.querySelectorAll('[data-tool]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-tool]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+      
+      // 滑块值更新
+      function setupSlider(sliderId, valueId, suffix = '') {
+        const slider = document.getElementById(sliderId);
+        const value = document.getElementById(valueId);
+        slider.addEventListener('input', (e) => {
+          value.textContent = e.target.value + suffix;
+        });
+      }
+      
+      setupSlider('brightness-slider', 'brightness-value', '%');
+      setupSlider('contrast-slider', 'contrast-value', '%');
+      setupSlider('saturation-slider', 'saturation-value', '%');
+      setupSlider('temperature-slider', 'temperature-value');
+      setupSlider('volume-slider', 'volume-value', '%');
+      
+      // 导入视频
+      document.getElementById('import-video-btn')?.addEventListener('click', () => {
+        alert('视频导入功能（模拟）\n在实际应用中，这里可以上传本地视频文件。');
+      });
+      
+      // 导出视频
+      document.getElementById('export-btn')?.addEventListener('click', () => {
+        const format = document.querySelector('.export-option:hover')?.dataset.format || 'mp4-1080p';
+        alert(`视频导出功能（模拟）\n格式: ${format}\n在实际应用中，这里会开始渲染和导出视频。`);
+      });
+      
+      // 导出选项点击
+      document.querySelectorAll('.export-option').forEach(option => {
+        option.addEventListener('click', () => {
+          document.querySelectorAll('.export-option').forEach(o => o.style.borderColor = 'rgba(255, 255, 255, 0.1)');
+          option.style.borderColor = 'var(--accent)';
+        });
+      });
+    </script>
+  </body>
+</html>
+

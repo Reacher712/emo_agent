@@ -1,0 +1,9 @@
+{
+  "_comment": "火山AI生成音乐接口示例请求体（v5.0）。",
+  "Text": "关于星空的背景纯音乐,时长80秒，乐器为钢琴加吉他",
+  "Duration": 80,
+  "TosBucket": "",
+  "CallbackURL": "",
+  "EnableInputRewrite": false,
+  "Version": "v5.0"
+}

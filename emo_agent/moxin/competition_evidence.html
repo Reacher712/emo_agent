@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>竞品对比与机会窗口（证据版）</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #fff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --blue: #2563eb;
+      --green: #16a34a;
+      --orange: #f59e0b;
+      --red: #dc2626;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap { max-width: 1400px; margin: 22px auto; padding: 0 16px 24px; }
+    .header {
+      background: linear-gradient(120deg, #1d4ed8, #3b82f6);
+      color: #fff;
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+    .header h1 { margin: 0 0 8px; font-size: 28px; }
+    .header p { margin: 0; opacity: 0.95; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 14px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .title { margin: 2px 0 8px; font-size: 16px; font-weight: 700; }
+    .sub { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+    .chart { width: 100%; height: 360px; }
+    .evidence-list { display: grid; gap: 10px; }
+    .item {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--blue);
+      background: #fcfdff;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .item h3 { margin: 0 0 6px; font-size: 15px; }
+    .item p { margin: 0 0 6px; line-height: 1.5; font-size: 14px; }
+    .item a {
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 2px;
+      font-size: 13px;
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .item a:hover { text-decoration: underline; }
+    .matrix {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      gap: 8px;
+    }
+    .matrix .cell {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .cell b { display: block; margin-bottom: 4px; }
+    .foot {
+      margin-top: 12px;
+      color: var(--muted);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .matrix { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>竞品对比与机会窗口（证据版）</h1>
+      <p>目标：把“冥想App / 心理咨询平台 / AI绘画工具 / 墨韵心调”的差异用可追溯证据表达。</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="title">定位矩阵（示意）</div>
+        <div class="sub">横轴：文化差异化；纵轴：心理干预闭环能力（示意评分用于展示定位，不等同官方评分）</div>
+        <div id="matrixChart" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <div class="title">关键证据与引用</div>
+        <div class="evidence-list">
+          <div class="item">
+            <h3>1) 冥想类产品：可及性强，但长期参与度是行业共性难点</h3>
+            <p>系统综述显示，数字正念干预存在显著的参与度差异和持续使用挑战，影响长期效果稳定性。</p>
+            <a href="https://www.nature.com/articles/s44184-023-00048-5" target="_blank">Nature npj 综述</a>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12223045/" target="_blank">npj Digital Medicine 综述</a>
+          </div>
+
+          <div class="item">
+            <h3>2) 心理咨询平台：专业度高，但服务可及性与利用率仍待提升</h3>
+            <p>中国研究指出，心理服务可及性和求助行为存在障碍，说明“专业服务价值高”与“用户实际触达”之间仍有缺口。</p>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8602004/" target="_blank">BMC 可及性研究</a>
+            <a href="https://link.springer.com/article/10.1186/s12888-019-2316-z" target="_blank">BMC 求助行为研究</a>
+          </div>
+
+          <div class="item">
+            <h3>3) AI工具：用户规模增长快，内容生成能力已被验证</h3>
+            <p>官方统计显示互联网与AIGC应用渗透持续提升，说明“AI内容生产”具备较强用户基础。</p>
+            <a href="https://www.cnnic.net.cn/n4/2024/0828/c208-11063.html" target="_blank">CNNIC 第54次报告发布</a>
+            <a href="https://www.cnnic.com.cn/IDR/ReportDownloads/202411/P020241101318428715781.pdf" target="_blank">CNNIC 报告PDF</a>
+          </div>
+
+          <div class="item">
+            <h3>4) 机会窗口：文化疗愈 + 情绪追踪 + 关系共绘闭环</h3>
+            <p>数字艺术疗愈研究正在增长，但机制化和可解释闭环仍有提升空间，这正是本项目切入点。</p>
+            <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2021.600070/pdf" target="_blank">Frontiers 数字艺术疗愈综述</a>
+            <a href="https://journals.publisso.de/en/journals/jat/volume7/jat000044" target="_blank">在线创意艺术治疗系统综述</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <div class="title">对比矩阵（答辩可读版）</div>
+      <div class="matrix">
+        <div class="cell"><b>冥想APP</b>优势：轻量、上手快<br>不足：长期留存与个体化闭环不足</div>
+        <div class="cell"><b>心理咨询平台</b>优势：专业深度高<br>不足：成本、可及性、持续参与门槛</div>
+        <div class="cell"><b>AI绘画工具</b>优势：生成能力强<br>不足：疗愈机制与效果验证薄弱</div>
+        <div class="cell"><b>墨韵心调</b>优势：文化疗愈+追踪+关系分析<br>挑战：需持续扩大样本验证</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      使用说明：本页用于比赛答辩中的“证据链展示”，所有外部链接均为公开可访问文献或官方页面。<br />
+      注意：矩阵中的“位置/评分”为项目组示意，建议在讲述时明确“用于定位比较，不代表第三方排名结论”。
+    </div>
+  </div>
+
+  <script>
+    const chart = echarts.init(document.getElementById("matrixChart"));
+    chart.setOption({
+      tooltip: {
+        formatter: function (p) {
+          return `${p.data.name}<br/>文化差异化：${p.data.value[0]}<br/>干预闭环能力：${p.data.value[1]}`;
+        }
+      },
+      xAxis: {
+        type: "value",
+        name: "文化差异化",
+        min: 0,
+        max: 100,
+        splitLine: { lineStyle: { color: "#e5e7eb" } }
+      },
+      yAxis: {
+        type: "value",
+        name: "心理干预闭环能力",
+        min: 0,
+        max: 100,
+        splitLine: { lineStyle: { color: "#e5e7eb" } }
+      },
+      series: [
+        {
+          type: "scatter",
+          symbolSize: function (val, params) {
+            const size = [20, 22, 20, 28];
+            return size[params.dataIndex];
+          },
+          data: [
+            { name: "冥想APP", value: [35, 45], itemStyle: { color: "#60a5fa" } },
+            { name: "心理咨询平台", value: [30, 80], itemStyle: { color: "#f59e0b" } },
+            { name: "AI绘画工具", value: [50, 30], itemStyle: { color: "#94a3b8" } },
+            { name: "墨韵心调", value: [78, 72], itemStyle: { color: "#16a34a" } }
+          ],
+          label: {
+            show: true,
+            formatter: "{b}",
+            position: "top",
+            color: "#111827"
+          }
+        }
+      ]
+    });
+
+    window.addEventListener("resize", () => chart.resize());
+  </script>
+</body>
+</html>

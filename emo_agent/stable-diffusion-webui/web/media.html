@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>素材获取中心 · InspireLab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="noise-overlay"></div>
+    <nav class="topbar">
+      <a class="topbar__brand" href="index.html">
+        <span class="logo-heart" aria-hidden="true"></span>
+        <span>InspireLab</span>
+      </a>
+      <div class="topbar__links">
+        <a class="is-active" href="media.html">素材中心</a>
+        <a href="video.html">极速出片</a>
+        <a href="avatar.html">虚拟数字人</a>
+        <a href="index.html#workflow">流程亮点</a>
+      </div>
+      <button class="topbar__cta" data-action="book-demo">预约演示</button>
+    </nav>
+
+    <main>
+      <section class="detail-hero">
+        <div class="detail-hero__copy">
+          <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>›</span>
+            <span>素材获取</span>
+          </div>
+          <span class="eyebrow">Asset Intelligence</span>
+          <h1>一键聚合素材，给创意一个极速起点</h1>
+          <p>
+            连接全球 800+ 图库、短视频与音效平台，自动完成版权识别、标签补全与格式转码。让素材搜集从数小时缩短至数分钟。
+          </p>
+          <div class="detail-hero__actions">
+            <a class="primary" href="#asset-flow">查看智能流程</a>
+            <button class="ghost" data-action="open-media">预约素材演示</button>
+          </div>
+          <div class="detail-hero__metrics">
+            <div class="metric">
+              <strong>12 TB</strong>
+              <span>日均抓取容量</span>
+            </div>
+            <div class="metric">
+              <strong>98%</strong>
+              <span>版权合规识别率</span>
+            </div>
+          </div>
+        </div>
+        <div class="detail-hero__visual">
+          <div class="detail-orb" aria-hidden="true"></div>
+          <span class="detail-orb__chip">AI 标签</span>
+          <span class="detail-orb__chip">格式转换</span>
+        </div>
+      </section>
+
+      <section class="section-block" id="asset-flow">
+        <div class="section-block__header">
+          <h2>智能分发，分秒入库</h2>
+          <p>
+            将零散素材统一纳入云端仓库，自动生成版权凭证、语义标签与主题推荐，供团队即时检索。
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>📥 多源接入</h3>
+            <p>
+              支持 URL 抓取、API 同步及本地拖拽，自动识别文件类型并匹配最佳转码方案。
+            </p>
+            <div class="feature-card__footer">包含阿里云、Pexels、Getty 等平台</div>
+          </article>
+          <article class="feature-card">
+            <h3>🧾 版权审计</h3>
+            <p>
+              实时对接版权数据库，提供商用风险评估与证书归档提醒，生成可追溯审计报告。
+            </p>
+            <div class="feature-card__footer">支持一键导出使用凭证</div>
+          </article>
+          <article class="feature-card">
+            <h3>🔖 语义标签</h3>
+            <p>
+              AI 自动生成多语言标签与主题描述，结合视觉特征与品牌词库，检索命中率大幅提升。
+            </p>
+            <div class="feature-card__footer">可关联时效、地域与情绪属性</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="asset-timeline">
+        <div class="section-block__header">
+          <h2>三步搭建品牌专属素材仓</h2>
+          <p>全程无需工程介入，拖拽式配置即可完成集成与上线。</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-step" data-step="01">
+            <h3>接入数据源</h3>
+            <p>
+              选择连接的开放平台或上传历史素材包，系统自动识别目录并清理重复文件。
+            </p>
+          </div>
+          <div class="timeline-step" data-step="02">
+            <h3>配置权限策略</h3>
+            <p>
+              绑定成员角色与版权分级，敏感素材自动加密，外部协作一键生成临时链接。
+            </p>
+          </div>
+          <div class="timeline-step" data-step="03">
+            <h3>发布检索入口</h3>
+            <p>
+              嵌入现有工作流或分享专属素材站点，支持语音检索、拼图搜索与收藏夹同步。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-cta">
+        <h2>让灵感从素材开始流动</h2>
+        <p>开启 14 天试用，即刻体验智能素材采集与版权守护。</p>
+        <div class="detail-cta__actions">
+          <a class="primary" href="index.html">返回首页</a>
+          <button class="ghost" data-action="contact-sales">联系商务合作</button>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="modal">
+      <button class="modal__close" data-action="close-modal">✕</button>
+      <div class="modal__content"></div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

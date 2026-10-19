@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI数字人生成 - AI创作平台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="noise-overlay"></div>
+    
+    <!-- 导航栏 -->
+    <nav class="topbar">
+      <a class="topbar__brand" href="index.html">
+        <span class="logo-heart" aria-hidden="true"></span>
+        <span>AI创作平台</span>
+      </a>
+      <div class="topbar__links">
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="voice-clone.html" class="nav-link">音频克隆</a>
+        <a href="image-gen.html" class="nav-link">图片生成</a>
+        <a href="image-to-video.html" class="nav-link">图生视频</a>
+        <a href="digital-human.html" class="nav-link active">数字人生成</a>
+      </div>
+      <button class="topbar__cta" id="settings-btn">设置</button>
+    </nav>
+
+    <!-- 主容器 -->
+    <main class="main-container">
+      <!-- 数字人生成模块 -->
+      <section id="digital-human" class="feature-section active">
+        <div class="section-header">
+          <h1 class="section-title">
+            <span class="title-icon">🤖</span>
+            AI数字人生成
+          </h1>
+          <p class="section-subtitle">创建逼真的数字人形象，支持语音合成和动作生成</p>
+        </div>
+
+        <div class="content-grid">
+          <!-- 左侧：配置区域 -->
+          <div class="input-panel">
+            <div class="panel-card">
+              <h3>数字人配置</h3>
+              
+              <!-- 创建方式选择 -->
+              <div class="creation-mode">
+                <div class="mode-tabs">
+                  <button class="mode-tab active" data-mode="text">文字描述</button>
+                  <button class="mode-tab" data-mode="upload">上传图片</button>
+                </div>
+
+                <!-- 文字描述模式 -->
+                <div id="text-mode" class="mode-content active">
+                  <textarea 
+                    id="human-prompt" 
+                    class="prompt-input" 
+                    placeholder="描述您想要创建的数字人，例如：一位30岁的亚洲女性，长发，穿着职业套装，微笑，专业形象..."
+                    rows="5"
+                  ></textarea>
+                </div>
+
+                <!-- 上传图片模式 -->
+                <div id="upload-mode" class="mode-content">
+                  <div class="upload-area" id="image-upload-area">
+                    <input type="file" id="human-image-input" accept="image/*" hidden>
+                    <div class="upload-content">
+                      <span class="upload-icon">📷</span>
+                      <p>点击或拖拽上传图片</p>
+                      <p class="upload-hint">支持 JPG、PNG 格式，建议尺寸 1024×1024</p>
+                    </div>
+                    <img id="uploaded-preview" class="uploaded-preview hidden" alt="预览">
+                  </div>
+                </div>
+              </div>
+
+              <div class="options-group">
+                <div class="option-row">
+                  <label>数字人类型</label>
+                  <select id="human-type" class="select-input">
+                    <option value="portrait">头像模式</option>
+                    <option value="full-body">全身模式</option>
+                    <option value="half-body">半身模式</option>
+                  </select>
+                </div>
+
+                <div class="option-row">
+                  <label>风格</label>
+                  <select id="human-style" class="select-input">
+                    <option value="realistic">写实风格</option>
+                    <option value="anime">动漫风格</option>
+                    <option value="3d">3D风格</option>
+                    <option value="cartoon">卡通风格</option>
+                  </select>
+                </div>
+
+                <div class="option-row">
+                  <label>年龄范围</label>
+                  <select id="human-age" class="select-input">
+                    <option value="child">儿童 (5-12岁)</option>
+                    <option value="teen">青少年 (13-20岁)</option>
+                    <option value="adult" selected>成年人 (21-40岁)</option>
+                    <option value="elder">中老年 (40岁以上)</option>
+                  </select>
+                </div>
+              </div>
+
+              <button id="generate-human-btn" class="primary-btn">
+                <span class="btn-icon">🚀</span>
+                生成数字人
+              </button>
+            </div>
+
+            <!-- SadTalker 高级设置 -->
+            <div class="panel-card">
+              <h3>SadTalker 设置</h3>
+              <div class="options-group">
+                <div class="option-row">
+                  <label>Pose Style (姿态风格)</label>
+                  <div style="display: flex; align-items: center; gap: 1rem; width: 100%;">
+                    <input type="range" id="pose-style" min="0" max="45" value="0" class="slider-input" style="flex: 1;">
+                    <input type="number" id="pose-style-value" min="0" max="45" value="0" class="number-input" style="width: 60px;">
+                  </div>
+                </div>
+
+                <div class="option-row">
+                  <label>Face Model Resolution (人脸模型分辨率)</label>
+                  <div style="display: flex; gap: 1rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                      <input type="radio" name="face-resolution" value="256" checked>
+                      <span>256</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                      <input type="radio" name="face-resolution" value="512">
+                      <span>512</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="option-row">
+                  <label>Preprocess (预处理方式)</label>
+                  <select id="preprocess" class="select-input">
+                    <option value="crop" selected>Crop</option>
+                    <option value="resize">Resize</option>
+                    <option value="full">Full</option>
+                    <option value="extcrop">ExtCrop</option>
+                    <option value="extfull">ExtFull</option>
+                  </select>
+                </div>
+
+                <div class="option-row">
+                  <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                    <input type="checkbox" id="still-mode">
+                    <span>Still Mode (静态模式，减少头部运动，配合 preprocess 'full' 使用)</span>
+                  </label>
+                </div>
+
+                <div class="option-row">
+                  <label>Batch Size (批量大小)</label>
+                  <div style="display: flex; align-items: center; gap: 1rem; width: 100%;">
+                    <input type="range" id="batch-size" min="1" max="8" value="2" class="slider-input" style="flex: 1;">
+                    <input type="number" id="batch-size-value" min="1" max="8" value="2" class="number-input" style="width: 60px;">
+                  </div>
+                </div>
+
+                <div class="option-row">
+                  <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                    <input type="checkbox" id="gfpgan-enhancer">
+                    <span>GFPGAN as Face Enhancer (使用 GFPGAN 作为人脸增强器)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- 音频上传选项 -->
+            <div class="panel-card">
+              <h3>驱动音频 (必填)</h3>
+              <div class="options-group">
+                <div class="option-row">
+                  <label>上传音频文件</label>
+                  <input type="file" id="audio-input" accept="audio/*" class="file-input">
+                  <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+                    支持 WAV、MP3 等格式，用于驱动数字人说话
+                  </p>
+                </div>
+                <div id="audio-preview" class="audio-preview hidden">
+                  <audio id="audio-player" controls style="width: 100%; margin-top: 0.5rem;"></audio>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右侧：预览区域 -->
+          <div class="output-panel">
+            <div class="panel-card output-card">
+              <div class="output-header">
+                <h3>数字人预览</h3>
+                <div class="output-actions">
+                  <button id="animate-human-btn" class="icon-btn" title="动画">🎬</button>
+                  <button id="download-human-btn" class="icon-btn" title="下载">⬇️</button>
+                </div>
+              </div>
+              
+              <div id="human-output" class="output-content">
+                <div class="empty-preview">
+                  <div class="preview-icon">👤</div>
+                  <p>生成的数字人将显示在这里</p>
+                </div>
+              </div>
+
+              <div id="human-loading" class="loading-overlay hidden">
+                <div class="spinner"></div>
+                <p>AI正在生成数字人，请稍候...</p>
+                <div class="progress-bar">
+                  <div class="progress-fill"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 数字人库 -->
+            <div class="panel-card">
+              <h3>我的数字人</h3>
+              <div id="human-gallery" class="human-gallery">
+                <p class="empty-state">暂无创建的数字人</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 设置对话框 -->
+    <dialog id="settings-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>设置</h2>
+          <button class="modal-close" id="close-settings">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="setting-group">
+            <label>Stable Diffusion WebUI API 地址</label>
+            <input type="text" id="api-url" class="text-input" placeholder="http://192.168.1.100:7860">
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+              填入运行 WebUI 的设备 IP 地址和端口（默认 7860）
+            </p>
+          </div>
+          <div class="setting-group">
+            <label>默认质量</label>
+            <select id="default-quality" class="select-input">
+              <option value="standard">标准</option>
+              <option value="high">高清</option>
+              <option value="ultra">超高清</option>
+            </select>
+          </div>
+          <div class="setting-group">
+            <label>DeepSeek API Key</label>
+            <input type="password" id="deepseek-api-key" class="text-input" placeholder="sk-...">
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+              用于 AI 助手功能，获取 API Key 请访问 <a href="https://platform.deepseek.com/api_keys" target="_blank" style="color: var(--accent-color);">DeepSeek 平台</a>
+            </p>
+          </div>
+          <div class="setting-group">
+            <label>可灵 (Kling) API 配置</label>
+            <input type="text" id="kling-access-key" class="text-input" placeholder="请输入访问密钥 (Access Key)" style="margin-bottom: 0.5rem;">
+            <input type="password" id="kling-secret-key" class="text-input" placeholder="请输入密钥 (Secret Key)">
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+              用于图生视频功能，获取 API 密钥请访问 <a href="https://app.klingai.com/cn/" target="_blank" style="color: var(--accent-color);">可灵 AI 平台</a>
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="secondary-btn" id="cancel-settings">取消</button>
+          <button class="primary-btn" id="save-settings">保存</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="script.js?v=20251223-12"></script>
+  </body>
+</html>
+

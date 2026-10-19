@@ -218,3 +218,68 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local secrets and credentials
+.env.*
+!.env.example
+!.env.template
+!.env.*.template
+*.pem
+*.key
+credentials*.json
+secrets.*
+
+# IDE state and nested repository metadata
+.idea/
+.vscode/
+.git/
+$null
+~$*
+
+# Local models and machine environments
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.onnx
+*.h5
+/emo_agent/moxin/EmoLLM/model/
+/emo_agent/stable-diffusion-webui/models/
+/emo_agent/stable-diffusion-webui/extensions/
+/emo_agent/stable-diffusion-webui/repositories/
+/emo_agent/stable-diffusion-webui/embeddings/
+/emo_agent/stable-diffusion-webui/interrogate/
+
+# Generated media, records and caches
+outputs/
+results/
+deliverables/
+logs/
+log/
+cache/
+tmp/
+config_states/
+*.lnk
+*.bak
+/emo_agent/stable-diffusion-webui/config.json
+/emo_agent/stable-diffusion-webui/ui-config.json
+/emo_agent/stable-diffusion-webui/params.txt
+/emo_agent/moxin/_sdxl_temp.pdf
+/emo_agent/moxin/conda_config_backup.*
+
+# Downloaded training corpora and dependency bundles (keep documentation/scripts)
+*.whl
+*.zip
+*.7z
+*.tar.gz
+*.faiss
+*.pkl
+/emo_agent/moxin/EmoLLM/datasets/**/*.json
+/emo_agent/moxin/EmoLLM/datasets/**/*.jsonl
+/emo_agent/moxin/EmoLLM/datasets/**/*.csv
+/emo_agent/moxin/EmoLLM/careyou/nltk_data/
+/emo_agent/moxin/EmoLLM/careyou/EmoLLMRAGTXT/vector_db/
+/emo_agent/stable-diffusion-webui/web/数字人背景视频.mp4
+.local-secrets-backup/
+*.pickle

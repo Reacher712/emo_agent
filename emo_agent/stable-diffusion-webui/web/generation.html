@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>视频创作 - AI生成 | StoryVerse AI</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .generation-workspace {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      
+      .workspace-panel {
+        background: rgba(17, 25, 54, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        padding: 2rem;
+        backdrop-filter: blur(18px);
+      }
+      
+      .script-panel {
+        display: grid;
+        gap: 1.5rem;
+      }
+      
+      .script-display {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 1.5rem;
+        max-height: 300px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      
+      .generation-controls {
+        display: grid;
+        gap: 1.5rem;
+      }
+      
+      .control-group {
+        display: grid;
+        gap: 0.8rem;
+      }
+      
+      .control-group label {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      
+      .control-group select,
+      .control-group input {
+        padding: 0.8rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 1rem;
+      }
+      
+      .control-group select:focus,
+      .control-group input:focus {
+        outline: none;
+        border-color: rgba(255, 107, 129, 0.5);
+        background: rgba(255, 255, 255, 0.08);
+      }
+      
+      .generate-btn {
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, rgba(255, 107, 129, 0.95), rgba(255, 191, 210, 0.95));
+        border: none;
+        border-radius: 16px;
+        color: var(--bg-primary);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      
+      .generate-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(255, 107, 129, 0.4);
+      }
+      
+      .generate-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      
+      .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      
+      .image-card {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        overflow: hidden;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      
+      .image-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 107, 129, 0.5);
+      }
+      
+      .image-card.selected {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(255, 107, 129, 0.3);
+      }
+      
+      .image-placeholder {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      
+      .image-preview {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .image-actions {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        display: flex;
+        gap: 0.5rem;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      
+      .image-card:hover .image-actions {
+        opacity: 1;
+      }
+      
+      .image-action-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: none;
+        background: rgba(15, 23, 42, 0.9);
+        color: var(--text-primary);
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        backdrop-filter: blur(8px);
+      }
+      
+      .video-preview-area {
+        margin-top: 2rem;
+        padding: 2rem;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        min-height: 400px;
+        display: grid;
+        place-items: center;
+      }
+      
+      .video-preview {
+        width: 100%;
+        max-width: 800px;
+        aspect-ratio: 16 / 9;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        color: var(--text-secondary);
+      }
+      
+      .video-controls {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        justify-content: center;
+      }
+      
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+        margin-top: 1rem;
+      }
+      
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+        width: 0%;
+        transition: width 0.3s ease;
+      }
+      
+      .step-indicator {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+      }
+      
+      .step-number {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(255, 107, 129, 0.3);
+        color: var(--accent);
+        display: grid;
+        place-items: center;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      
+      .step-number.active {
+        background: var(--accent);
+        color: var(--bg-primary);
+      }
+      
+      .step-number.completed {
+        background: rgba(56, 189, 248, 0.3);
+        color: var(--accent-secondary);
+      }
+      
+      .step-info {
+        flex: 1;
+      }
+      
+      .step-info h4 {
+        margin-bottom: 0.3rem;
+      }
+      
+      .step-info p {
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+      }
+      
+      @media (max-width: 1024px) {
+        .generation-workspace {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="noise-overlay"></div>
+    <nav class="topbar">
+      <a class="topbar__brand" href="index.html">
+        <span class="logo-heart" aria-hidden="true"></span>
+        <span>StoryVerse AI</span>
+      </a>
+      <div class="topbar__links">
+        <a href="script.html">数字人交流</a>
+        <a href="generation.html" class="is-active">视频创作</a>
+        <a href="editor.html">视频剪辑</a>
+        <a href="index.html">首页</a>
+      </div>
+      <button class="topbar__cta">保存项目</button>
+    </nav>
+
+    <main>
+      <section class="detail-hero">
+        <div class="detail-hero__copy">
+          <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>/</span>
+            <span>视频创作</span>
+          </div>
+          <span class="eyebrow">🎨 AI 图像与视频生成</span>
+          <h1>视频创作 - AI生成</h1>
+          <p>
+            根据剧本自动生成精美图片，再将图片序列转换为流畅视频。支持多种艺术风格、历史场景还原，让您的故事画面栩栩如生。
+          </p>
+          <div class="detail-hero__actions">
+            <button class="primary" id="load-script-btn">加载剧本</button>
+            <button class="ghost" id="upload-images-btn">上传图片</button>
+          </div>
+        </div>
+        <div class="detail-hero__visual">
+          <div class="detail-orb">
+            <div class="detail-orb__chip">🎨 图像生成</div>
+            <div class="detail-orb__chip">🎬 视频合成</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="step-indicator">
+          <div class="step-number active" id="step-1">1</div>
+          <div class="step-info">
+            <h4>生成图片</h4>
+            <p>根据剧本场景生成历史故事图片</p>
+          </div>
+        </div>
+        
+        <div class="generation-workspace">
+          <div class="workspace-panel script-panel">
+            <h3 style="margin-bottom: 1rem;">当前剧本</h3>
+            <div class="script-display" id="script-display">
+              请先加载或输入剧本内容...
+            </div>
+            <button class="ghost" style="margin-top: 1rem;" onclick="document.getElementById('script-input').style.display='block'">
+              编辑剧本
+            </button>
+            <textarea 
+              id="script-input" 
+              style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: var(--text-primary); font-family: inherit; width: 100%; min-height: 150px;"
+              placeholder="输入或粘贴您的剧本内容..."
+            ></textarea>
+          </div>
+          
+          <div class="workspace-panel generation-controls">
+            <h3 style="margin-bottom: 1rem;">生成设置</h3>
+            
+            <div class="control-group">
+              <label>艺术风格</label>
+              <select id="style-select">
+                <option value="realistic">写实风格</option>
+                <option value="ancient-painting">古风绘画</option>
+                <option value="ink-wash">水墨风格</option>
+                <option value="oil-painting">油画风格</option>
+                <option value="digital-art">数字艺术</option>
+              </select>
+            </div>
+            
+            <div class="control-group">
+              <label>历史时期</label>
+              <select id="period-select">
+                <option value="ancient">古代</option>
+                <option value="qin">秦朝</option>
+                <option value="han">汉朝</option>
+                <option value="tang">唐朝</option>
+                <option value="song">宋朝</option>
+                <option value="ming">明朝</option>
+                <option value="qing">清朝</option>
+              </select>
+            </div>
+            
+            <div class="control-group">
+              <label>图片数量</label>
+              <input type="number" id="image-count" value="5" min="1" max="20" />
+            </div>
+            
+            <div class="control-group">
+              <label>图片分辨率</label>
+              <select id="resolution-select">
+                <option value="1024x768">1024×768 (标准)</option>
+                <option value="1920x1080" selected>1920×1080 (高清)</option>
+                <option value="3840x2160">3840×2160 (4K)</option>
+              </select>
+            </div>
+            
+            <button class="generate-btn" id="generate-images-btn">
+              <span>🎨</span>
+              <span>生成图片</span>
+            </button>
+            
+            <div class="progress-bar" id="image-progress" style="display: none;">
+              <div class="progress-fill" id="image-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="image-gallery" id="image-gallery">
+          <!-- 生成的图片将显示在这里 -->
+        </div>
+      </section>
+
+      <section class="section-block" id="video-section" style="display: none;">
+        <div class="step-indicator">
+          <div class="step-number completed">1</div>
+          <div class="step-number active" id="step-2">2</div>
+          <div class="step-info">
+            <h4>生成视频</h4>
+            <p>将选中的图片序列转换为视频</p>
+          </div>
+        </div>
+        
+        <div class="workspace-panel">
+          <h3 style="margin-bottom: 1rem;">视频设置</h3>
+          
+          <div class="generation-workspace">
+            <div class="workspace-panel">
+              <div class="control-group">
+                <label>视频时长（秒/图片）</label>
+                <input type="number" id="duration-per-image" value="3" min="1" max="10" />
+              </div>
+              
+              <div class="control-group">
+                <label>转场效果</label>
+                <select id="transition-select">
+                  <option value="fade">淡入淡出</option>
+                  <option value="slide">滑动</option>
+                  <option value="zoom">缩放</option>
+                  <option value="none">无转场</option>
+                </select>
+              </div>
+              
+              <div class="control-group">
+                <label>视频分辨率</label>
+                <select id="video-resolution">
+                  <option value="720p">720p (1280×720)</option>
+                  <option value="1080p" selected>1080p (1920×1080)</option>
+                  <option value="4k">4K (3840×2160)</option>
+                </select>
+              </div>
+              
+              <div class="control-group">
+                <label>帧率 (FPS)</label>
+                <select id="fps-select">
+                  <option value="24">24 FPS</option>
+                  <option value="30" selected>30 FPS</option>
+                  <option value="60">60 FPS</option>
+                </select>
+              </div>
+              
+              <button class="generate-btn" id="generate-video-btn">
+                <span>🎬</span>
+                <span>生成视频</span>
+              </button>
+              
+              <div class="progress-bar" id="video-progress" style="display: none;">
+                <div class="progress-fill" id="video-progress-fill"></div>
+              </div>
+            </div>
+            
+            <div class="workspace-panel">
+              <div class="video-preview-area">
+                <div class="video-preview" id="video-preview">
+                  <div>视频预览将显示在这里</div>
+                </div>
+              </div>
+              
+              <div class="video-controls">
+                <button class="ghost" id="download-video-btn" style="display: none;">下载视频</button>
+                <button class="primary" id="edit-video-btn" style="display: none;">进入剪辑</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 StoryVerse AI · 数字人交互视频及历史故事视频创作平台</p>
+    </footer>
+
+    <script>
+      // 加载剧本
+      const scriptDisplay = document.getElementById('script-display');
+      const scriptInput = document.getElementById('script-input');
+      const loadScriptBtn = document.getElementById('load-script-btn');
+      const generateImagesBtn = document.getElementById('generate-images-btn');
+      const imageGallery = document.getElementById('image-gallery');
+      const videoSection = document.getElementById('video-section');
+      const generateVideoBtn = document.getElementById('generate-video-btn');
+      const videoPreview = document.getElementById('video-preview');
+      const downloadVideoBtn = document.getElementById('download-video-btn');
+      const editVideoBtn = document.getElementById('edit-video-btn');
+      
+      let selectedImages = [];
+      let generatedImages = [];
+      
+      // 从localStorage加载剧本
+      window.addEventListener('DOMContentLoaded', () => {
+        const savedScript = localStorage.getItem('currentScript');
+        if (savedScript) {
+          scriptDisplay.textContent = savedScript;
+          scriptInput.value = savedScript;
+        }
+      });
+      
+      loadScriptBtn.addEventListener('click', () => {
+        const script = prompt('请输入或粘贴您的剧本内容：');
+        if (script) {
+          scriptDisplay.textContent = script;
+          scriptInput.value = script;
+          localStorage.setItem('currentScript', script);
+        }
+      });
+      
+      scriptInput.addEventListener('input', (e) => {
+        scriptDisplay.textContent = e.target.value;
+        localStorage.setItem('currentScript', e.target.value);
+      });
+      
+      // 生成图片
+      generateImagesBtn.addEventListener('click', async () => {
+        const script = scriptDisplay.textContent.trim();
+        if (!script || script === '请先加载或输入剧本内容...') {
+          alert('请先输入或加载剧本内容！');
+          return;
+        }
+        
+        const style = document.getElementById('style-select').value;
+        const period = document.getElementById('period-select').value;
+        const count = parseInt(document.getElementById('image-count').value);
+        const resolution = document.getElementById('resolution-select').value;
+        
+        generateImagesBtn.disabled = true;
+        generateImagesBtn.innerHTML = '<span>⏳</span><span>生成中...</span>';
+        
+        const progressBar = document.getElementById('image-progress');
+        const progressFill = document.getElementById('image-progress-fill');
+        progressBar.style.display = 'block';
+        
+        // 清空之前的图片
+        imageGallery.innerHTML = '';
+        generatedImages = [];
+        
+        // 模拟生成过程
+        for (let i = 0; i < count; i++) {
+          await new Promise(resolve => setTimeout(resolve, 800));
+          
+          const progress = ((i + 1) / count) * 100;
+          progressFill.style.width = progress + '%';
+          
+          // 创建图片卡片
+          const imageCard = document.createElement('div');
+          imageCard.className = 'image-card';
+          imageCard.dataset.index = i;
+          
+          const placeholder = document.createElement('div');
+          placeholder.className = 'image-placeholder';
+          placeholder.innerHTML = `
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
+              <div>场景 ${i + 1}</div>
+            </div>
+          `;
+          
+          const actions = document.createElement('div');
+          actions.className = 'image-actions';
+          actions.innerHTML = `
+            <button class="image-action-btn" onclick="selectImage(${i})">✓</button>
+            <button class="image-action-btn" onclick="deleteImage(${i})">×</button>
+          `;
+          
+          imageCard.appendChild(placeholder);
+          imageCard.appendChild(actions);
+          imageGallery.appendChild(imageCard);
+          
+          // 模拟图片加载
+          setTimeout(() => {
+            placeholder.style.display = 'none';
+            const img = document.createElement('img');
+            img.className = 'image-preview';
+            img.src = `https://picsum.photos/seed/${Date.now()}-${i}/800/450`;
+            img.alt = `生成的图片 ${i + 1}`;
+            imageCard.insertBefore(img, actions);
+            
+            generatedImages.push({
+              index: i,
+              url: img.src,
+              style: style,
+              period: period
+            });
+          }, 500);
+        }
+        
+        progressBar.style.display = 'none';
+        generateImagesBtn.disabled = false;
+        generateImagesBtn.innerHTML = '<span>🎨</span><span>生成图片</span>';
+        
+        // 显示视频生成区域
+        videoSection.style.display = 'block';
+        document.getElementById('step-2').classList.add('active');
+      });
+      
+      // 选择图片
+      window.selectImage = function(index) {
+        const card = document.querySelector(`[data-index="${index}"]`);
+        if (card.classList.contains('selected')) {
+          card.classList.remove('selected');
+          selectedImages = selectedImages.filter(i => i !== index);
+        } else {
+          card.classList.add('selected');
+          selectedImages.push(index);
+        }
+      };
+      
+      // 删除图片
+      window.deleteImage = function(index) {
+        const card = document.querySelector(`[data-index="${index}"]`);
+        card.remove();
+        generatedImages = generatedImages.filter(img => img.index !== index);
+        selectedImages = selectedImages.filter(i => i !== index);
+      };
+      
+      // 生成视频
+      generateVideoBtn.addEventListener('click', async () => {
+        if (selectedImages.length === 0) {
+          alert('请至少选择一张图片！');
+          return;
+        }
+        
+        generateVideoBtn.disabled = true;
+        generateVideoBtn.innerHTML = '<span>⏳</span><span>生成中...</span>';
+        
+        const progressBar = document.getElementById('video-progress');
+        const progressFill = document.getElementById('video-progress-fill');
+        progressBar.style.display = 'block';
+        
+        // 模拟视频生成过程
+        for (let i = 0; i <= 100; i += 10) {
+          await new Promise(resolve => setTimeout(resolve, 300));
+          progressFill.style.width = i + '%';
+        }
+        
+        // 显示视频预览
+        videoPreview.innerHTML = `
+          <div style="text-align: center; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🎬</div>
+            <div style="font-size: 1.2rem; margin-bottom: 0.5rem;">视频生成完成！</div>
+            <div style="color: var(--text-secondary); font-size: 0.9rem;">
+              已生成 ${selectedImages.length} 个场景的视频
+            </div>
+          </div>
+        `;
+        
+        progressBar.style.display = 'none';
+        generateVideoBtn.disabled = false;
+        generateVideoBtn.innerHTML = '<span>🎬</span><span>生成视频</span>';
+        
+        downloadVideoBtn.style.display = 'inline-block';
+        editVideoBtn.style.display = 'inline-block';
+      });
+      
+      // 下载视频
+      downloadVideoBtn.addEventListener('click', () => {
+        alert('视频下载功能（模拟）\n在实际应用中，这里会下载生成的视频文件。');
+      });
+      
+      // 进入剪辑
+      editVideoBtn.addEventListener('click', () => {
+        localStorage.setItem('videoProject', JSON.stringify({
+          images: selectedImages.map(i => generatedImages.find(img => img.index === i)),
+          settings: {
+            duration: document.getElementById('duration-per-image').value,
+            transition: document.getElementById('transition-select').value,
+            resolution: document.getElementById('video-resolution').value,
+            fps: document.getElementById('fps-select').value
+          }
+        }));
+        window.location.href = 'editor.html';
+      });
+    </script>
+  </body>
+</html>
+

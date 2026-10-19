@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI图生视频 - AI创作平台</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* 图生视频页面专用样式 */
+      .kling-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .kling-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--text-primary);
+      }
+      
+      .kling-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--accent-gold);
+      }
+      
+      .kling-main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      
+      @media (max-width: 1024px) {
+        .kling-main-content {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      .kling-upload-section {
+        border: 3px dashed var(--card-border);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s;
+        background: var(--card-bg);
+      }
+      
+      .kling-upload-section:hover {
+        border-color: var(--accent-gold);
+        background: var(--card-bg-hover);
+      }
+      
+      .kling-upload-icon {
+        font-size: 48px;
+        margin-bottom: 1rem;
+        color: var(--accent-gold);
+      }
+      
+      .kling-preview-container {
+        margin-top: 1rem;
+        display: none;
+      }
+      
+      .kling-image-preview {
+        max-width: 100%;
+        max-height: 300px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+      
+      .kling-input-section textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid var(--card-border);
+        border-radius: 10px;
+        font-size: 16px;
+        resize: vertical;
+        min-height: 120px;
+        margin-bottom: 20px;
+        transition: border-color 0.3s;
+        background: var(--card-bg);
+        color: var(--text-primary);
+      }
+      
+      .kling-input-section textarea:focus {
+        outline: none;
+        border-color: var(--accent-gold);
+      }
+      
+      .kling-settings {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+      
+      .kling-settings select {
+        padding: 12px;
+        border: 2px solid var(--card-border);
+        border-radius: 8px;
+        font-size: 16px;
+        width: 100%;
+        background: var(--card-bg);
+        color: var(--text-primary);
+      }
+      
+      .kling-generate-btn {
+        background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-gold) 100%);
+        color: white;
+        border: none;
+        padding: 18px 40px;
+        font-size: 18px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s;
+        width: 100%;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      
+      .kling-generate-btn:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(200, 16, 46, 0.4);
+      }
+      
+      .kling-generate-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      
+      .kling-result-section {
+        grid-column: 1 / -1;
+        margin-top: 20px;
+      }
+      
+      .kling-progress-container {
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        display: none;
+        border: 1px solid var(--card-border);
+      }
+      
+      .kling-progress-bar {
+        height: 8px;
+        background: var(--card-border);
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+      
+      .kling-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent-red) 0%, var(--accent-gold) 100%);
+        width: 0%;
+        transition: width 0.3s;
+      }
+      
+      .kling-video-result {
+        display: none;
+        text-align: center;
+      }
+      
+      .kling-video-player {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      }
+      
+      .kling-download-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 10px;
+        text-decoration: none;
+        margin-top: 20px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+      
+      .kling-download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+      }
+      
+      .kling-status-message {
+        padding: 15px;
+        border-radius: 10px;
+        margin: 10px 0;
+        display: none;
+      }
+      
+      .kling-status-success {
+        background: #d1fae5;
+        color: #065f46;
+        border: 1px solid #a7f3d0;
+      }
+      
+      .kling-status-error {
+        background: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #fecaca;
+      }
+      
+      .kling-status-info {
+        background: #dbeafe;
+        color: #1e40af;
+        border: 1px solid #bfdbfe;
+      }
+      
+      /* 监控面板样式 */
+      .kling-monitor-section {
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 30px;
+        margin-top: 30px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        border: 1px solid var(--card-border);
+      }
+      
+      .kling-monitor-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--card-border);
+      }
+      
+      .kling-monitor-header h3 {
+        font-size: 1.4rem;
+        color: var(--text-primary);
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .kling-monitor-controls {
+        display: flex;
+        gap: 15px;
+      }
+      
+      .kling-monitor-controls button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s;
+        background: var(--card-bg-hover);
+        color: var(--text-primary);
+      }
+      
+      .kling-monitor-controls button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      
+      .kling-monitor-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin-bottom: 30px;
+      }
+      
+      @media (max-width: 1024px) {
+        .kling-monitor-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      .kling-monitor-card {
+        background: var(--card-bg-hover);
+        border-radius: 12px;
+        padding: 25px;
+        border: 1px solid var(--card-border);
+      }
+      
+      .kling-status-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .kling-status-item {
+        text-align: center;
+        padding: 15px;
+        background: var(--card-bg);
+        border-radius: 10px;
+        border: 1px solid var(--card-border);
+      }
+      
+      .kling-status-indicator {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+      
+      .kling-status-indicator.idle {
+        background: #94a3b8;
+      }
+      
+      .kling-status-indicator.processing {
+        background: #f59e0b;
+        animation: pulse 1.5s infinite;
+      }
+      
+      .kling-status-indicator.succeed {
+        background: #10b981;
+      }
+      
+      .kling-status-indicator.failed {
+        background: #ef4444;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+      
+      .kling-history-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--card-bg);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      
+      .kling-history-table th {
+        background: var(--card-bg-hover);
+        padding: 15px;
+        text-align: left;
+        color: var(--text-primary);
+        font-weight: 600;
+        border-bottom: 2px solid var(--card-border);
+      }
+      
+      .kling-history-table td {
+        padding: 15px;
+        border-bottom: 1px solid var(--card-border);
+        color: var(--text-primary);
+      }
+      
+      .kling-history-table tr:hover {
+        background: var(--card-bg-hover);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="noise-overlay"></div>
+    
+    <!-- 导航栏 -->
+    <nav class="topbar">
+      <a class="topbar__brand" href="index.html">
+        <span class="logo-heart" aria-hidden="true"></span>
+        <span>AI创作平台</span>
+      </a>
+      <div class="topbar__links">
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="voice-clone.html" class="nav-link">音频克隆</a>
+        <a href="image-gen.html" class="nav-link">图片生成</a>
+        <a href="image-to-video.html" class="nav-link active">图生视频</a>
+        <a href="digital-human.html" class="nav-link">数字人生成</a>
+      </div>
+      <button class="topbar__cta" id="settings-btn">设置</button>
+    </nav>
+
+    <!-- 主容器 -->
+    <main class="main-container">
+      <div class="kling-container">
+        <div class="kling-header">
+          <h1>🎬 可灵AI视频生成器</h1>
+          <p class="section-subtitle">上传图片，输入描述，一键生成动态视频</p>
+        </div>
+        
+        <div class="kling-main-content">
+          <!-- 左侧：上传区域 -->
+          <div class="kling-upload-section" id="uploadSection">
+            <div class="kling-upload-icon">📷</div>
+            <h3>上传图片</h3>
+            <p>支持 PNG、JPG 格式，最大 10MB</p>
+            <input type="file" id="imageInput" accept=".png,.jpg,.jpeg" style="display: none;">
+            <button onclick="document.getElementById('imageInput').click()" 
+                    style="margin-top: 15px; padding: 12px 24px; background: var(--accent-red); color: white; border: none; border-radius: 8px; cursor: pointer;">
+              选择图片
+            </button>
+            
+            <div class="kling-preview-container" id="previewContainer">
+              <img class="kling-image-preview" id="imagePreview" alt="预览">
+            </div>
+          </div>
+          
+          <!-- 右侧：输入区域 -->
+          <div class="kling-input-section">
+            <textarea id="promptInput" 
+                      placeholder="描述你想要生成的视频内容...&#10;例如：宇航员在太空中漂浮，背景是美丽的地球和星空"></textarea>
+            
+            <div class="kling-settings">
+              <div>
+                <label for="modeSelect">视频质量</label>
+                <select id="modeSelect">
+                  <option value="std">标准模式 (快速)</option>
+                  <option value="pro">专业模式 (高质量)</option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="durationSelect">视频时长</label>
+                <select id="durationSelect">
+                  <option value="5">5秒</option>
+                  <option value="10">10秒</option>
+                </select>
+              </div>
+            </div>
+            
+            <button class="kling-generate-btn" id="generateBtn" onclick="generateVideo()">
+              🚀 开始生成视频
+            </button>
+            
+            <!-- 状态消息 -->
+            <div class="kling-status-message" id="statusMessage"></div>
+          </div>
+          
+          <!-- 结果区域 -->
+          <div class="kling-result-section">
+            <div class="kling-progress-container" id="progressContainer">
+              <h3>正在生成视频...</h3>
+              <div class="kling-progress-bar">
+                <div class="kling-progress-fill" id="progressFill"></div>
+              </div>
+              <p id="progressText">正在提交任务...</p>
+            </div>
+            
+            <div class="kling-video-result" id="videoResult">
+              <h2>🎉 视频生成成功！</h2>
+              <video class="kling-video-player" id="videoPlayer" controls></video>
+              <div>
+                <a id="downloadLink" class="kling-download-btn" download="kling_video.mp4">
+                  📥 下载视频
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 监控面板 -->
+        <div class="kling-monitor-section">
+          <div class="kling-monitor-header">
+            <h3><span>📊</span> 任务监控面板</h3>
+            <div class="kling-monitor-controls">
+              <button onclick="toggleAutoRefresh()" id="autoRefreshBtn">
+                <span>🔄</span> 自动刷新: <span id="refreshStatus">开启</span>
+              </button>
+              <button onclick="exportHistory()" class="btn-export">
+                <span>📤</span> 导出记录
+              </button>
+            </div>
+          </div>
+          
+          <div class="kling-monitor-grid">
+            <!-- 实时状态卡片 -->
+            <div class="kling-monitor-card">
+              <h4>实时状态</h4>
+              <div class="kling-status-grid">
+                <div class="kling-status-item">
+                  <div class="status-label">当前任务</div>
+                  <div class="status-value" id="currentTask">-</div>
+                </div>
+                <div class="kling-status-item">
+                  <div class="status-label">任务状态</div>
+                  <div class="status-value" id="currentStatus">
+                    <span class="kling-status-indicator idle"></span> 空闲
+                  </div>
+                </div>
+                <div class="kling-status-item">
+                  <div class="status-label">运行时间</div>
+                  <div class="status-value" id="runTime">-</div>
+                </div>
+                <div class="kling-status-item">
+                  <div class="status-label">成功/失败</div>
+                  <div class="status-value" id="successRate">0/0</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 任务详情卡片 -->
+            <div class="kling-monitor-card">
+              <h4>任务详情</h4>
+              <div class="detail-content">
+                <div class="detail-row">
+                  <span class="detail-label">任务ID:</span>
+                  <span class="detail-value" id="detailTaskId">-</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">创建时间:</span>
+                  <span class="detail-value" id="detailCreateTime">-</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">更新时间:</span>
+                  <span class="detail-value" id="detailUpdateTime">-</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">视频时长:</span>
+                  <span class="detail-value" id="detailDuration">-</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">视频URL:</span>
+                  <span class="detail-value url-value" id="detailVideoUrl">-</span>
+                </div>
+              </div>
+              <button onclick="copyVideoUrl()" class="btn-copy-url">
+                <span>📋</span> 复制URL
+              </button>
+            </div>
+          </div>
+          
+          <!-- 任务历史表格 -->
+          <div class="history-table-container">
+            <h4>任务历史</h4>
+            <table class="kling-history-table" id="historyTable">
+              <thead>
+                <tr>
+                  <th>任务ID</th>
+                  <th>状态</th>
+                  <th>创建时间</th>
+                  <th>耗时</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody">
+                <tr>
+                  <td colspan="5" class="empty-table">暂无任务记录</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="table-controls">
+              <button onclick="loadMoreHistory()" class="btn-load-more">
+                <span>⬇️</span> 加载更多
+              </button>
+              <span class="table-info" id="tableInfo">共 0 条记录</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 设置对话框 -->
+    <dialog id="settings-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>设置</h2>
+          <button class="modal-close" id="close-settings">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="setting-group">
+            <label>Stable Diffusion WebUI API 地址</label>
+            <input type="text" id="api-url" class="text-input" placeholder="http://192.168.1.100:7860">
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+              填入运行 WebUI 的设备 IP 地址和端口（默认 7860）
+            </p>
+          </div>
+          <div class="setting-group">
+            <label>默认质量</label>
+            <select id="default-quality" class="select-input">
+              <option value="standard">标准</option>
+              <option value="high">高清</option>
+              <option value="ultra">超高清</option>
+            </select>
+          </div>
+          <div class="setting-group">
+            <label>DeepSeek API Key</label>
+            <input type="password" id="deepseek-api-key" class="text-input" placeholder="sk-...">
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+              用于 AI 助手功能，获取 API Key 请访问 <a href="https://platform.deepseek.com/api_keys" target="_blank" style="color: var(--accent-color);">DeepSeek 平台</a>
+            </p>
+          </div>
+          <div class="setting-group">
+            <label>可灵 (Kling) API 配置</label>
+            <input type="text" id="kling-access-key" class="text-input" placeholder="请输入访问密钥 (Access Key)" style="margin-bottom: 0.5rem;">
+            <input type="password" id="kling-secret-key" class="text-input" placeholder="请输入密钥 (Secret Key)">
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+              用于图生视频功能，获取 API 密钥请访问 <a href="https://app.klingai.com/cn/" target="_blank" style="color: var(--accent-color);">可灵 AI 平台</a>
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="secondary-btn" id="cancel-settings">取消</button>
+          <button class="primary-btn" id="save-settings">保存</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      // 后端API地址
+      const API_BASE_URL = 'http://localhost:5000';
+      
+      // 监控相关变量
+      let autoRefresh = true;
+      let autoRefreshInterval = null;
+      let currentTask = null;
+      let taskHistory = JSON.parse(localStorage.getItem('kling_task_history') || '[]');
+      let pollingInterval = null;
+      
+      // 初始化监控
+      function initMonitor() {
+        console.log('[MONITOR] 初始化监控系统');
+        loadTaskHistory();
+        
+        const savedTask = localStorage.getItem('kling_current_task');
+        if (savedTask) {
+          try {
+            currentTask = JSON.parse(savedTask);
+            updateCurrentTaskDisplay();
+            if (currentTask.status === 'processing' || currentTask.status === 'submitted') {
+              startPollingTaskStatus(currentTask.task_id);
+            }
+          } catch (e) {
+            console.error('[MONITOR] 恢复任务失败:', e);
+          }
+        }
+      }
+      
+      // 任务状态轮询
+      function startPollingTaskStatus(taskId) {
+        console.log('[MONITOR] 开始轮询任务状态:', taskId);
+        
+        if (!taskId || taskId === 'null') {
+          console.error('[MONITOR] 无效的任务ID');
+          return;
+        }
+        
+        if (pollingInterval) {
+          clearInterval(pollingInterval);
+        }
+        
+        let attempts = 0;
+        const maxAttempts = 120;
+        
+        pollingInterval = setInterval(async () => {
+          attempts++;
+          console.log(`[MONITOR] 查询任务状态 (${attempts}/${maxAttempts}):`, taskId);
+          
+          try {
+            const response = await fetch(`${API_BASE_URL}/api/task-status/${taskId}`);
+            
+            if (!response.ok) {
+              console.error('[MONITOR] 查询失败:', response.status);
+              if (attempts >= maxAttempts) {
+                clearInterval(pollingInterval);
+                updateTaskStatusInUI('failed', '查询超时');
+              }
+              return;
+            }
+            
+            const result = await response.json();
+            console.log('[MONITOR] 查询结果:', result);
+            
+            if (result.code === 0) {
+              const taskStatus = result.data.task_status;
+              console.log('[MONITOR] 任务状态:', taskStatus);
+              
+              updateTaskStatusInUI(taskStatus, result.data.task_status_msg);
+              updateTaskInHistory(taskId, result.data);
+              
+              if (taskStatus === 'succeed' || taskStatus === 'failed') {
+                clearInterval(pollingInterval);
+                
+                if (taskStatus === 'succeed' && result.data.task_result?.videos?.length > 0) {
+                  showSuccessVideo(result.data.task_result.videos[0]);
+                }
+              }
+            }
+            
+          } catch (error) {
+            console.error('[MONITOR] 轮询失败:', error);
+            if (attempts >= maxAttempts) {
+              clearInterval(pollingInterval);
+              updateTaskStatusInUI('failed', '网络错误');
+            }
+          }
+        }, 5000);
+      }
+      
+      // UI更新函数
+      function updateTaskStatusInUI(status, message = '') {
+        const statusIndicator = document.querySelector('.kling-status-indicator');
+        const statusText = document.getElementById('currentStatus');
+        
+        if (statusIndicator && statusText) {
+          statusIndicator.className = 'kling-status-indicator ' + status;
+          statusText.innerHTML = `<span class="kling-status-indicator ${status}"></span> ${getStatusText(status)}`;
+          
+          const progressText = document.getElementById('progressText');
+          if (progressText && message) {
+            progressText.textContent = getStatusText(status) + ': ' + message;
+          }
+        }
+        
+        updateMonitorProgress(status);
+      }
+      
+      function updateMonitorProgress(status) {
+        const progressMap = {
+          'submitted': 30,
+          'processing': 60,
+          'succeed': 100,
+          'failed': 100
+        };
+        
+        const progress = progressMap[status] || 0;
+        const progressBar = document.getElementById('progressFill');
+        if (progressBar) {
+          progressBar.style.width = `${progress}%`;
+        }
+      }
+      
+      function showSuccessVideo(videoData) {
+        console.log('[MONITOR] 显示成功视频:', videoData);
+        
+        const videoResult = document.getElementById('videoResult');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const downloadLink = document.getElementById('downloadLink');
+        
+        if (videoResult && videoPlayer && downloadLink) {
+          videoPlayer.src = videoData.url;
+          downloadLink.href = videoData.url;
+          downloadLink.download = `kling_video_${Date.now()}.mp4`;
+          videoResult.style.display = 'block';
+          
+          const progressContainer = document.getElementById('progressContainer');
+          if (progressContainer) {
+            progressContainer.style.display = 'none';
+          }
+          
+          const generateBtn = document.getElementById('generateBtn');
+          if (generateBtn) {
+            generateBtn.disabled = false;
+          }
+          
+          showMessage('🎉 视频生成成功！', 'success');
+        }
+      }
+      
+      // 任务历史管理
+      function addTaskToHistory(task) {
+        const historyItem = {
+          id: task.task_id,
+          prompt: task.prompt,
+          status: task.status,
+          created_at: task.created_at || Date.now(),
+          updated_at: task.updated_at || Date.now(),
+          duration: task.task_result?.videos?.[0]?.duration || null,
+          has_video: !!(task.task_result?.videos?.[0]?.url)
+        };
+        
+        taskHistory.unshift(historyItem);
+        
+        if (taskHistory.length > 50) {
+          taskHistory = taskHistory.slice(0, 50);
+        }
+        
+        localStorage.setItem('kling_task_history', JSON.stringify(taskHistory));
+        loadTaskHistory();
+      }
+      
+      function updateTaskInHistory(taskId, taskData) {
+        const index = taskHistory.findIndex(item => item.id === taskId);
+        if (index !== -1) {
+          taskHistory[index].status = taskData.task_status;
+          taskHistory[index].updated_at = taskData.updated_at;
+          taskHistory[index].duration = taskData.task_result?.videos?.[0]?.duration || null;
+          taskHistory[index].has_video = !!(taskData.task_result?.videos?.[0]?.url);
+          
+          localStorage.setItem('kling_task_history', JSON.stringify(taskHistory));
+          loadTaskHistory();
+        }
+      }
+      
+      function loadTaskHistory() {
+        const historyTableBody = document.getElementById('historyTableBody');
+        if (!historyTableBody) return;
+        
+        if (taskHistory.length === 0) {
+          historyTableBody.innerHTML = '<tr><td colspan="5" class="empty-table">暂无任务记录</td></tr>';
+          return;
+        }
+        
+        let html = '';
+        taskHistory.forEach((task) => {
+          html += `
+            <tr>
+              <td>${task.id.substring(0, 16)}...</td>
+              <td><span class="kling-status-indicator ${task.status}"></span> ${getStatusText(task.status)}</td>
+              <td>${formatTime(task.created_at)}</td>
+              <td>${task.duration ? task.duration + 's' : '-'}</td>
+              <td>${task.has_video ? '<button onclick="viewTask(\'' + task.id + '\')">查看</button>' : '-'}</td>
+            </tr>
+          `;
+        });
+        
+        historyTableBody.innerHTML = html;
+        document.getElementById('tableInfo').textContent = `共 ${taskHistory.length} 条记录`;
+      }
+      
+      // 辅助函数
+      function getStatusText(status) {
+        const statusMap = {
+          'submitted': '已提交',
+          'processing': '处理中',
+          'succeed': '成功',
+          'failed': '失败'
+        };
+        return statusMap[status] || status;
+      }
+      
+      function formatTime(timestamp) {
+        if (!timestamp) return '-';
+        const date = new Date(parseInt(timestamp));
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      }
+      
+      function showMessage(text, type = 'info') {
+        const messageDiv = document.getElementById('statusMessage');
+        if (!messageDiv) return;
+        
+        messageDiv.textContent = text;
+        messageDiv.className = `kling-status-message kling-status-${type}`;
+        messageDiv.style.display = 'block';
+        
+        if (type === 'error') {
+          setTimeout(() => {
+            messageDiv.style.display = 'none';
+          }, 5000);
+        }
+      }
+      
+      function updateCurrentTaskDisplay() {
+        if (currentTask) {
+          document.getElementById('currentTask').textContent = currentTask.task_id.substring(0, 16) + '...';
+          document.getElementById('detailTaskId').textContent = currentTask.task_id;
+          document.getElementById('detailCreateTime').textContent = formatTime(currentTask.created_at);
+        }
+      }
+      
+      function toggleAutoRefresh() {
+        autoRefresh = !autoRefresh;
+        document.getElementById('refreshStatus').textContent = autoRefresh ? '开启' : '关闭';
+      }
+      
+      function exportHistory() {
+        const dataStr = JSON.stringify(taskHistory, null, 2);
+        const dataBlob = new Blob([dataStr], {type: 'application/json'});
+        const url = URL.createObjectURL(dataBlob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'kling_task_history.json';
+        link.click();
+      }
+      
+      function copyVideoUrl() {
+        const url = document.getElementById('detailVideoUrl').textContent;
+        if (url && url !== '-') {
+          navigator.clipboard.writeText(url).then(() => {
+            showMessage('URL已复制到剪贴板', 'success');
+          });
+        }
+      }
+      
+      function loadMoreHistory() {
+        // 可以在这里实现加载更多历史记录的逻辑
+        showMessage('已加载所有记录', 'info');
+      }
+      
+      function viewTask(taskId) {
+        // 可以在这里实现查看任务详情的逻辑
+        alert('任务ID: ' + taskId);
+      }
+      
+      // 图片上传处理
+      document.getElementById('imageInput').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        if (file.size > 10 * 1024 * 1024) {
+          showMessage('图片大小不能超过10MB', 'error');
+          return;
+        }
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('previewContainer').style.display = 'block';
+          document.getElementById('imagePreview').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+      
+      // 生成视频
+      async function generateVideo() {
+        const fileInput = document.getElementById('imageInput');
+        const prompt = document.getElementById('promptInput').value.trim();
+        
+        if (!fileInput.files[0]) {
+          showMessage('请先上传图片', 'error');
+          return;
+        }
+        
+        if (!prompt) {
+          showMessage('请输入视频描述', 'error');
+          return;
+        }
+        
+        document.getElementById('generateBtn').disabled = true;
+        document.getElementById('progressContainer').style.display = 'block';
+        updateMonitorProgress('submitted');
+        
+        try {
+          // 1. 上传图片
+          const formData = new FormData();
+          formData.append('image', fileInput.files[0]);
+          
+          updateMonitorProgress('submitted');
+          document.getElementById('progressText').textContent = '正在上传图片...';
+          
+          const uploadResponse = await fetch(`${API_BASE_URL}/api/upload-image`, {
+            method: 'POST',
+            body: formData
+          });
+          
+          if (!uploadResponse.ok) {
+            throw new Error('图片上传失败');
+          }
+          
+          const uploadResult = await uploadResponse.json();
+          
+          if (!uploadResult.success) {
+            throw new Error(uploadResult.error || '图片上传失败');
+          }
+          
+          updateMonitorProgress('processing');
+          document.getElementById('progressText').textContent = '正在生成视频...';
+          
+          // 2. 生成视频
+          const mode = document.getElementById('modeSelect').value;
+          const duration = document.getElementById('durationSelect').value;
+          
+          const jsonData = {
+            image: uploadResult.base64,
+            prompt: prompt,
+            mode: mode,
+            duration: duration
+          };
+          
+          console.log('[GENERATE] 发送生成请求:', jsonData);
+          
+          const videoResponse = await fetch(`${API_BASE_URL}/api/generate-video`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData)
+          });
+          
+          if (!videoResponse.ok) {
+            throw new Error('视频生成请求失败');
+          }
+          
+          const videoResult = await videoResponse.json();
+          
+          console.log('[GENERATE] 生成响应:', videoResult);
+          
+          if (!videoResult.success) {
+            throw new Error(videoResult.error || '视频生成失败');
+          }
+          
+          // 3. 启动监控
+          const taskId = videoResult.task_id;
+          if (taskId) {
+            currentTask = {
+              task_id: taskId,
+              prompt: prompt,
+              image_info: {
+                filename: fileInput.files[0].name,
+                size: fileInput.files[0].size
+              },
+              status: 'submitted',
+              created_at: Date.now(),
+              updated_at: Date.now()
+            };
+            
+            localStorage.setItem('kling_current_task', JSON.stringify(currentTask));
+            addTaskToHistory(currentTask);
+            updateTaskStatusInUI('submitted');
+            updateCurrentTaskDisplay();
+            
+            document.getElementById('progressText').textContent = '视频生成任务已提交，等待处理...';
+            startPollingTaskStatus(taskId);
+            
+            showMessage(`✅ 任务已提交，任务ID: ${taskId}`, 'success');
+          } else {
+            throw new Error('未收到任务ID');
+          }
+          
+        } catch (error) {
+          console.error('[GENERATE] 生成视频失败:', error);
+          showMessage(`❌ 生成失败: ${error.message}`, 'error');
+          
+          document.getElementById('generateBtn').disabled = false;
+          document.getElementById('progressContainer').style.display = 'none';
+        }
+      }
+      
+      // 页面初始化
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('[MONITOR] 页面加载完成，初始化监控系统');
+        initMonitor();
+      });
+    </script>
+    
+    <script src="script.js?v=20251223-27"></script>
+  </body>
+</html>
