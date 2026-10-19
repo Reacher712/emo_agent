@@ -6,7 +6,7 @@ import streamlit as st
 
 from portal_nav import back_home
 
-st.set_page_config(page_title="墨心智愈 | 多模态入口", layout="wide")
+st.set_page_config(page_title="听山 | 多模态入口", layout="wide")
 back_home()
 
 st.title("多模态情绪入口")

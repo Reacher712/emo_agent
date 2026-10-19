@@ -12,7 +12,7 @@ from portal_nav import back_home
 ROOT = Path(__file__).resolve().parent.parent
 HTML_PATH = ROOT / "project_info_hub.html"
 
-st.set_page_config(page_title="墨心智愈 | 项目资料枢纽", layout="wide")
+st.set_page_config(page_title="听山 | 项目资料枢纽", layout="wide")
 back_home()
 st.title("项目资料枢纽")
 

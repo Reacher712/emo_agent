@@ -1,4 +1,4 @@
-"""Moxin demo portal.
+"""Tingshan demo portal.
 
 Run with:
     streamlit run Home.py
@@ -13,7 +13,7 @@ import streamlit as st
 ROOT = Path(__file__).resolve().parent
 
 st.set_page_config(
-    page_title="墨心智愈 | 演示门户",
+    page_title="听山 | 演示门户",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -50,7 +50,8 @@ div.block-container { padding-top: 1.2rem !important; max-width: 1120px !importa
 st.markdown(
     """
 <div class="mx-hero">
-  <h1>墨心智愈</h1>
+  <h1>听山</h1>
+  <p>多模态情绪陪伴空间</p>
   <p>AI 国画多模态情感疗愈平台。演示版复现了“识别 - 干预 - 评估 - 归档”的核心闭环：
   用户可以进行疗愈对话、完成 PHQ-9/GAD-7/WHO-5 自评、通过文本/语音/面部线索汇总情绪输入，并查看项目资料与赛事实证。</p>
 </div>

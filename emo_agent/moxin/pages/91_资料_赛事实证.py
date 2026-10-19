@@ -12,7 +12,7 @@ from portal_nav import back_home
 ROOT = Path(__file__).resolve().parent.parent
 HTML_PATH = ROOT / "competition_evidence.html"
 
-st.set_page_config(page_title="墨心智愈 | 赛事实证材料", layout="wide")
+st.set_page_config(page_title="听山 | 赛事实证材料", layout="wide")
 back_home()
 st.title("赛事实证材料")
 

@@ -110,7 +110,7 @@ def render_scale(key: str, questions: list[str], options: list[str]) -> list[int
     return scores
 
 
-st.set_page_config(page_title="墨心智愈 | 疗效评估", layout="wide")
+st.set_page_config(page_title="听山 | 疗效评估", layout="wide")
 back_home()
 
 st.title("疗效评估")

@@ -16,7 +16,7 @@ from doubao_voice import get_reply_and_audio
 ROOT = Path(__file__).resolve().parent.parent
 RUN_PIPELINE = ROOT / "run_pipeline.py"
 
-st.set_page_config(page_title="墨心智愈 | 疗愈对话", layout="wide")
+st.set_page_config(page_title="听山 | 疗愈对话", layout="wide")
 back_home()
 
 
@@ -78,7 +78,7 @@ with st.sidebar:
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "assistant", "content": "你好，我是墨心智愈。你可以用几句话描述现在的情绪，我会先陪你把状态稳定下来。"}
+        {"role": "assistant", "content": "你好，我是听山。你可以用几句话描述现在的情绪，我会先陪你把状态稳定下来。"}
     ]
 
 pending = st.session_state.pop("pending_chat_text", None)

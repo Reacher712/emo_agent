@@ -544,7 +544,7 @@ def render_app() -> None:
             st.session_state.mood_anxiety_series = []
             st.rerun()
 
-    st.title("墨心智愈 · 疗愈对话")
+    st.title("听山——多模态情绪陪伴空间")
     multimodal_banner = st.session_state.pop("multimodal_banner", None)
     if multimodal_banner:
         st.info(multimodal_banner)
@@ -599,7 +599,7 @@ def render_app() -> None:
 
 
 def main() -> None:
-    st.set_page_config(page_title="墨心智愈 对话演示", layout="wide")
+    st.set_page_config(page_title="听山 | 多模态情绪陪伴空间", layout="wide")
     render_app()
 
 
